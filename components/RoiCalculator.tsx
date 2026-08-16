@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 function Slider({
   label,
@@ -62,7 +62,7 @@ export default function RoiCalculator() {
   }, [employees, hoursPerWeek, hourlyRate]);
 
   // Rendu disponible pour le formulaire de candidature
-  if (typeof window !== "undefined") {
+  useEffect(() => {
     try {
       window.sessionStorage.setItem(
         "lecloud_roi",
@@ -71,7 +71,7 @@ export default function RoiCalculator() {
     } catch {
       /* stockage indisponible — ignoré */
     }
-  }
+  }, [employees, hoursPerWeek, hourlyRate, annualCost]);
 
   const fmt = (n: number) =>
     new Intl.NumberFormat("fr-CA", { maximumFractionDigits: 0 }).format(n);
