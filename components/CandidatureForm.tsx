@@ -35,7 +35,7 @@ export default function CandidatureForm() {
       sector: String(data.get("sector") ?? ""),
       teamSize: String(data.get("teamSize") ?? ""),
       tasks: String(data.get("tasks") ?? ""),
-      budget: String(data.get("budget") ?? ""),
+      interest: String(data.get("interest") ?? ""),
       consent: data.get("consent") === "on",
       roi,
     };
@@ -130,12 +130,13 @@ export default function CandidatureForm() {
       </div>
 
       <div className="mt-4">
-        <label className="mb-1.5 block text-sm text-mist-soft">Budget envisagé</label>
-        <select name="budget" defaultValue="" className={inputCls}>
+        <label className="mb-1.5 block text-sm text-mist-soft">Ce qui t'intéresse</label>
+        <select name="interest" defaultValue="" className={inputCls}>
           <option value="" disabled>Sélectionner…</option>
-          <option value="offre-lancement">Offre de lancement — 7 000 $</option>
-          <option value="a-discuter">À discuter</option>
-          <option value="non-defini">Pas encore défini</option>
+          <option value="makeover">Le Makeover IA — implantation 3 jours</option>
+          <option value="full-access">Full Access</option>
+          <option value="agency">Agency — partenariat</option>
+          <option value="pas-sur">Pas encore sûr, je veux en parler</option>
         </select>
       </div>
 

@@ -4,6 +4,18 @@ import { useState } from "react";
 
 const ITEMS = [
   {
+    q: "Et si j'ai pas d'employé, mais c'est moi qui fais les tâches répétitives ?",
+    a: "C'est même le scénario idéal. On automatise les tâches qui t'occupent TOI. Tu récupères des heures pour vendre, servir tes clients et faire croître ton entreprise au lieu de faire de l'administratif. Pas besoin d'une équipe pour que ça vaille le coup.",
+  },
+  {
+    q: "Combien de temps ça prend avant que tout marche ?",
+    a: "Les systèmes prioritaires sont construits et activés pendant les trois jours d'implantation — tu repars avec du concret, pas une promesse. Selon la complexité, certains systèmes plus avancés peuvent s'étendre sur une phase supplémentaire. Le call à J+30 sert ensuite à mesurer les résultats réels.",
+  },
+  {
+    q: "Est-ce que j'ai besoin d'être un expert pour tout contrôler ?",
+    a: "Non. On construit les systèmes AVEC toi, et le critère de sortie c'est que tu refais chaque workflow seul — et que tu crées même une petite automatisation sans aide. Si tu sais utiliser tes outils actuels, tu sauras utiliser ça.",
+  },
+  {
     q: "Allez-vous réellement remplacer un employé ?",
     a: "Notre objectif n'est pas de décider qui doit rester ou partir. Nous automatisons les tâches répétitives qui occupent l'équivalent d'un poste, afin que ton équipe puisse se concentrer sur les ventes, les clients et les décisions importantes.",
   },

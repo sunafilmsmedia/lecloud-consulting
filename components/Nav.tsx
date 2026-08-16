@@ -47,6 +47,14 @@ export default function Nav() {
             </a>
           ))}
           <a
+            href="https://claude.ai/download"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-fluo-400/40 px-5 py-2.5 text-sm font-600 text-white transition-colors hover:bg-fluo-500/10"
+          >
+            Installer Claude
+          </a>
+          <a
             href="#candidature"
             className="rounded-full bg-fluo-500 px-5 py-2.5 text-sm font-600 text-ink-950 transition-all hover:bg-fluo-400 glow-fluo"
           >
@@ -81,9 +89,18 @@ export default function Nav() {
               </a>
             ))}
             <a
+              href="https://claude.ai/download"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="mt-2 rounded-full border border-fluo-400/40 px-5 py-3 text-center font-600 text-white"
+            >
+              Installer Claude
+            </a>
+            <a
               href="#candidature"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-full bg-fluo-500 px-5 py-3 text-center font-600 text-ink-950"
+              className="mt-1 rounded-full bg-fluo-500 px-5 py-3 text-center font-600 text-ink-950"
             >
               Bâtir mon employé IA
             </a>

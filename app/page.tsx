@@ -52,26 +52,76 @@ const CAPABILITIES = [
   "Répondre aux questions internes de ton équipe",
 ];
 
-const METHOD = [
+const DOMAINS = [
   {
-    day: "Jour 1",
-    title: "Identifier",
-    lead: "On observe comment ton entreprise fonctionne réellement.",
-    body: "On calcule où ton équipe perd du temps, quelles tâches ralentissent la croissance et quelles automatisations produisent le meilleur rendement. À la fin de la journée, on choisit les 3 à 5 systèmes prioritaires à construire.",
+    title: "Publicité",
+    body: "L'IA lit tes campagnes, repère ce qui brûle du budget et te sort des recommandations claires — au lieu de deviner.",
+    icon: "megaphone",
   },
   {
-    day: "Jour 2",
-    title: "Construire",
-    lead: "On bâtit le cerveau IA de ton entreprise.",
-    body: "On centralise tes connaissances, on crée tes assistants spécialisés et on connecte l'IA à ton CRM, tes formulaires, tes courriels et tes autres outils.",
+    title: "Opérations internes",
+    body: "Tâches répétitives automatisées, réponses aux questions de l'équipe et documents générés à la chaîne.",
+    icon: "gears",
   },
   {
-    day: "Jour 3",
-    title: "Implanter",
-    lead: "On active les automatisations dans tes opérations.",
-    body: "On teste les systèmes avec ton équipe, on corrige les derniers détails et on forme les personnes qui les utiliseront. Lorsqu'on repart, les systèmes fonctionnent déjà.",
+    title: "Finance et tableaux de bord",
+    body: "Données centralisées et tableaux de bord clairs pour voir où va l'argent et le temps, en temps réel.",
+    icon: "chart",
+  },
+  {
+    title: "Marketing et offres",
+    body: "Contenu adapté à ta marque et offres structurées, produits plus vite et sans repartir de zéro.",
+    icon: "spark",
+  },
+  {
+    title: "CRM et expérience client",
+    body: "Prospects qualifiés, suivis instantanés par courriel et SMS, et un CRM tenu à jour tout seul.",
+    icon: "users",
   },
 ];
+
+const METHOD = [
+  {
+    phase: "Identify",
+    day: "Jour 1",
+    lead: "On observe comment ton entreprise fonctionne réellement.",
+    body: "45 min d'alignement avec toi, 30 min avec ton adjointe s'il y en a une, puis 45 min à te regarder travailler pour vrai — les copier-coller et les répétitions se voient, ils ne se racontent pas. On repart avec la carte des 3 à 5 systèmes prioritaires, et un premier quick win livré le jour même.",
+  },
+  {
+    phase: "Develop",
+    day: "Jours 2-3",
+    lead: "On bâtit le cerveau IA de ton entreprise.",
+    body: "On centralise ton identité, tes offres, ton ICP, ton ton de voix, tes processus et tes FAQ, puis on connecte l'IA à ton CRM, tes formulaires et tes courriels. Test de validation : l'IA répond à 5 de tes vrais messages et tu dois pouvoir dire « c'est moi, ça ».",
+  },
+  {
+    phase: "Adopt",
+    day: "Clôture + J+30",
+    lead: "On te rend autonome, puis on ferme la boucle.",
+    body: "Critère de sortie : tu refais chaque workflow seul et tu crées une première automatisation sans aide. On clôt la visite par une journée de tournage, puis un call à J+30 avec le bilan chiffré — les heures sauvées comparées aux chiffres du Jour 1.",
+  },
+];
+
+const DOMAIN_ICONS: Record<string, React.ReactNode> = {
+  megaphone: (
+    <path d="M3 11l14-7v16L3 13v-2zM3 11v2m14 3l3 4M8 13v5a2 2 0 002 2h1" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+  ),
+  gears: (
+    <>
+      <circle cx="9" cy="9" r="3.2" stroke="currentColor" strokeWidth="1.6" />
+      <path d="M9 3.5v1.3M9 13.2v1.3M3.5 9h1.3M13.2 9h1.3M5.1 5.1l.9.9M12 12l.9.9M12.9 5.1l-.9.9M6 12l-.9.9" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <circle cx="17" cy="17" r="2.4" stroke="currentColor" strokeWidth="1.6" />
+    </>
+  ),
+  chart: (
+    <path d="M4 20V5m0 15h16M8 20v-6m4 6V9m4 11v-9" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+  ),
+  spark: (
+    <path d="M12 3l1.8 4.9L18.5 9l-4.7 1.8L12 15l-1.8-4.2L5.5 9l4.7-1.1L12 3zM18 15l.7 1.9L20.5 18l-1.8.6L18 20l-.6-1.4L15.5 18l1.9-.6L18 15z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+  ),
+  users: (
+    <path d="M8 11a3 3 0 100-6 3 3 0 000 6zm0 0c-2.7 0-5 1.8-5 4v1h10v-1c0-2.2-2.3-4-5-4zm8-6.5a2.6 2.6 0 010 5.2m2.5 6.3H21v-1c0-1.8-1.4-3.2-3.4-3.7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+  ),
+};
 
 const TRADITIONAL = [
   "Audit et recommandations",
@@ -113,6 +163,60 @@ const IDEAL = [
   "Veulent des systèmes concrets, pas une autre formation sur l'IA",
 ];
 
+const AGENTS = [
+  { name: "Offer Architect", desc: "Conçoit et emballe des offres irrésistibles qui convertissent.", tag: "Ventes" },
+  { name: "Niche Architect", desc: "Identifie et valide des niches rentables par recherche approfondie.", tag: "Recherche" },
+  { name: "VSL Builder OS", desc: "Crée des vidéos de vente (VSL) à haute conversion.", tag: "Contenu" },
+  { name: "Ads Architect", desc: "Rédige des textes et campagnes publicitaires qui performent.", tag: "Marketing" },
+  { name: "Category Architect", desc: "Bâtit ta catégorie de marché et ton positionnement.", tag: "Stratégie" },
+  { name: "Sales Asset Architect", desc: "Transforme tes transcripts de rencontres en actifs marketing.", tag: "Ventes" },
+  { name: "Landing Page Copywriter", desc: "Copy de réponse directe pour des pages qui convertissent.", tag: "Contenu" },
+  { name: "Research Agent", desc: "Recherche d'affaires complète via récupération avancée.", tag: "Recherche" },
+];
+
+const TAG_COLORS: Record<string, string> = {
+  Ventes: "text-fluo-300 border-fluo-400/30 bg-fluo-500/10",
+  Recherche: "text-sky-300 border-sky-400/30 bg-sky-500/10",
+  Contenu: "text-cyan-200 border-cyan-400/30 bg-cyan-500/10",
+  Marketing: "text-blue-300 border-blue-400/30 bg-blue-500/10",
+  Stratégie: "text-indigo-300 border-indigo-400/30 bg-indigo-500/10",
+};
+
+const PRICING = [
+  {
+    name: "Full Access",
+    featured: false,
+    tagline:
+      "Que tu démarres une nouvelle entreprise ou que tu fasses croître l'existante — accède à la suite complète des outils Le Cloud (sauf les équipes d'agents).",
+    features: [
+      "Truth Engine — intelligence de marché & rapports de recherche",
+      "Système d'exploitation Le Cloud complet",
+      "Constructeur d'offres & moteur de positionnement",
+      "Funnels, publicités & séquences de nurture",
+      "Gestion CRM & pipeline",
+      "Outils de contenu & création",
+      "Emails froids & automatisation de prospection",
+      "Partenaire d'implantation 1-à-1",
+    ],
+  },
+  {
+    name: "Agency",
+    featured: true,
+    tagline:
+      "Deviens un partenaire avec qui on travaille directement. On configure tes compétences, on installe des coéquipiers IA dans ton agence et on optimise tes opérations.",
+    features: [
+      "Tout ce qu'inclut Full Access",
+      "Productisation de compétences 1-à-1",
+      "Architecture d'agents sur mesure",
+      "Déploiement de bots Slack & Discord",
+      "Build-out complet de l'automatisation de livraison",
+      "Optimisation & amélioration continues",
+      "Canal privé de leadership",
+      "Contrat & engagement minimum de 12 mois",
+    ],
+  },
+];
+
 /* ---------- page ---------- */
 
 export default function Page() {
@@ -123,7 +227,6 @@ export default function Page() {
       <main id="top">
         {/* HERO */}
         <section className="relative overflow-hidden pb-24 pt-36 sm:pt-44">
-          <div className="grid-lines absolute inset-0 opacity-60" />
           <div className="aura left-1/2 top-0 h-[420px] w-[560px] -translate-x-1/2 bg-fluo-600/25" />
           <div className="aura -left-20 top-40 h-72 w-72 bg-fluo-500/20" />
           <div className="relative mx-auto max-w-4xl px-5 text-center">
@@ -171,7 +274,7 @@ export default function Page() {
         </section>
 
         {/* BANDEAU PROBLÈMES */}
-        <section className="border-y border-white/10 bg-ink-900 py-5">
+        <section className="border-y border-white/10 bg-ink-900/70 backdrop-blur-[2px] py-5">
           <div className="marquee-track">
             {[...PROBLEMS, ...PROBLEMS, ...PROBLEMS, ...PROBLEMS].map((p, i) => (
               <span key={i} className="flex items-center whitespace-nowrap px-6 text-mist-soft">
@@ -182,8 +285,41 @@ export default function Page() {
           </div>
         </section>
 
+        {/* SERVICES — 5 DOMAINES */}
+        <section id="services" className="mx-auto max-w-6xl px-5 py-24">
+          <div className="mx-auto max-w-3xl text-center">
+            <Eyebrow>Ce qu'on peut automatiser</Eyebrow>
+            <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
+              Cinq domaines où ton employé IA prend le relais.
+            </h2>
+            <p className="mt-4 text-mist-soft">
+              On ne touche pas à tout d'un coup. On cible les domaines où le rendement est le
+              plus rapide, et on construit à partir de là.
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {DOMAINS.map((d, i) => (
+              <div
+                key={d.title}
+                className={`card group p-7 transition-colors hover:border-fluo-400/30 ${
+                  i === 3 ? "lg:col-start-2" : ""
+                }`}
+              >
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-fluo-500/10 text-fluo-300 ring-1 ring-fluo-400/25 transition-colors group-hover:bg-fluo-500/15">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    {DOMAIN_ICONS[d.icon]}
+                  </svg>
+                </span>
+                <h3 className="mt-5 font-display text-xl font-700 text-white">{d.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-mist-soft">{d.body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* AVANT / APRÈS */}
-        <section id="services" className="relative mx-auto max-w-6xl px-5 py-24">
+        <section className="relative mx-auto max-w-6xl px-5 py-24">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="font-display text-3xl font-800 text-white sm:text-4xl">
               Ton équipe ne devrait pas perdre ses journées sur des tâches que l'IA peut accomplir.
@@ -249,7 +385,7 @@ export default function Page() {
         </section>
 
         {/* PROMESSE + CAPACITÉS */}
-        <section className="relative border-y border-white/10 bg-ink-900 py-24">
+        <section className="relative border-y border-white/10 bg-ink-900/55 backdrop-blur-[2px] py-24">
           <div className="mx-auto max-w-6xl px-5">
             <div className="mx-auto max-w-3xl text-center">
               <Eyebrow>La promesse</Eyebrow>
@@ -281,6 +417,46 @@ export default function Page() {
           </div>
         </section>
 
+        {/* AGENTS SPÉCIALISÉS */}
+        <section className="mx-auto max-w-6xl px-5 py-24">
+          <div className="mx-auto max-w-3xl text-center">
+            <Eyebrow>Agents spécialisés</Eyebrow>
+            <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
+              Un agent expert pour chaque fonction de ton entreprise.
+            </h2>
+            <p className="mt-4 text-mist-soft">
+              Des agents conçus sur mesure qui comprennent ton industrie et livrent des résultats.
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {AGENTS.map((a) => (
+              <div
+                key={a.name}
+                className="card group flex flex-col p-6 transition-colors hover:border-fluo-400/30"
+              >
+                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-fluo-500/10 text-fluo-300 ring-1 ring-fluo-400/25 transition-colors group-hover:bg-fluo-500/15">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <rect x="4" y="7" width="16" height="12" rx="3" stroke="currentColor" strokeWidth="1.6" />
+                    <path d="M12 7V4M9 12h.01M15 12h.01M9 16h6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                  </svg>
+                </span>
+                <h3 className="mt-4 font-display text-lg font-700 leading-tight text-white">
+                  {a.name}
+                </h3>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-mist-soft">{a.desc}</p>
+                <span
+                  className={`mt-4 inline-flex w-fit rounded-full border px-3 py-1 text-xs font-600 ${
+                    TAG_COLORS[a.tag] ?? "text-mist-soft border-white/15 bg-white/5"
+                  }`}
+                >
+                  {a.tag}
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* MÉTHODE */}
         <section id="methode" className="mx-auto max-w-6xl px-5 py-24">
           <div className="mx-auto max-w-3xl text-center">
@@ -298,7 +474,7 @@ export default function Page() {
                 </span>
                 <div className="-mt-8">
                   <span className="text-sm font-600 text-fluo-300">{m.day}</span>
-                  <h3 className="mt-1 font-display text-2xl font-700 text-white">{m.title}</h3>
+                  <h3 className="mt-1 font-display text-2xl font-700 text-white">{m.phase}</h3>
                   <p className="mt-3 font-600 text-white/90">{m.lead}</p>
                   <p className="mt-3 text-sm leading-relaxed text-mist-soft">{m.body}</p>
                 </div>
@@ -306,7 +482,12 @@ export default function Page() {
             ))}
           </div>
 
-          <div className="mt-10 text-center">
+          <p className="mx-auto mt-10 max-w-2xl text-center text-sm text-mist-soft">
+            L'offre couvre trois jours d'implantation. La portée est fixée pendant l'audit —
+            selon la complexité, certains systèmes peuvent s'étendre sur une phase supplémentaire.
+          </p>
+
+          <div className="mt-8 text-center">
             <a
               href="#candidature"
               className="inline-flex rounded-full bg-fluo-500 px-7 py-4 font-display font-700 text-ink-950 transition-colors hover:bg-fluo-400 glow-fluo"
@@ -317,7 +498,7 @@ export default function Page() {
         </section>
 
         {/* DIFFÉRENCIATION */}
-        <section className="border-y border-white/10 bg-ink-900 py-24">
+        <section className="border-y border-white/10 bg-ink-900/55 backdrop-blur-[2px] py-24">
           <div className="mx-auto max-w-6xl px-5">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="font-display text-3xl font-800 text-white sm:text-4xl">
@@ -373,7 +554,7 @@ export default function Page() {
         </section>
 
         {/* INCLUSIONS */}
-        <section className="border-y border-white/10 bg-ink-900 py-24">
+        <section className="border-y border-white/10 bg-ink-900/55 backdrop-blur-[2px] py-24">
           <div className="mx-auto max-w-6xl px-5">
             <div className="mx-auto max-w-3xl text-center">
               <Eyebrow>Ce que tu obtiens</Eyebrow>
@@ -433,7 +614,7 @@ export default function Page() {
         </section>
 
         {/* PREUVE / RÉSULTATS */}
-        <section id="resultats" className="border-y border-white/10 bg-ink-900 py-24">
+        <section id="resultats" className="border-y border-white/10 bg-ink-900/55 backdrop-blur-[2px] py-24">
           <div className="mx-auto max-w-5xl px-5">
             <div className="mx-auto max-w-3xl text-center">
               <Eyebrow>Preuve</Eyebrow>
@@ -472,46 +653,70 @@ export default function Page() {
           </div>
         </section>
 
-        {/* OFFRE */}
-        <section className="relative mx-auto max-w-3xl px-5 py-24">
-          <div className="aura left-1/2 top-10 h-72 w-96 -translate-x-1/2 bg-fluo-600/20" />
-          <div className="relative card overflow-hidden border-fluo-400/30 p-8 glow-fluo sm:p-12">
-            <div className="aura -right-12 -top-12 h-48 w-48 bg-fluo-500/25" />
-            <div className="relative text-center">
-              <span className="inline-flex rounded-full border border-fluo-400/40 bg-fluo-500/10 px-4 py-1.5 text-xs font-700 uppercase tracking-widest text-fluo-300">
-                Offre de lancement — 3 entreprises seulement
-              </span>
-              <h2 className="mt-6 font-display text-4xl font-800 text-white">Le Makeover IA</h2>
-              <p className="mx-auto mt-3 max-w-md text-mist-soft">
-                Trois jours directement dans ton entreprise pour identifier, construire et
-                implanter ton employé IA.
-              </p>
+        {/* TARIFS */}
+        <section id="tarifs" className="relative mx-auto max-w-5xl px-5 py-24">
+          <div className="aura left-1/2 top-10 h-72 w-[520px] -translate-x-1/2 bg-fluo-600/15" />
+          <div className="relative mx-auto max-w-3xl text-center">
+            <Eyebrow>Tarifs</Eyebrow>
+            <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
+              Choisis le niveau qui correspond à ton stade.
+            </h2>
+            <p className="mt-4 text-mist-soft">
+              De la recherche de marché à la livraison complète propulsée par l'IA.
+            </p>
+          </div>
 
-              <div className="mt-8 flex items-end justify-center gap-2">
-                <span className="font-display text-6xl font-800 text-white">7 000 $</span>
-              </div>
-              <p className="mt-2 text-sm text-mist-soft">
-                Prix cible après les trois premières transformations&nbsp;:{" "}
-                <span className="text-white/80 line-through decoration-mist-soft/50">9 997 $</span>
-              </p>
-
-              <p className="mx-auto mt-6 max-w-md rounded-xl border border-white/10 bg-white/[0.02] px-5 py-4 text-sm text-mist-soft">
-                En échange du prix de lancement, nous demandons l'autorisation de documenter la
-                transformation et de produire une étude de cas.
-              </p>
-
-              <a
-                href="#candidature"
-                className="mt-8 inline-flex w-full justify-center rounded-full bg-fluo-500 px-7 py-4 font-display font-700 text-ink-950 transition-colors hover:bg-fluo-400 sm:w-auto"
+          <div className="relative mt-14 grid gap-6 md:grid-cols-2 md:items-start">
+            {PRICING.map((tier) => (
+              <div
+                key={tier.name}
+                className={`card relative flex flex-col overflow-hidden p-8 ${
+                  tier.featured ? "border-fluo-400/35 glow-fluo" : ""
+                }`}
               >
-                Soumettre mon entreprise
-              </a>
-            </div>
+                {tier.featured && (
+                  <>
+                    <div className="aura -right-10 -top-10 h-40 w-40 bg-fluo-500/25" />
+                    <span className="relative mb-4 inline-flex w-fit rounded-full border border-fluo-400/40 bg-fluo-500/10 px-3 py-1 text-xs font-700 uppercase tracking-widest text-fluo-300">
+                      Partenariat
+                    </span>
+                  </>
+                )}
+                <h3 className="relative font-display text-2xl font-800 text-white">{tier.name}</h3>
+                <p className="relative mt-3 text-sm leading-relaxed text-mist-soft">
+                  {tier.tagline}
+                </p>
+
+                <div className="relative mt-6 flex items-baseline gap-2 border-y border-white/10 py-5">
+                  <span className="font-display text-3xl font-800 text-white">Parlons-en</span>
+                  <span className="text-sm text-mist-soft">· sur mesure</span>
+                </div>
+
+                <ul className="relative mt-6 flex-1 space-y-3">
+                  {tier.features.map((f) => (
+                    <li key={f} className="flex items-start gap-3 text-sm text-white/90">
+                      <Check className="mt-0.5 text-fluo-400" /> {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href="#candidature"
+                  className={`relative mt-8 inline-flex w-full justify-center rounded-full px-7 py-4 font-display font-700 transition-colors ${
+                    tier.featured
+                      ? "bg-fluo-500 text-ink-950 hover:bg-fluo-400"
+                      : "border border-white/15 text-white hover:bg-white/5"
+                  }`}
+                >
+                  Réserver un appel
+                </a>
+              </div>
+            ))}
           </div>
         </section>
 
         {/* FAQ */}
-        <section id="faq" className="border-y border-white/10 bg-ink-900 py-24">
+        <section id="faq" className="border-y border-white/10 bg-ink-900/55 backdrop-blur-[2px] py-24">
           <div className="mx-auto max-w-6xl px-5">
             <div className="mx-auto mb-12 max-w-3xl text-center">
               <Eyebrow>FAQ</Eyebrow>
@@ -548,7 +753,7 @@ export default function Page() {
       </main>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/10 bg-ink-950 py-12">
+      <footer className="border-t border-white/10 bg-ink-950/80 backdrop-blur-[2px] py-12">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-5 text-center">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-fluo-500/15 ring-1 ring-fluo-400/40">

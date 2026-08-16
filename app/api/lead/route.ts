@@ -10,7 +10,7 @@ interface IncomingBody {
   sector?: string;
   teamSize?: string;
   tasks?: string;
-  budget?: string;
+  interest?: string;
   consent?: boolean;
   // Contexte optionnel envoyé par le calculateur ROI
   roi?: {
@@ -35,7 +35,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
-  const { name, company, email, phone, sector, teamSize, tasks, budget, consent, roi } = body;
+  const { name, company, email, phone, sector, teamSize, tasks, interest, consent, roi } = body;
 
   if (!name || !email || !company || !consent) {
     return NextResponse.json(
@@ -63,7 +63,7 @@ export async function POST(req: Request) {
     sector: sector ?? "",
     teamSize: teamSize ?? "",
     tasks: tasks ?? "",
-    budget: budget ?? "",
+    interest: interest ?? "",
 
     // ROI estimé (si le prospect a utilisé le calculateur)
     roiEmployees: roi?.employees ?? null,

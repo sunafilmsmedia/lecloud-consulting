@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
+import Waves from "@/components/Waves";
 import "./globals.css";
 
 const inter = Inter({
@@ -31,7 +32,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr-CA" className={`${inter.variable} ${sora.variable}`}>
-      <body className="min-h-screen antialiased">{children}</body>
+      <body className="min-h-screen antialiased">
+        <Waves />
+        <div className="relative z-10">{children}</div>
+      </body>
     </html>
   );
 }
