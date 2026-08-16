@@ -1,4 +1,5 @@
 import Nav from "@/components/Nav";
+import Waves from "@/components/Waves";
 import Faq from "@/components/Faq";
 import RoiCalculator from "@/components/RoiCalculator";
 import CandidatureForm from "@/components/CandidatureForm";
@@ -227,6 +228,7 @@ export default function Page() {
       <main id="top">
         {/* HERO */}
         <section className="relative overflow-hidden pb-24 pt-36 sm:pt-44">
+          <Waves />
           <div className="aura left-1/2 top-0 h-[420px] w-[560px] -translate-x-1/2 bg-fluo-600/25" />
           <div className="aura -left-20 top-40 h-72 w-72 bg-fluo-500/20" />
           <div className="relative mx-auto max-w-4xl px-5 text-center">
@@ -274,7 +276,7 @@ export default function Page() {
         </section>
 
         {/* BANDEAU PROBLÈMES */}
-        <section className="border-y border-white/10 bg-ink-900/70 backdrop-blur-[2px] py-5">
+        <section className="border-y border-white/10 bg-ink-900 py-5">
           <div className="marquee-track">
             {[...PROBLEMS, ...PROBLEMS, ...PROBLEMS, ...PROBLEMS].map((p, i) => (
               <span key={i} className="flex items-center whitespace-nowrap px-6 text-mist-soft">
@@ -385,7 +387,7 @@ export default function Page() {
         </section>
 
         {/* PROMESSE + CAPACITÉS */}
-        <section className="relative border-y border-white/10 bg-ink-900/55 backdrop-blur-[2px] py-24">
+        <section className="relative border-y border-white/10 bg-ink-900 py-24">
           <div className="mx-auto max-w-6xl px-5">
             <div className="mx-auto max-w-3xl text-center">
               <Eyebrow>La promesse</Eyebrow>
@@ -498,7 +500,7 @@ export default function Page() {
         </section>
 
         {/* DIFFÉRENCIATION */}
-        <section className="border-y border-white/10 bg-ink-900/55 backdrop-blur-[2px] py-24">
+        <section className="border-y border-white/10 bg-ink-900 py-24">
           <div className="mx-auto max-w-6xl px-5">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="font-display text-3xl font-800 text-white sm:text-4xl">
@@ -554,7 +556,7 @@ export default function Page() {
         </section>
 
         {/* INCLUSIONS */}
-        <section className="border-y border-white/10 bg-ink-900/55 backdrop-blur-[2px] py-24">
+        <section className="border-y border-white/10 bg-ink-900 py-24">
           <div className="mx-auto max-w-6xl px-5">
             <div className="mx-auto max-w-3xl text-center">
               <Eyebrow>Ce que tu obtiens</Eyebrow>
@@ -614,7 +616,7 @@ export default function Page() {
         </section>
 
         {/* PREUVE / RÉSULTATS */}
-        <section id="resultats" className="border-y border-white/10 bg-ink-900/55 backdrop-blur-[2px] py-24">
+        <section id="resultats" className="border-y border-white/10 bg-ink-900 py-24">
           <div className="mx-auto max-w-5xl px-5">
             <div className="mx-auto max-w-3xl text-center">
               <Eyebrow>Preuve</Eyebrow>
@@ -716,7 +718,7 @@ export default function Page() {
         </section>
 
         {/* FAQ */}
-        <section id="faq" className="border-y border-white/10 bg-ink-900/55 backdrop-blur-[2px] py-24">
+        <section id="faq" className="border-y border-white/10 bg-ink-900 py-24">
           <div className="mx-auto max-w-6xl px-5">
             <div className="mx-auto mb-12 max-w-3xl text-center">
               <Eyebrow>FAQ</Eyebrow>
@@ -753,7 +755,7 @@ export default function Page() {
       </main>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/10 bg-ink-950/80 backdrop-blur-[2px] py-12">
+      <footer className="border-t border-white/10 bg-ink-950 py-12">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-5 text-center">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-fluo-500/15 ring-1 ring-fluo-400/40">

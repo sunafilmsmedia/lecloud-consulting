@@ -1,6 +1,7 @@
 /**
- * Fond de vagues bleues animées — effet « quelque chose se construit derrière ».
+ * Vagues bleues animées et floues — décor du hero uniquement.
  * Composant serveur : SVG statique + animation CSS (aucun JS côté client).
+ * Se place dans un parent `position: relative` (la section hero).
  */
 
 function wavePath(width: number, wavelength: number, amp: number, y: number): string {
@@ -15,35 +16,27 @@ function wavePath(width: number, wavelength: number, amp: number, y: number): st
 }
 
 const WAVES = [
-  { y: 200, amp: 44, dur: "27s", w: 2.2, op: 0.55 },
-  { y: 340, amp: 62, dur: "36s", w: 1.6, op: 0.4 },
-  { y: 470, amp: 34, dur: "21s", w: 1.4, op: 0.5 },
-  { y: 600, amp: 72, dur: "44s", w: 1.2, op: 0.28 },
-  { y: 730, amp: 50, dur: "31s", w: 1.4, op: 0.36 },
-  { y: 850, amp: 40, dur: "24s", w: 1.1, op: 0.3 },
+  { y: 210, amp: 46, dur: "29s", w: 2.4, op: 0.42 },
+  { y: 330, amp: 66, dur: "38s", w: 1.8, op: 0.3 },
+  { y: 450, amp: 36, dur: "23s", w: 1.6, op: 0.34 },
+  { y: 560, amp: 78, dur: "46s", w: 1.3, op: 0.2 },
+  { y: 680, amp: 52, dur: "33s", w: 1.5, op: 0.24 },
 ];
 
 export default function Waves() {
   return (
-    <>
-      <div aria-hidden className="wave-bg">
-        <svg
-          className="wave-svg"
-          viewBox="0 0 1440 900"
-          preserveAspectRatio="none"
-        >
-          {WAVES.map((w, i) => (
-            <path
-              key={i}
-              className="wave-line"
-              d={wavePath(2880, 480, w.amp, w.y)}
-              strokeWidth={w.w}
-              style={{ opacity: w.op, animationDuration: w.dur }}
-            />
-          ))}
-        </svg>
-      </div>
-      <div aria-hidden className="wave-veil" />
-    </>
+    <div aria-hidden className="wave-bg">
+      <svg className="wave-svg" viewBox="0 0 1440 900" preserveAspectRatio="none">
+        {WAVES.map((w, i) => (
+          <path
+            key={i}
+            className="wave-line"
+            d={wavePath(2880, 480, w.amp, w.y)}
+            strokeWidth={w.w}
+            style={{ opacity: w.op, animationDuration: w.dur }}
+          />
+        ))}
+      </svg>
+    </div>
   );
 }
