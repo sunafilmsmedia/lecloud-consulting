@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Waves from "@/components/Waves";
+import Footer from "@/components/Footer";
 import Faq from "@/components/Faq";
 import RoiCalculator from "@/components/RoiCalculator";
 import CandidatureForm from "@/components/CandidatureForm";
@@ -317,6 +318,18 @@ export default function Page() {
                 <p className="mt-2 text-sm leading-relaxed text-mist-soft">{d.body}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <a
+              href="/services"
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 font-600 text-white transition-colors hover:bg-white/5"
+            >
+              Voir les 20 services en détail
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h14m-6-6l6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
           </div>
         </section>
 
@@ -715,20 +728,7 @@ export default function Page() {
       </main>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/10 bg-ink-950 py-12">
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-5 text-center">
-          <div className="flex items-center gap-2.5">
-            <span className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-fluo-500/15 ring-1 ring-fluo-400/40">
-              <span className="h-2.5 w-2.5 rounded-full bg-fluo-400 shadow-[0_0_14px_3px_rgba(34,204,255,0.8)]" />
-            </span>
-            <span className="font-display text-lg font-700 text-white">LE&nbsp;CLOUD</span>
-          </div>
-          <p className="text-sm text-mist-soft">Consultation IA — On ne recommande pas l'IA. On l'installe.</p>
-          <p className="mt-2 text-xs text-mist-soft/60">
-            © {new Date().getFullYear()} Le Cloud. Tous droits réservés.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }

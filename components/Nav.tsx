@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 
 const LINKS = [
-  { href: "#services", label: "Services" },
-  { href: "#methode", label: "Notre méthode" },
-  { href: "#tarifs", label: "Tarifs" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/services", label: "Services" },
+  { href: "/#methode", label: "Notre méthode" },
+  { href: "/#tarifs", label: "Tarifs" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export default function Nav() {
@@ -27,7 +27,7 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-        <a href="#top" className="flex items-center gap-2.5">
+        <a href="/" className="flex items-center gap-2.5">
           <span className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-fluo-500/15 ring-1 ring-fluo-400/40">
             <span className="h-2.5 w-2.5 rounded-full bg-fluo-400 shadow-[0_0_14px_3px_rgba(34,204,255,0.8)]" />
           </span>
@@ -55,7 +55,7 @@ export default function Nav() {
             Installer Claude
           </a>
           <a
-            href="#candidature"
+            href="/#candidature"
             className="rounded-full bg-fluo-500 px-5 py-2.5 text-sm font-600 text-ink-950 transition-all hover:bg-fluo-400 glow-fluo"
           >
             Bâtir mon employé IA
@@ -98,7 +98,7 @@ export default function Nav() {
               Installer Claude
             </a>
             <a
-              href="#candidature"
+              href="/#candidature"
               onClick={() => setOpen(false)}
               className="mt-1 rounded-full bg-fluo-500 px-5 py-3 text-center font-600 text-ink-950"
             >
