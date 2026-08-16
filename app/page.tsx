@@ -615,46 +615,6 @@ export default function Page() {
           </div>
         </section>
 
-        {/* PREUVE / RÉSULTATS */}
-        <section id="resultats" className="border-y border-white/10 bg-ink-900 py-24">
-          <div className="mx-auto max-w-5xl px-5">
-            <div className="mx-auto max-w-3xl text-center">
-              <Eyebrow>Preuve</Eyebrow>
-              <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
-                Des systèmes qui travaillent réellement.
-              </h2>
-            </div>
-
-            <figure className="mt-12 card p-8 sm:p-10">
-              <blockquote className="font-display text-xl leading-relaxed text-white sm:text-2xl">
-                «&nbsp;Avant Le Cloud, notre équipe passait plusieurs heures par semaine à
-                répondre, classer et relancer manuellement les demandes. En trois jours, les
-                processus prioritaires étaient automatisés et notre équipe savait exactement
-                comment utiliser les nouveaux systèmes.&nbsp;»
-              </blockquote>
-              <figcaption className="mt-6 text-sm text-mist-soft">
-                <span className="font-600 text-white">Nom du client</span> — Entreprise · Résultat mesurable
-              </figcaption>
-            </figure>
-
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              {[
-                { label: "Heures économisées", value: "XX", unit: "h / semaine" },
-                { label: "Délai de réponse", value: "XX min → XX s", unit: "temps de réaction" },
-                { label: "Valeur annuelle", value: "XX XXX $", unit: "récupérés" },
-              ].map((s) => (
-                <div key={s.label} className="card p-6 text-center">
-                  <p className="text-xs font-600 uppercase tracking-widest text-fluo-300">
-                    {s.label}
-                  </p>
-                  <p className="mt-3 font-display text-3xl font-800 text-white">{s.value}</p>
-                  <p className="mt-1 text-sm text-mist-soft">{s.unit}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* TARIFS */}
         <section id="tarifs" className="relative mx-auto max-w-5xl px-5 py-24">
           <div className="aura left-1/2 top-10 h-72 w-[520px] -translate-x-1/2 bg-fluo-600/15" />
