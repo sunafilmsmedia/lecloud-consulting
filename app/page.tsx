@@ -290,11 +290,11 @@ export default function Page() {
           <div className="aura -left-20 top-40 h-72 w-72 bg-fluo-500/20" />
           <div className="relative mx-auto max-w-4xl px-5 text-center">
             <Eyebrow>Consultation et implantation IA pour PME</Eyebrow>
-            <h1 className="mx-auto mt-6 max-w-4xl font-display leading-[1] text-white">
+            <h1 className="relative z-20 mx-auto mt-6 max-w-4xl font-display leading-[1] text-white">
               <span className="block text-3xl font-800 sm:text-5xl">
                 Ton prochain employé sera
               </span>
-              <span className="accent relative z-10 -mt-2 block text-6xl leading-[0.85] sm:-mt-5 sm:text-8xl">
+              <span className="accent relative z-10 -mt-1 block pb-3 text-6xl leading-[0.95] sm:-mt-4 sm:text-8xl">
                 payé une fois.
               </span>
             </h1>
