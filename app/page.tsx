@@ -244,9 +244,6 @@ export default function Page() {
               Ensuite, on construit un employé IA capable de les exécuter, on le connecte à
               tes outils et on te forme, toi ou ton équipe, à l'utiliser.
             </p>
-            <p className="mx-auto mt-5 max-w-xl font-display text-lg font-600 text-white">
-              Pas un rapport. Pas une formation théorique. Un système installé et fonctionnel.
-            </p>
 
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
