@@ -238,13 +238,14 @@ export default function Page() {
           <div className="relative mx-auto max-w-4xl px-5 text-center">
             <Eyebrow>Consultation et implantation IA pour PME</Eyebrow>
             <h1 className="mx-auto mt-6 max-w-3xl font-display text-4xl font-800 leading-[1.05] text-white sm:text-6xl">
-              On automatise l'équivalent d'un poste dans ton entreprise,{" "}
-              <span className="accent">en 3 jours.</span>
+              Ton prochain employé n'a pas de salaire, pas de vacances, et il sera{" "}
+              <span className="accent">payé une fois.</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-mist-soft">
-              On identifie les tâches répétitives qui coûtent le plus cher à ton entreprise.
-              Ensuite, on construit un employé IA capable de les exécuter, on le connecte à
-              tes outils et on te forme, toi ou ton équipe, à l'utiliser.
+              En <span className="accent">3 jours</span>, on l'installe dans ton entreprise, sur
+              Claude, branché à tes outils, entraîné sur ton business — pis on te montre comment le
+              contrôler. On a remplacé <span className="accent">36k$/an</span> de salaires de même
+              dans notre propre agence.
             </p>
 
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
