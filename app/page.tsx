@@ -237,7 +237,7 @@ export default function Page() {
             <Eyebrow>Consultation et implantation IA pour PME</Eyebrow>
             <h1 className="mx-auto mt-6 max-w-3xl font-display text-4xl font-800 leading-[1.05] text-white sm:text-6xl">
               On automatise l'équivalent d'un poste dans ton entreprise,{" "}
-              <span className="text-gradient">en 3 jours.</span>
+              <span className="accent">en 3 jours.</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-mist-soft">
               On identifie les tâches répétitives qui coûtent le plus cher à ton entreprise.
@@ -479,7 +479,7 @@ export default function Page() {
               <h2 className="font-display text-3xl font-800 text-white sm:text-4xl">
                 La plupart des consultants te disent ce que l'IA <em className="not-italic text-mist-soft">pourrait</em> faire.
               </h2>
-              <p className="mt-2 font-display text-3xl font-800 text-gradient sm:text-4xl">
+              <p className="mt-2 font-display text-3xl accent sm:text-4xl">
                 Nous le construisons avec toi.
               </p>
             </div>
@@ -671,7 +671,7 @@ export default function Page() {
               <h2 className="font-display text-3xl font-800 leading-tight text-white sm:text-4xl">
                 Tu peux continuer à payer ton équipe pour accomplir des tâches répétitives.
               </h2>
-              <p className="mt-3 font-display text-3xl font-800 text-gradient sm:text-4xl">
+              <p className="mt-3 font-display text-3xl accent sm:text-4xl">
                 Ou construire le système qui les accomplira automatiquement.
               </p>
               <p className="mx-auto mt-5 max-w-xl text-mist-soft">
