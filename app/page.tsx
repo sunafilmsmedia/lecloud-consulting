@@ -6,6 +6,8 @@ import Faq from "@/components/Faq";
 import RoiCalculator from "@/components/RoiCalculator";
 import CandidatureForm from "@/components/CandidatureForm";
 
+const CALENDLY_URL = "https://calendly.com/sunafilmsmedia/nouvelle-reunion";
+
 /* ---------- petits helpers ---------- */
 
 function Check({ className = "" }: { className?: string }) {
@@ -461,7 +463,9 @@ export default function Page() {
 
           <div className="mt-8 text-center">
             <a
-              href="#candidature"
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex rounded-full bg-fluo-500 px-7 py-4 font-display font-700 text-ink-950 transition-colors hover:bg-fluo-400 glow-fluo"
             >
               Planifier mon diagnostic IA
@@ -633,7 +637,9 @@ export default function Page() {
                 </ul>
 
                 <a
-                  href="#candidature"
+                  href={CALENDLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`relative mt-8 inline-flex w-full justify-center rounded-full px-7 py-4 font-display font-700 transition-colors ${
                     tier.featured
                       ? "bg-fluo-500 text-ink-950 hover:bg-fluo-400"
@@ -673,8 +679,22 @@ export default function Page() {
               </p>
               <p className="mx-auto mt-5 max-w-xl text-mist-soft">
                 En trois jours, Le Cloud transforme les processus qui ralentissent ton entreprise
-                en systèmes propulsés par l'IA. Soumets ton entreprise ci-dessous.
+                en systèmes propulsés par l'IA. Soumets ton entreprise ci-dessous — ou réserve un
+                appel directement.
               </p>
+              <div className="mt-6">
+                <a
+                  href={CALENDLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-fluo-400/40 px-6 py-3 font-600 text-white transition-colors hover:bg-fluo-500/10"
+                >
+                  Réserver un appel
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12h14m-6-6l6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </a>
+              </div>
             </div>
 
             <div className="mx-auto mt-12 max-w-2xl">
