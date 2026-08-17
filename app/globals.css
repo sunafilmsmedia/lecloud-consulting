@@ -55,7 +55,10 @@ html, body {
   font-family: var(--font-brand), var(--font-manrope), sans-serif;
   color: var(--color-fluo-400);
   font-weight: 300;
-  font-synthesis: none; /* graisse unique Light — pas de faux-gras */
+  font-synthesis: none;
+  /* graisse unique Light : on épaissit les traits (contour) pour plus de présence */
+  -webkit-text-stroke: 0.6px currentColor;
+  text-stroke: 0.6px currentColor;
 }
 
 body {
