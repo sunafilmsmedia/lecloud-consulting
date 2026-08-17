@@ -294,7 +294,7 @@ export default function Page() {
               <span className="block text-3xl font-800 sm:text-5xl">
                 Ton prochain employé sera
               </span>
-              <span className="accent relative z-10 -mt-1 block pb-3 text-6xl leading-[0.95] sm:-mt-4 sm:text-8xl">
+              <span className="accent relative z-10 -mt-2 block px-3 pt-2 pb-6 text-6xl leading-none sm:-mt-6 sm:text-8xl">
                 payé une fois.
               </span>
             </h1>
