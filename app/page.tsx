@@ -141,28 +141,6 @@ const METHOD = [
   },
 ];
 
-const DOMAIN_ICONS: Record<string, React.ReactNode> = {
-  megaphone: (
-    <path d="M3 11l14-7v16L3 13v-2zM3 11v2m14 3l3 4M8 13v5a2 2 0 002 2h1" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-  ),
-  gears: (
-    <>
-      <circle cx="9" cy="9" r="3.2" stroke="currentColor" strokeWidth="1.6" />
-      <path d="M9 3.5v1.3M9 13.2v1.3M3.5 9h1.3M13.2 9h1.3M5.1 5.1l.9.9M12 12l.9.9M12.9 5.1l-.9.9M6 12l-.9.9" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-      <circle cx="17" cy="17" r="2.4" stroke="currentColor" strokeWidth="1.6" />
-    </>
-  ),
-  chart: (
-    <path d="M4 20V5m0 15h16M8 20v-6m4 6V9m4 11v-9" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-  ),
-  spark: (
-    <path d="M12 3l1.8 4.9L18.5 9l-4.7 1.8L12 15l-1.8-4.2L5.5 9l4.7-1.1L12 3zM18 15l.7 1.9L20.5 18l-1.8.6L18 20l-.6-1.4L15.5 18l1.9-.6L18 15z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
-  ),
-  users: (
-    <path d="M8 11a3 3 0 100-6 3 3 0 000 6zm0 0c-2.7 0-5 1.8-5 4v1h10v-1c0-2.2-2.3-4-5-4zm8-6.5a2.6 2.6 0 010 5.2m2.5 6.3H21v-1c0-1.8-1.4-3.2-3.4-3.7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-  ),
-};
-
 const TRADITIONAL = [
   "Audit et recommandations",
   "Rapport stratégique",
@@ -213,14 +191,6 @@ const AGENTS = [
   { name: "Landing Page Copywriter", desc: "Copy de réponse directe pour des pages qui convertissent.", tag: "Contenu" },
   { name: "Research Agent", desc: "Recherche d'affaires complète via récupération avancée.", tag: "Recherche" },
 ];
-
-const TAG_COLORS: Record<string, string> = {
-  Ventes: "text-fluo-300 border-fluo-400/30 bg-fluo-500/10",
-  Recherche: "text-sky-300 border-sky-400/30 bg-sky-500/10",
-  Contenu: "text-cyan-200 border-cyan-400/30 bg-cyan-500/10",
-  Marketing: "text-blue-300 border-blue-400/30 bg-blue-500/10",
-  Stratégie: "text-indigo-300 border-indigo-400/30 bg-indigo-500/10",
-};
 
 const PRICING = [
   {
@@ -324,8 +294,8 @@ export default function Page() {
         </section>
 
         {/* SERVICES — 5 DOMAINES */}
-        <section id="services" className="mx-auto max-w-6xl px-5 py-24">
-          <div className="mx-auto max-w-3xl text-center">
+        <section id="services" className="mx-auto max-w-5xl px-5 py-24">
+          <div className="max-w-3xl">
             <Eyebrow>Ce qu'on peut automatiser</Eyebrow>
             <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
               Cinq domaines où ton employé IA prend le relais.
@@ -336,34 +306,29 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 border-t border-white/10">
             {DOMAINS.map((d, i) => (
               <div
                 key={d.title}
-                className={`card group p-7 transition-colors hover:border-fluo-400/30 ${
-                  i === 3 ? "lg:col-start-2" : ""
-                }`}
+                className="grid grid-cols-1 gap-x-8 gap-y-2 border-b border-white/10 py-8 md:grid-cols-12"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-fluo-500/10 text-fluo-300 ring-1 ring-fluo-400/25 transition-colors group-hover:bg-fluo-500/15">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    {DOMAIN_ICONS[d.icon]}
-                  </svg>
-                </span>
-                <h3 className="mt-5 font-display text-xl font-700 text-white">{d.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-mist-soft">{d.body}</p>
+                <div className="font-display text-sm tabular-nums text-mist-soft/70 md:col-span-2">
+                  {String(i + 1).padStart(2, "0")}
+                </div>
+                <h3 className="font-display text-xl font-700 text-white md:col-span-4">
+                  {d.title}
+                </h3>
+                <p className="leading-relaxed text-mist-soft md:col-span-6">{d.body}</p>
               </div>
             ))}
           </div>
 
-          <div className="mt-10 text-center">
+          <div className="mt-8">
             <a
               href="/services"
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 font-600 text-white transition-colors hover:bg-white/5"
+              className="font-600 text-fluo-300 underline decoration-fluo-400/40 underline-offset-4 transition-colors hover:decoration-fluo-400"
             >
               Voir les 20 services en détail
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <path d="M5 12h14m-6-6l6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
             </a>
           </div>
         </section>
@@ -438,29 +403,16 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
             {AGENTS.map((a) => (
-              <div
-                key={a.name}
-                className="card group flex flex-col p-6 transition-colors hover:border-fluo-400/30"
-              >
-                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-fluo-500/10 text-fluo-300 ring-1 ring-fluo-400/25 transition-colors group-hover:bg-fluo-500/15">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <rect x="4" y="7" width="16" height="12" rx="3" stroke="currentColor" strokeWidth="1.6" />
-                    <path d="M12 7V4M9 12h.01M15 12h.01M9 16h6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                  </svg>
+              <div key={a.name} className="flex flex-col bg-ink-900 p-6">
+                <span className="text-xs font-600 uppercase tracking-wider text-fluo-300/80">
+                  {a.tag}
                 </span>
-                <h3 className="mt-4 font-display text-lg font-700 leading-tight text-white">
+                <h3 className="mt-3 font-display text-lg font-700 leading-tight text-white">
                   {a.name}
                 </h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-mist-soft">{a.desc}</p>
-                <span
-                  className={`mt-4 inline-flex w-fit rounded-full border px-3 py-1 text-xs font-600 ${
-                    TAG_COLORS[a.tag] ?? "text-mist-soft border-white/15 bg-white/5"
-                  }`}
-                >
-                  {a.tag}
-                </span>
               </div>
             ))}
           </div>
