@@ -75,21 +75,22 @@ h1, h2, h3, h4, .font-display {
 
 /* ---- Utilitaires ---- */
 
+/* Nav : fond solide (plus d'effet verre) */
 @utility glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(8, 11, 18, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* Cartes : coins nets, fond plein sobre, pas d'ombre */
 @utility card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012));
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
 }
 
+/* Profondeur discrète (plus de halo néon) */
 @utility glow-fluo {
-  box-shadow: 0 24px 70px -24px rgba(0, 180, 255, 0.55);
+  box-shadow: 0 16px 40px -24px rgba(0, 0, 0, 0.7);
 }
 
 @utility text-gradient {
@@ -104,7 +105,7 @@ h1, h2, h3, h4, .font-display {
   position: absolute;
   border-radius: 9999px;
   filter: blur(90px);
-  opacity: 0.5;
+  opacity: 0.2;
   pointer-events: none;
   z-index: 0;
 }

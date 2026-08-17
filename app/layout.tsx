@@ -10,7 +10,7 @@ const manrope = localFont({
   weight: "200 800",
 });
 
-// Police custom « Le Cloud Cut » (style découpé) — réservée aux titres
+// Police custom « Le Cloud Cut » (style découpé) : réservée aux titres
 const leCloudCut = localFont({
   src: "./fonts/LeCloudCut-Light.ttf",
   variable: "--font-brand",
@@ -18,11 +18,11 @@ const leCloudCut = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Le Cloud — On automatise l'équivalent d'un poste en 3 jours",
+  title: "Le Cloud · On automatise l'équivalent d'un poste en 3 jours",
   description:
-    "Consultation et implantation IA pour PME. En 3 jours, on identifie tes tâches répétitives, on construit ton employé IA, on le connecte à tes outils et on forme ton équipe. Pas un rapport — un système installé et fonctionnel.",
+    "Consultation et implantation IA pour PME. En 3 jours, on identifie tes tâches répétitives, on construit ton employé IA, on le connecte à tes outils et on forme ton équipe. Pas un rapport, un système installé et fonctionnel.",
   openGraph: {
-    title: "Le Cloud — On ne recommande pas l'IA. On l'installe.",
+    title: "Le Cloud · On ne recommande pas l'IA. On l'installe.",
     description:
       "En 3 jours, on transforme les processus qui ralentissent ton entreprise en systèmes propulsés par l'IA.",
     locale: "fr_CA",

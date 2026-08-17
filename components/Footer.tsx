@@ -8,7 +8,7 @@ export default function Footer() {
           <span className="font-display text-lg font-700 text-white">LE&nbsp;CLOUD</span>
         </a>
         <p className="text-sm text-mist-soft">
-          Consultation IA — On ne recommande pas l&apos;IA. On l&apos;installe.
+          Consultation IA · On ne recommande pas l&apos;IA. On l&apos;installe.
         </p>
         <p className="mt-2 text-xs text-mist-soft/60">
           © {new Date().getFullYear()} Le Cloud. Tous droits réservés.

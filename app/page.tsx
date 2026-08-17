@@ -46,11 +46,8 @@ const ROUTINES = [
 /* ---------- petits helpers ---------- */
 
 function Check({ className = "" }: { className?: string }) {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className={`flex-none ${className}`}>
-      <path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
+  // Marqueur sobre (plus de puce checkmark)
+  return <span aria-hidden className={`inline-block h-1.5 w-1.5 flex-none bg-current ${className}`} />;
 }
 
 function Cross({ className = "" }: { className?: string }) {
@@ -63,7 +60,7 @@ function Cross({ className = "" }: { className?: string }) {
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-fluo-400/25 bg-fluo-500/[0.07] px-4 py-1.5 text-xs font-600 uppercase tracking-widest text-fluo-300">
+    <span className="inline-flex items-center gap-2 rounded-md border border-fluo-400/25 bg-fluo-500/[0.07] px-4 py-1.5 text-xs font-600 uppercase tracking-widest text-fluo-300">
       {children}
     </span>
   );
@@ -95,7 +92,7 @@ const CAPABILITIES = [
 const DOMAINS = [
   {
     title: "Publicité",
-    body: "L'IA lit tes campagnes, repère ce qui brûle du budget et te sort des recommandations claires — au lieu de deviner.",
+    body: "L'IA lit tes campagnes, repère ce qui brûle du budget et te sort des recommandations claires, au lieu de deviner.",
     icon: "megaphone",
   },
   {
@@ -125,7 +122,7 @@ const METHOD = [
     phase: "Identify",
     day: "Jour 1",
     lead: "On observe comment ton entreprise fonctionne réellement.",
-    body: "45 min d'alignement avec toi, 30 min avec ton adjointe s'il y en a une, puis 45 min à te regarder travailler pour vrai — les copier-coller et les répétitions se voient, ils ne se racontent pas. On repart avec la carte des 3 à 5 systèmes prioritaires, et un premier quick win livré le jour même.",
+    body: "45 min d'alignement avec toi, 30 min avec ton adjointe s'il y en a une, puis 45 min à te regarder travailler pour vrai : les copier-coller et les répétitions se voient, ils ne se racontent pas. On repart avec la carte des 3 à 5 systèmes prioritaires, et un premier quick win livré le jour même.",
   },
   {
     phase: "Develop",
@@ -137,7 +134,7 @@ const METHOD = [
     phase: "Adopt",
     day: "Clôture + J+30",
     lead: "On te rend autonome, puis on ferme la boucle.",
-    body: "Critère de sortie : tu refais chaque workflow seul et tu crées une première automatisation sans aide. On clôt la visite par une journée de tournage, puis un call à J+30 avec le bilan chiffré — les heures sauvées comparées aux chiffres du Jour 1.",
+    body: "Critère de sortie : tu refais chaque workflow seul et tu crées une première automatisation sans aide. On clôt la visite par une journée de tournage, puis un call à J+30 avec le bilan chiffré : les heures sauvées comparées aux chiffres du Jour 1.",
   },
 ];
 
@@ -192,14 +189,66 @@ const AGENTS = [
   { name: "Research Agent", desc: "Recherche d'affaires complète via récupération avancée.", tag: "Recherche" },
 ];
 
+// Icônes line-art discrètes (une par agent, même ordre)
+const AGENT_ICONS: React.ReactNode[] = [
+  // Offer Architect : boîte / package isométrique
+  <>
+    <path d="M4 8l8-4.5L20 8v8l-8 4.5L4 16z" />
+    <path d="M4 8l8 4.5L20 8M12 12.5V21" opacity="0.55" />
+  </>,
+  // Niche Architect : radar / cible + loupe
+  <>
+    <circle cx="10.5" cy="10.5" r="6" />
+    <path d="M10.5 5v11M5 10.5h11" opacity="0.45" />
+    <circle cx="10.5" cy="10.5" r="2.4" />
+    <path d="M14.9 14.9L20 20" />
+  </>,
+  // VSL Builder : écran + lecture
+  <>
+    <rect x="3" y="5" width="18" height="12" rx="1.5" />
+    <path d="M10.5 9.4l4 2.6-4 2.6z" />
+    <path d="M8.5 20h7" opacity="0.55" />
+  </>,
+  // Ads Architect : mégaphone / diffusion
+  <>
+    <path d="M4 10.5v3l10 4V6.5z" />
+    <path d="M14 8.5a4 4 0 010 7" />
+    <path d="M6.5 14.2v2.3a1.8 1.8 0 001.8 1.8" opacity="0.6" />
+  </>,
+  // Category Architect : quadrant de positionnement
+  <>
+    <rect x="4" y="4" width="16" height="16" rx="1" />
+    <path d="M12 4v16M4 12h16" opacity="0.45" />
+    <circle cx="15.5" cy="8.5" r="1.6" />
+  </>,
+  // Sales Asset Architect : document
+  <>
+    <path d="M7 3.5h6.5L18 8v12.5H7z" />
+    <path d="M13.5 3.5V8H18" opacity="0.6" />
+    <path d="M9.5 12h6M9.5 15h6M9.5 18h4" opacity="0.6" />
+  </>,
+  // Landing Page Copywriter : fenêtre de navigateur
+  <>
+    <rect x="3" y="4.5" width="18" height="15" rx="1.5" />
+    <path d="M3 8.5h18" opacity="0.6" />
+    <path d="M7 12h7M7 15h10" opacity="0.55" />
+  </>,
+  // Research Agent : courbe d'analyse
+  <>
+    <path d="M4 4v16h16" />
+    <path d="M7 14.5l3-4 3 2 4-6.5" />
+    <circle cx="17" cy="6" r="1.1" />
+  </>,
+];
+
 const PRICING = [
   {
     name: "Full Access",
     featured: false,
     tagline:
-      "Que tu démarres une nouvelle entreprise ou que tu fasses croître l'existante — accède à la suite complète des outils Le Cloud (sauf les équipes d'agents).",
+      "Que tu démarres une nouvelle entreprise ou que tu fasses croître l'existante, accède à la suite complète des outils Le Cloud (sauf les équipes d'agents).",
     features: [
-      "Truth Engine — intelligence de marché & rapports de recherche",
+      "Truth Engine : intelligence de marché & rapports de recherche",
       "Système d'exploitation Le Cloud complet",
       "Constructeur d'offres & moteur de positionnement",
       "Funnels, publicités & séquences de nurture",
@@ -247,7 +296,7 @@ export default function Page() {
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-mist-soft">
               En <span className="accent">3 jours</span>, on l'installe dans ton entreprise, sur
-              Claude, branché à tes outils, entraîné sur ton business — pis on te montre comment le
+              Claude, branché à tes outils, entraîné sur ton business, pis on te montre comment le
               contrôler. On a remplacé <span className="accent">36k$/an</span> de salaires de même
               dans notre propre agence.
             </p>
@@ -255,13 +304,13 @@ export default function Page() {
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
                 href="#candidature"
-                className="w-full rounded-full bg-fluo-500 px-7 py-4 font-display font-700 text-ink-950 transition-all hover:bg-fluo-400 glow-fluo sm:w-auto"
+                className="w-full rounded-md bg-fluo-500 px-7 py-4 font-display font-700 text-ink-950 transition-all hover:bg-fluo-400 glow-fluo sm:w-auto"
               >
                 Bâtir mon employé IA
               </a>
               <a
                 href="#services"
-                className="w-full rounded-full border border-white/15 px-7 py-4 font-600 text-white transition-colors hover:bg-white/5 sm:w-auto"
+                className="w-full rounded-md border border-white/15 px-7 py-4 font-600 text-white transition-colors hover:bg-white/5 sm:w-auto"
               >
                 Découvrir ce qu'on peut automatiser
               </a>
@@ -286,14 +335,32 @@ export default function Page() {
           <div className="marquee-track">
             {[...PROBLEMS, ...PROBLEMS, ...PROBLEMS, ...PROBLEMS].map((p, i) => (
               <span key={i} className="flex items-center whitespace-nowrap px-6 text-mist-soft">
-                <span className="mr-6 h-1.5 w-1.5 rounded-full bg-fluo-500" />
+                <span className="mr-6 h-1.5 w-1.5 rounded-md bg-fluo-500" />
                 <span className="font-display text-lg font-600 text-white/80">{p}</span>
               </span>
             ))}
           </div>
         </section>
 
-        {/* SERVICES — 5 DOMAINES */}
+        {/* ROI */}
+        <section className="mx-auto max-w-6xl px-5 py-24">
+          <div className="mx-auto max-w-3xl text-center">
+            <Eyebrow>Le calcul</Eyebrow>
+            <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
+              Combien te coûte le travail répétitif ?
+            </h2>
+            <p className="mt-4 text-mist-soft">
+              Ajuste les curseurs à ta réalité. Notre objectif est simple : trouver les tâches
+              que l'IA peut prendre en charge et construire un système dont la valeur dépasse
+              largement son coût.
+            </p>
+          </div>
+          <div className="mt-12">
+            <RoiCalculator />
+          </div>
+        </section>
+
+        {/* SERVICES : 5 DOMAINES */}
         <section id="services" className="mx-auto max-w-5xl px-5 py-24">
           <div className="max-w-3xl">
             <Eyebrow>Ce qu'on peut automatiser</Eyebrow>
@@ -356,7 +423,7 @@ export default function Page() {
                 {CAPABILITIES.map((c) => (
                   <div
                     key={c}
-                    className="card flex items-center gap-3 px-5 py-4 text-white/90 transition-colors hover:border-fluo-400/30"
+                    className="card flex items-center gap-3 px-5 py-4 text-white/90"
                   >
                     <Check className="text-fluo-400" /> {c}
                   </div>
@@ -375,7 +442,7 @@ export default function Page() {
             </h2>
             <p className="mt-4 text-mist-soft">
               Ton employé IA ne vit pas à part. Il se branche à ton CRM, tes courriels, ton
-              calendrier et tes applications — et pour tout le reste, il y a Zapier, Make et les API.
+              calendrier et tes applications, et pour tout le reste, il y a Zapier, Make et les API.
             </p>
           </div>
 
@@ -403,16 +470,30 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
-            {AGENTS.map((a) => (
-              <div key={a.name} className="flex flex-col bg-ink-900 p-6">
-                <span className="text-xs font-600 uppercase tracking-wider text-fluo-300/80">
+          <div className="mt-14 grid gap-px overflow-hidden rounded-md border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+            {AGENTS.map((a, i) => (
+              <div key={a.name} className="flex flex-col bg-ink-900 p-7">
+                <div className="flex h-24 items-center justify-center text-white/25">
+                  <svg
+                    width="58"
+                    height="58"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.15"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    {AGENT_ICONS[i]}
+                  </svg>
+                </div>
+                <span className="mt-3 text-xs font-600 uppercase tracking-wider text-fluo-300/70">
                   {a.tag}
                 </span>
-                <h3 className="mt-3 font-display text-lg font-700 leading-tight text-white">
+                <h3 className="mt-1 font-display text-lg font-700 leading-tight text-white">
                   {a.name}
                 </h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-mist-soft">{a.desc}</p>
+                <p className="mt-2 text-sm leading-relaxed text-mist-soft">{a.desc}</p>
               </div>
             ))}
           </div>
@@ -444,7 +525,7 @@ export default function Page() {
           </div>
 
           <p className="mx-auto mt-10 max-w-2xl text-center text-sm text-mist-soft">
-            L'offre couvre trois jours d'implantation. La portée est fixée pendant l'audit —
+            L'offre couvre trois jours d'implantation. La portée est fixée pendant l'audit :
             selon la complexité, certains systèmes peuvent s'étendre sur une phase supplémentaire.
           </p>
 
@@ -453,7 +534,7 @@ export default function Page() {
               href={CALENDLY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex rounded-full bg-fluo-500 px-7 py-4 font-display font-700 text-ink-950 transition-colors hover:bg-fluo-400 glow-fluo"
+              className="inline-flex rounded-md bg-fluo-500 px-7 py-4 font-display font-700 text-ink-950 transition-colors hover:bg-fluo-400 glow-fluo"
             >
               Planifier mon diagnostic IA
             </a>
@@ -495,24 +576,6 @@ export default function Page() {
                 </ul>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* ROI */}
-        <section className="mx-auto max-w-6xl px-5 py-24">
-          <div className="mx-auto max-w-3xl text-center">
-            <Eyebrow>Le calcul</Eyebrow>
-            <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
-              Combien te coûte le travail répétitif ?
-            </h2>
-            <p className="mt-4 text-mist-soft">
-              Ajuste les curseurs à ta réalité. Notre objectif est simple : trouver les tâches
-              que l'IA peut prendre en charge et construire un système dont la valeur dépasse
-              largement son coût.
-            </p>
-          </div>
-          <div className="mt-12">
-            <RoiCalculator />
           </div>
         </section>
 
@@ -576,11 +639,11 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ÉTUDE DE CAS — SUNA FILMS MEDIA */}
+        {/* ÉTUDE DE CAS : SUNA FILMS MEDIA */}
         <section className="border-y border-white/10 bg-ink-900 py-24">
           <div className="mx-auto max-w-6xl px-5">
             <div className="mx-auto max-w-3xl text-center">
-              <Eyebrow>Étude de cas — notre propre agence</Eyebrow>
+              <Eyebrow>Étude de cas : notre propre agence</Eyebrow>
               <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
                 On l&apos;a installé chez nous d&apos;abord.
               </h2>
@@ -595,7 +658,7 @@ export default function Page() {
               {ROUTINES.map((r) => (
                 <div
                   key={r.title}
-                  className="card flex flex-col p-6 transition-colors hover:border-fluo-400/30"
+                  className="card flex flex-col p-6"
                 >
                   <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-fluo-500/10 text-fluo-300 ring-1 ring-fluo-400/25">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -663,7 +726,7 @@ export default function Page() {
                 {tier.featured && (
                   <>
                     <div className="aura -right-10 -top-10 h-40 w-40 bg-fluo-500/25" />
-                    <span className="relative mb-4 inline-flex w-fit rounded-full border border-fluo-400/40 bg-fluo-500/10 px-3 py-1 text-xs font-700 uppercase tracking-widest text-fluo-300">
+                    <span className="relative mb-4 inline-flex w-fit rounded-md border border-fluo-400/40 bg-fluo-500/10 px-3 py-1 text-xs font-700 uppercase tracking-widest text-fluo-300">
                       Partenariat
                     </span>
                   </>
@@ -690,7 +753,7 @@ export default function Page() {
                   href={CALENDLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`relative mt-8 inline-flex w-full justify-center rounded-full px-7 py-4 font-display font-700 transition-colors ${
+                  className={`relative mt-8 inline-flex w-full justify-center rounded-md px-7 py-4 font-display font-700 transition-colors ${
                     tier.featured
                       ? "bg-fluo-500 text-ink-950 hover:bg-fluo-400"
                       : "border border-white/15 text-white hover:bg-white/5"
@@ -729,7 +792,7 @@ export default function Page() {
               </p>
               <p className="mx-auto mt-5 max-w-xl text-mist-soft">
                 En trois jours, Le Cloud transforme les processus qui ralentissent ton entreprise
-                en systèmes propulsés par l'IA. Soumets ton entreprise ci-dessous — ou réserve un
+                en systèmes propulsés par l'IA. Soumets ton entreprise ci-dessous, ou réserve un
                 appel directement.
               </p>
               <div className="mt-6">
@@ -737,7 +800,7 @@ export default function Page() {
                   href={CALENDLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-fluo-400/40 px-6 py-3 font-600 text-white transition-colors hover:bg-fluo-500/10"
+                  className="inline-flex items-center gap-2 rounded-md border border-fluo-400/40 px-6 py-3 font-600 text-white transition-colors hover:bg-fluo-500/10"
                 >
                   Réserver un appel
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">

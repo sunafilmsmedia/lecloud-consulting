@@ -3,7 +3,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Services — Le Cloud | Tout ce qu'on peut installer",
+  title: "Services · Le Cloud | Tout ce qu'on peut installer",
   description:
     "Le catalogue complet des systèmes IA que Le Cloud installe dans ton entreprise : audit, cerveau IA, routines, CRM, agents, marketing, tableaux de bord et plus. Ce qu'on installe et le résultat obtenu.",
 };
@@ -173,7 +173,7 @@ export default function ServicesPage() {
         <section className="relative overflow-hidden pt-36 pb-16 sm:pt-44">
           <div className="aura left-1/2 top-0 h-80 w-[560px] -translate-x-1/2 bg-fluo-600/20" />
           <div className="relative mx-auto max-w-4xl px-5 text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-fluo-400/25 bg-fluo-500/[0.07] px-4 py-1.5 text-xs font-600 uppercase tracking-widest text-fluo-300">
+            <span className="inline-flex items-center gap-2 rounded-md border border-fluo-400/25 bg-fluo-500/[0.07] px-4 py-1.5 text-xs font-600 uppercase tracking-widest text-fluo-300">
               {TOTAL} services · 6 catégories
             </span>
             <h1 className="mx-auto mt-6 max-w-3xl font-display text-4xl font-800 leading-[1.08] text-white sm:text-5xl">
@@ -181,19 +181,19 @@ export default function ServicesPage() {
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-mist-soft">
               On ne touche pas à tout d&apos;un coup. Pendant l&apos;audit, on choisit les systèmes
-              au meilleur rendement pour toi. Voici le menu complet — ce qu&apos;on installe, et le
+              au meilleur rendement pour toi. Voici le menu complet : ce qu&apos;on installe, et le
               résultat que ça donne.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
                 href="/#candidature"
-                className="w-full rounded-full bg-fluo-500 px-7 py-4 font-display font-700 text-ink-950 transition-all hover:bg-fluo-400 glow-fluo sm:w-auto"
+                className="w-full rounded-md bg-fluo-500 px-7 py-4 font-display font-700 text-ink-950 transition-all hover:bg-fluo-400 glow-fluo sm:w-auto"
               >
                 Soumettre mon entreprise
               </a>
               <a
                 href="/#methode"
-                className="w-full rounded-full border border-white/15 px-7 py-4 font-600 text-white transition-colors hover:bg-white/5 sm:w-auto"
+                className="w-full rounded-md border border-white/15 px-7 py-4 font-600 text-white transition-colors hover:bg-white/5 sm:w-auto"
               >
                 Voir la méthode
               </a>
@@ -221,7 +221,7 @@ export default function ServicesPage() {
                 {cat.services.map((s) => (
                   <div
                     key={s.title}
-                    className="card flex flex-col p-6 transition-colors hover:border-fluo-400/30"
+                    className="card flex flex-col p-6"
                   >
                     <h3 className="font-display text-lg font-700 text-white">{s.title}</h3>
                     <p className="mt-2 flex-1 text-sm leading-relaxed text-mist-soft">
@@ -247,7 +247,7 @@ export default function ServicesPage() {
             </p>
             <a
               href="/#candidature"
-              className="mt-8 inline-flex rounded-full bg-fluo-500 px-7 py-4 font-display font-700 text-ink-950 transition-colors hover:bg-fluo-400 glow-fluo"
+              className="mt-8 inline-flex rounded-md bg-fluo-500 px-7 py-4 font-display font-700 text-ink-950 transition-colors hover:bg-fluo-400 glow-fluo"
             >
               Bâtir mon employé IA
             </a>

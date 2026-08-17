@@ -9,11 +9,11 @@ const ITEMS = [
   },
   {
     q: "Combien de temps ça prend avant que tout marche ?",
-    a: "Les systèmes prioritaires sont construits et activés pendant les trois jours d'implantation — tu repars avec du concret, pas une promesse. Selon la complexité, certains systèmes plus avancés peuvent s'étendre sur une phase supplémentaire. Le call à J+30 sert ensuite à mesurer les résultats réels.",
+    a: "Les systèmes prioritaires sont construits et activés pendant les trois jours d'implantation : tu repars avec du concret, pas une promesse. Selon la complexité, certains systèmes plus avancés peuvent s'étendre sur une phase supplémentaire. Le call à J+30 sert ensuite à mesurer les résultats réels.",
   },
   {
     q: "Est-ce que j'ai besoin d'être un expert pour tout contrôler ?",
-    a: "Non. On construit les systèmes AVEC toi, et le critère de sortie c'est que tu refais chaque workflow seul — et que tu crées même une petite automatisation sans aide. Si tu sais utiliser tes outils actuels, tu sauras utiliser ça.",
+    a: "Non. On construit les systèmes AVEC toi, et le critère de sortie c'est que tu refais chaque workflow seul, et que tu crées même une petite automatisation sans aide. Si tu sais utiliser tes outils actuels, tu sauras utiliser ça.",
   },
   {
     q: "Allez-vous réellement remplacer un employé ?",
@@ -59,7 +59,7 @@ export default function Faq() {
                 {item.q}
               </span>
               <span
-                className={`flex h-7 w-7 flex-none items-center justify-center rounded-full border border-fluo-400/40 text-fluo-300 transition-transform duration-300 ${
+                className={`flex h-7 w-7 flex-none items-center justify-center rounded-md border border-fluo-400/40 text-fluo-300 transition-transform duration-300 ${
                   isOpen ? "rotate-45" : ""
                 }`}
               >
