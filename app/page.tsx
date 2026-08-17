@@ -289,7 +289,7 @@ export default function Page() {
           <ChartBg />
           <div className="aura -left-20 top-40 h-72 w-72 bg-fluo-500/20" />
           <div className="relative mx-auto max-w-4xl px-5 text-center">
-            <Eyebrow>Consultation et implantation IA pour PME</Eyebrow>
+            <Eyebrow>2 places par mois uniquement</Eyebrow>
             <h1 className="relative z-20 mx-auto mt-6 max-w-4xl font-display leading-[1] text-white">
               <span className="block text-3xl font-800 sm:text-5xl">
                 Ton prochain employé sera
