@@ -2,12 +2,19 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-// Police auto-hébergée (aucune dépendance réseau au build)
+// Polices auto-hébergées (aucune dépendance réseau au build)
 const manrope = localFont({
   src: "./fonts/Manrope-Variable.woff2",
-  variable: "--font-sans",
+  variable: "--font-manrope",
   display: "swap",
   weight: "200 800",
+});
+
+// Police custom « Le Cloud Cut » (style découpé) — réservée aux titres
+const leCloudCut = localFont({
+  src: "./fonts/LeCloudCut-Light.ttf",
+  variable: "--font-brand",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +32,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr-CA" className={manrope.variable}>
+    <html lang="fr-CA" className={`${manrope.variable} ${leCloudCut.variable}`}>
       <body className="min-h-screen antialiased">{children}</body>
     </html>
   );
