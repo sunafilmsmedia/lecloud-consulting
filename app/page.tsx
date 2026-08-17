@@ -1,5 +1,5 @@
 import Nav from "@/components/Nav";
-import Galaxy from "@/components/Galaxy";
+import ChartBg from "@/components/ChartBg";
 import Footer from "@/components/Footer";
 import Integrations from "@/components/Integrations";
 import Faq from "@/components/Faq";
@@ -286,7 +286,7 @@ export default function Page() {
       <main id="top">
         {/* HERO */}
         <section className="relative overflow-hidden pb-24 pt-36 sm:pt-44">
-          <Galaxy />
+          <ChartBg />
           <div className="aura -left-20 top-40 h-72 w-72 bg-fluo-500/20" />
           <div className="relative mx-auto max-w-4xl px-5 text-center">
             <Eyebrow>Consultation et implantation IA pour PME</Eyebrow>
