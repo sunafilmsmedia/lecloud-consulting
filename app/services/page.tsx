@@ -191,7 +191,7 @@ export default function ServicesPage() {
         </section>
 
         {/* CATÉGORIES */}
-        <div className="mx-auto max-w-6xl space-y-16 px-5 pb-24">
+        <div className="mx-auto max-w-6xl space-y-16 px-5 pb-16 sm:pb-24">
           {CATEGORIES.map((cat) => (
             <section key={cat.name}>
               <div className="mb-8 flex flex-col gap-2 border-b border-white/10 pb-5 sm:flex-row sm:items-end sm:justify-between">
@@ -242,7 +242,7 @@ export default function ServicesPage() {
         </div>
 
         {/* CTA */}
-        <section className="border-t border-white/10 bg-ink-900 py-20">
+        <section className="border-t border-white/10 bg-ink-900 py-16 sm:py-20">
           <div className="mx-auto max-w-3xl px-5 text-center">
             <h2 className="font-display text-3xl font-800 text-white sm:text-4xl">
               On choisit ensemble par où commencer.

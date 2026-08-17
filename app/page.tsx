@@ -333,10 +333,10 @@ export default function Page() {
           <div className="relative mx-auto max-w-4xl px-5 text-center">
             <Eyebrow>2 places par mois uniquement</Eyebrow>
             <h1 className="relative z-20 mx-auto mt-6 max-w-4xl font-display leading-[1] text-white">
-              <span className="block text-3xl font-800 sm:text-5xl">
+              <span className="block text-2xl font-800 sm:text-5xl">
                 Ton prochain employé sera
               </span>
-              <span className="accent relative z-10 -mt-2 block px-3 pt-2 pb-6 text-6xl leading-none sm:-mt-6 sm:text-8xl">
+              <span className="accent relative z-10 -mt-1 block px-3 pt-2 pb-5 text-[3.25rem] leading-none sm:-mt-6 sm:text-8xl">
                 payé une fois.
               </span>
             </h1>
@@ -391,7 +391,7 @@ export default function Page() {
         </section>
 
         {/* ROI */}
-        <section className="mx-auto max-w-6xl px-5 py-24">
+        <section className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
           <div className="mx-auto max-w-3xl text-center">
             <Eyebrow>Le calcul</Eyebrow>
             <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
@@ -409,7 +409,7 @@ export default function Page() {
         </section>
 
         {/* SERVICES : 5 DOMAINES */}
-        <section id="services" className="mx-auto max-w-5xl px-5 py-24">
+        <section id="services" className="mx-auto max-w-5xl px-5 py-16 sm:py-24">
           <div className="max-w-3xl">
             <Eyebrow>Ce qu'on peut automatiser</Eyebrow>
             <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
@@ -449,7 +449,7 @@ export default function Page() {
         </section>
 
         {/* PROMESSE + CAPACITÉS */}
-        <section className="relative border-y border-white/10 bg-ink-900 py-24">
+        <section className="relative border-y border-white/10 bg-ink-900 py-16 sm:py-24">
           <div className="mx-auto max-w-6xl px-5">
             <div className="mx-auto max-w-3xl text-center">
               <Eyebrow>La promesse</Eyebrow>
@@ -482,7 +482,7 @@ export default function Page() {
         </section>
 
         {/* INTÉGRATIONS */}
-        <section className="mx-auto max-w-6xl px-5 py-24">
+        <section className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
           <div className="mx-auto max-w-3xl text-center">
             <Eyebrow>Intégrations</Eyebrow>
             <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
@@ -507,7 +507,7 @@ export default function Page() {
         </section>
 
         {/* AGENTS SPÉCIALISÉS */}
-        <section className="mx-auto max-w-6xl px-5 py-24">
+        <section className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
           <div className="mx-auto max-w-3xl text-center">
             <Eyebrow>Agents spécialisés</Eyebrow>
             <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
@@ -548,7 +548,7 @@ export default function Page() {
         </section>
 
         {/* MÉTHODE */}
-        <section id="methode" className="mx-auto max-w-5xl px-5 py-24">
+        <section id="methode" className="mx-auto max-w-5xl px-5 py-16 sm:py-24">
           <div className="max-w-3xl">
             <Eyebrow>Notre méthode</Eyebrow>
             <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
@@ -596,7 +596,7 @@ export default function Page() {
         </section>
 
         {/* DIFFÉRENCIATION */}
-        <section className="border-y border-white/10 bg-ink-900 py-24">
+        <section className="border-y border-white/10 bg-ink-900 py-16 sm:py-24">
           <div className="mx-auto max-w-6xl px-5">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="font-display text-3xl font-800 text-white sm:text-4xl">
@@ -634,7 +634,7 @@ export default function Page() {
         </section>
 
         {/* INCLUSIONS */}
-        <section className="border-y border-white/10 bg-ink-900 py-24">
+        <section className="border-y border-white/10 bg-ink-900 py-16 sm:py-24">
           <div className="mx-auto max-w-6xl px-5">
             <div className="mx-auto max-w-3xl text-center">
               <Eyebrow>Ce que tu obtiens</Eyebrow>
@@ -668,7 +668,7 @@ export default function Page() {
         </section>
 
         {/* CLIENT IDÉAL */}
-        <section className="mx-auto max-w-6xl px-5 py-24">
+        <section className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
           <div className="grid gap-12 md:grid-cols-2 md:items-center">
             <div>
               <Eyebrow>Client idéal</Eyebrow>
@@ -694,7 +694,7 @@ export default function Page() {
         </section>
 
         {/* ÉTUDE DE CAS : SUNA FILMS MEDIA */}
-        <section className="border-y border-white/10 bg-ink-900 py-24">
+        <section className="border-y border-white/10 bg-ink-900 py-16 sm:py-24">
           <div className="mx-auto max-w-6xl px-5">
             <div className="mx-auto max-w-3xl text-center">
               <Eyebrow>Étude de cas : notre propre agence</Eyebrow>
@@ -757,7 +757,7 @@ export default function Page() {
         </section>
 
         {/* RÉSULTATS CLIENTS */}
-        <section id="resultats" className="mx-auto max-w-6xl px-5 py-24">
+        <section id="resultats" className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
           <div className="mx-auto max-w-3xl text-center">
             <Eyebrow>Résultats</Eyebrow>
             <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
@@ -813,7 +813,7 @@ export default function Page() {
         </section>
 
         {/* TARIFS */}
-        <section id="tarifs" className="relative mx-auto max-w-5xl px-5 py-24">
+        <section id="tarifs" className="relative mx-auto max-w-5xl px-5 py-16 sm:py-24">
           <div className="aura left-1/2 top-10 h-72 w-[520px] -translate-x-1/2 bg-fluo-600/15" />
           <div className="relative mx-auto max-w-3xl text-center">
             <Eyebrow>Tarifs</Eyebrow>
@@ -877,7 +877,7 @@ export default function Page() {
         </section>
 
         {/* FAQ */}
-        <section id="faq" className="border-y border-white/10 bg-ink-900 py-24">
+        <section id="faq" className="border-y border-white/10 bg-ink-900 py-16 sm:py-24">
           <div className="mx-auto max-w-6xl px-5">
             <div className="mx-auto mb-12 max-w-3xl text-center">
               <Eyebrow>FAQ</Eyebrow>
@@ -890,7 +890,7 @@ export default function Page() {
         </section>
 
         {/* CTA FINAL + CANDIDATURE */}
-        <section id="candidature" className="relative overflow-hidden py-24">
+        <section id="candidature" className="relative overflow-hidden py-16 sm:py-24">
           <div className="aura left-1/2 top-0 h-96 w-[640px] -translate-x-1/2 bg-fluo-600/20" />
           <div className="relative mx-auto max-w-5xl px-5">
             <div className="mx-auto max-w-3xl text-center">
