@@ -125,7 +125,7 @@ h1, h2, h3, h4, .font-display {
   html { scroll-behavior: auto; }
 }
 
-/* ---- Fond graphique du hero : barres bleues animées + lueur ---- */
+/* ---- Fond graphique du hero : colonnes bleues statiques + lueur ---- */
 .chartbg {
   position: absolute;
   inset: 0;
@@ -134,42 +134,30 @@ h1, h2, h3, h4, .font-display {
   overflow: hidden;
   /* lueur bleue qui monte du bas */
   background:
-    radial-gradient(120% 78% at 50% 116%, rgba(0, 150, 235, 0.30), transparent 60%),
-    radial-gradient(70% 55% at 50% 122%, rgba(0, 205, 255, 0.22), transparent 55%);
+    radial-gradient(120% 80% at 50% 118%, rgba(0, 150, 235, 0.32), transparent 60%),
+    radial-gradient(65% 55% at 50% 124%, rgba(0, 205, 255, 0.22), transparent 55%);
 }
 
 .chartbg-bars {
   position: absolute;
   inset-inline: 0;
   bottom: 0;
-  height: 72%;
+  height: 92%;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  gap: 0.9%;
-  padding: 0 3%;
+  gap: 1.4%;
+  padding: 0 4%;
   /* fondu vers le haut pour la lisibilité du texte */
-  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 42%, #000 100%);
-  mask-image: linear-gradient(180deg, transparent 0%, #000 42%, #000 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 46%, #000 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 46%, #000 100%);
 }
 
 .chartbar {
   flex: 1 1 0;
-  min-width: 3px;
-  border-radius: 2px 2px 0 0;
-  background: linear-gradient(to top, rgba(0, 140, 230, 0.03), rgba(34, 204, 255, 0.28));
-  border-top: 1px solid rgba(120, 220, 255, 0.4);
-  transform-origin: bottom;
-  will-change: transform;
-  animation: bar-pulse ease-in-out infinite alternate;
-}
-@keyframes bar-pulse {
-  from { transform: scaleY(var(--lo, 0.55)); }
-  to { transform: scaleY(1); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .chartbar { animation: none; }
+  background: linear-gradient(to top, rgba(0, 130, 220, 0.015), rgba(40, 160, 235, 0.10));
+  border-left: 1px solid rgba(120, 200, 255, 0.06);
+  border-right: 1px solid rgba(120, 200, 255, 0.06);
 }
 
 /* ---- Intégrations : rangées de pastilles défilantes ---- */
