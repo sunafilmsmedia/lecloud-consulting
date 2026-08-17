@@ -290,8 +290,13 @@ export default function Page() {
           <div className="aura -left-20 top-40 h-72 w-72 bg-fluo-500/20" />
           <div className="relative mx-auto max-w-4xl px-5 text-center">
             <Eyebrow>Consultation et implantation IA pour PME</Eyebrow>
-            <h1 className="mx-auto mt-6 max-w-3xl font-display text-4xl font-800 leading-[1.05] text-white sm:text-6xl">
-              Ton prochain employé sera <span className="accent">payé une fois.</span>
+            <h1 className="mx-auto mt-6 max-w-4xl font-display leading-[1] text-white">
+              <span className="block text-3xl font-800 sm:text-5xl">
+                Ton prochain employé sera
+              </span>
+              <span className="accent relative z-10 -mt-2 block text-6xl leading-[0.85] sm:-mt-5 sm:text-8xl">
+                payé une fois.
+              </span>
             </h1>
             <p className="mx-auto mt-5 font-display text-xl font-600 text-white sm:text-2xl">
               Pas de salaire · pas de vacances.
