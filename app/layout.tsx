@@ -10,11 +10,13 @@ const manrope = localFont({
   weight: "200 800",
 });
 
-// Police custom « Le Cloud Cut » (style découpé) : réservée aux titres
-const leCloudCut = localFont({
-  src: "./fonts/LeCloudCut-Light.ttf",
+// Police d'accent : Bodoni Moda Italic (mots mis en avant)
+const bodoni = localFont({
+  src: "./fonts/BodoniModa-Italic.woff2",
   variable: "--font-brand",
   display: "swap",
+  style: "italic",
+  weight: "400 900",
 });
 
 export const metadata: Metadata = {
@@ -32,7 +34,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr-CA" className={`${manrope.variable} ${leCloudCut.variable}`}>
+    <html lang="fr-CA" className={`${manrope.variable} ${bodoni.variable}`}>
       <body className="min-h-screen antialiased">{children}</body>
     </html>
   );

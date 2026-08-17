@@ -67,7 +67,7 @@ export default function CandidatureForm() {
   if (status === "success") {
     return (
       <div className="card p-8 text-center sm:p-12">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-md bg-fluo-500/15 ring-1 ring-fluo-400/40">
+        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-fluo-500/15 ring-1 ring-fluo-400/40">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
             <path d="M5 13l4 4L19 7" stroke="#22ccff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -161,7 +161,7 @@ export default function CandidatureForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="mt-6 w-full rounded-md bg-fluo-500 px-6 py-4 font-display font-700 text-ink-950 transition-all hover:bg-fluo-400 disabled:opacity-60 glow-fluo"
+        className="mt-6 w-full rounded-full bg-fluo-500 px-6 py-4 font-display font-700 text-ink-950 transition-all hover:bg-fluo-400 disabled:opacity-60 glow-fluo"
       >
         {status === "loading" ? "Envoi en cours…" : "Soumettre mon entreprise"}
       </button>

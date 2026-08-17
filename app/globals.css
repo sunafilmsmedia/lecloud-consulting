@@ -52,13 +52,32 @@ html, body {
 
 /* Mot spécial : police custom « Le Cloud Cut » en bleu fluo */
 .accent {
-  font-family: var(--font-brand), var(--font-manrope), sans-serif;
-  color: var(--color-fluo-400);
-  font-weight: 300;
-  font-synthesis: none;
-  /* graisse unique Light : on épaissit les traits (contour) pour plus de présence */
-  -webkit-text-stroke: 0.6px currentColor;
-  text-stroke: 0.6px currentColor;
+  font-family: var(--font-brand), Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 600;
+  /* dégradé bleu animé (foncé ↔ fluo), effet shiny */
+  background: linear-gradient(
+    100deg,
+    #0b4dc4 0%,
+    #1f9dff 26%,
+    #22ccff 42%,
+    #aeeeff 50%,
+    #22ccff 58%,
+    #1f9dff 74%,
+    #0b4dc4 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: accent-shine 6s linear infinite;
+}
+@keyframes accent-shine {
+  to { background-position: -220% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .accent { animation: none; }
 }
 
 body {

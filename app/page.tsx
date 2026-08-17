@@ -304,13 +304,13 @@ export default function Page() {
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
                 href="#candidature"
-                className="w-full rounded-md bg-fluo-500 px-7 py-4 font-display font-700 text-ink-950 transition-all hover:bg-fluo-400 glow-fluo sm:w-auto"
+                className="w-full rounded-full bg-fluo-500 px-7 py-4 font-display font-700 text-ink-950 transition-all hover:bg-fluo-400 glow-fluo sm:w-auto"
               >
                 Bâtir mon employé IA
               </a>
               <a
                 href="#services"
-                className="w-full rounded-md border border-white/15 px-7 py-4 font-600 text-white transition-colors hover:bg-white/5 sm:w-auto"
+                className="w-full rounded-full border border-white/15 px-7 py-4 font-600 text-white transition-colors hover:bg-white/5 sm:w-auto"
               >
                 Découvrir ce qu'on peut automatiser
               </a>
@@ -335,7 +335,7 @@ export default function Page() {
           <div className="marquee-track">
             {[...PROBLEMS, ...PROBLEMS, ...PROBLEMS, ...PROBLEMS].map((p, i) => (
               <span key={i} className="flex items-center whitespace-nowrap px-6 text-mist-soft">
-                <span className="mr-6 h-1.5 w-1.5 rounded-md bg-fluo-500" />
+                <span className="mr-6 h-1.5 w-1.5 rounded-full bg-fluo-500" />
                 <span className="font-display text-lg font-600 text-white/80">{p}</span>
               </span>
             ))}
@@ -540,7 +540,7 @@ export default function Page() {
               href={CALENDLY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex rounded-md bg-fluo-500 px-7 py-4 font-display font-700 text-ink-950 transition-colors hover:bg-fluo-400 glow-fluo"
+              className="inline-flex rounded-full bg-fluo-500 px-7 py-4 font-display font-700 text-ink-950 transition-colors hover:bg-fluo-400 glow-fluo"
             >
               Planifier mon diagnostic IA
             </a>
@@ -759,7 +759,7 @@ export default function Page() {
                   href={CALENDLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`relative mt-8 inline-flex w-full justify-center rounded-md px-7 py-4 font-display font-700 transition-colors ${
+                  className={`relative mt-8 inline-flex w-full justify-center rounded-full px-7 py-4 font-display font-700 transition-colors ${
                     tier.featured
                       ? "bg-fluo-500 text-ink-950 hover:bg-fluo-400"
                       : "border border-white/15 text-white hover:bg-white/5"
@@ -806,7 +806,7 @@ export default function Page() {
                   href={CALENDLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-md border border-fluo-400/40 px-6 py-3 font-600 text-white transition-colors hover:bg-fluo-500/10"
+                  className="inline-flex items-center gap-2 rounded-full border border-fluo-400/40 px-6 py-3 font-600 text-white transition-colors hover:bg-fluo-500/10"
                 >
                   Réserver un appel
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">

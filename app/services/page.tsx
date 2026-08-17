@@ -176,13 +176,13 @@ export default function ServicesPage() {
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
                 href="/#candidature"
-                className="w-full rounded-md bg-fluo-500 px-7 py-4 font-display font-700 text-ink-950 transition-all hover:bg-fluo-400 glow-fluo sm:w-auto"
+                className="w-full rounded-full bg-fluo-500 px-7 py-4 font-display font-700 text-ink-950 transition-all hover:bg-fluo-400 glow-fluo sm:w-auto"
               >
                 Soumettre mon entreprise
               </a>
               <a
                 href="/#methode"
-                className="w-full rounded-md border border-white/15 px-7 py-4 font-600 text-white transition-colors hover:bg-white/5 sm:w-auto"
+                className="w-full rounded-full border border-white/15 px-7 py-4 font-600 text-white transition-colors hover:bg-white/5 sm:w-auto"
               >
                 Voir la méthode
               </a>
@@ -253,7 +253,7 @@ export default function ServicesPage() {
             </p>
             <a
               href="/#candidature"
-              className="mt-8 inline-flex rounded-md bg-fluo-500 px-7 py-4 font-display font-700 text-ink-950 transition-colors hover:bg-fluo-400 glow-fluo"
+              className="mt-8 inline-flex rounded-full bg-fluo-500 px-7 py-4 font-display font-700 text-ink-950 transition-colors hover:bg-fluo-400 glow-fluo"
             >
               Bâtir mon employé IA
             </a>

@@ -122,7 +122,7 @@ export default function RoiCalculator() {
         </div>
         <a
           href="#candidature"
-          className="mt-6 inline-flex rounded-md bg-fluo-500 px-6 py-3 text-sm font-600 text-ink-950 transition-colors hover:bg-fluo-400"
+          className="mt-6 inline-flex rounded-full bg-fluo-500 px-6 py-3 text-sm font-600 text-ink-950 transition-colors hover:bg-fluo-400"
         >
           Récupérer ce budget
         </a>
