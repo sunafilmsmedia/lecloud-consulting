@@ -304,8 +304,7 @@ export default function Page() {
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-mist-soft">
               En <span className="accent">3 jours</span>, on l'installe dans ton entreprise, sur
               Claude, branché à tes outils, entraîné sur ton business, pis on te montre comment le
-              contrôler. On a remplacé <span className="accent">36k$/an</span> de salaires de même
-              dans notre propre agence.
+              contrôler.
             </p>
 
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
