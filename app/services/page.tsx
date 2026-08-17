@@ -152,17 +152,6 @@ const CATEGORIES: Category[] = [
 
 const TOTAL = CATEGORIES.reduce((n, c) => n + c.services.length, 0);
 
-function ArrowResult({ text }: { text: string }) {
-  return (
-    <div className="mt-4 flex items-start gap-2 border-t border-white/8 pt-3 text-sm text-fluo-300">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="mt-0.5 flex-none">
-        <path d="M5 12h14m-6-6l6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-      <span>{text}</span>
-    </div>
-  );
-}
-
 export default function ServicesPage() {
   return (
     <>
@@ -217,17 +206,34 @@ export default function ServicesPage() {
                 </span>
               </div>
 
-              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              <div>
                 {cat.services.map((s) => (
                   <div
                     key={s.title}
-                    className="card flex flex-col p-6"
+                    className="grid gap-x-8 gap-y-1.5 border-b border-white/10 py-6 md:grid-cols-12"
                   >
-                    <h3 className="font-display text-lg font-700 text-white">{s.title}</h3>
-                    <p className="mt-2 flex-1 text-sm leading-relaxed text-mist-soft">
-                      {s.install}
+                    <h3 className="font-display text-lg font-700 text-white md:col-span-4">
+                      {s.title}
+                    </h3>
+                    <p className="leading-relaxed text-mist-soft md:col-span-5">{s.install}</p>
+                    <p className="flex items-start gap-2 text-sm text-fluo-300 md:col-span-3">
+                      <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        className="mt-1 flex-none"
+                      >
+                        <path
+                          d="M5 12h14m-6-6l6 6-6 6"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      <span>{s.result}</span>
                     </p>
-                    <ArrowResult text={s.result} />
                   </div>
                 ))}
               </div>
