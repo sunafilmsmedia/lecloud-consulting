@@ -8,6 +8,41 @@ import CandidatureForm from "@/components/CandidatureForm";
 
 const CALENDLY_URL = "https://calendly.com/sunafilmsmedia/nouvelle-reunion";
 
+const ROUTINES = [
+  {
+    title: "Sous-titres automatiques",
+    desc: "Chaque vidéo tournée est sous-titrée automatiquement, prête à publier.",
+  },
+  {
+    title: "Publication automatique",
+    desc: "Le contenu est posté tout seul sur les plateformes, au bon format.",
+  },
+  {
+    title: "Email marketing automatisé",
+    desc: "Séquences d'accueil, relance et réactivation qui roulent sans intervention.",
+  },
+  {
+    title: "Automatisations CRM",
+    desc: "Leads qualifiés, fiches mises à jour et suivis déclenchés automatiquement.",
+  },
+  {
+    title: "KPI automatiques",
+    desc: "Un tableau de bord qui se met à jour seul : revenus, leads, performance.",
+  },
+  {
+    title: "Analyse des conversations internes",
+    desc: "Les échanges de l'équipe sont analysés pour repérer ce qui bloque et ce qui revient.",
+  },
+  {
+    title: "Comptabilité & factures",
+    desc: "Optimisation des dépenses, et les factures sont téléchargées automatiquement.",
+  },
+  {
+    title: "Revue courriel hebdomadaire",
+    desc: "Tout le courriel est analysé chaque semaine : résumés, priorités et à-suivre.",
+  },
+];
+
 /* ---------- petits helpers ---------- */
 
 function Check({ className = "" }: { className?: string }) {
@@ -587,6 +622,69 @@ export default function Page() {
                 </li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        {/* ÉTUDE DE CAS — SUNA FILMS MEDIA */}
+        <section className="border-y border-white/10 bg-ink-900 py-24">
+          <div className="mx-auto max-w-6xl px-5">
+            <div className="mx-auto max-w-3xl text-center">
+              <Eyebrow>Étude de cas — notre propre agence</Eyebrow>
+              <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
+                On l&apos;a installé chez nous d&apos;abord.
+              </h2>
+              <p className="mt-4 text-mist-soft">
+                Avant de le faire pour toi, on a bâti notre propre employé IA dans{" "}
+                <span className="text-white">Suna Films Media</span>. Voici tout ce qu&apos;il
+                roule, chaque jour, sans qu&apos;on ait à y penser.
+              </p>
+            </div>
+
+            <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {ROUTINES.map((r) => (
+                <div
+                  key={r.title}
+                  className="card flex flex-col p-6 transition-colors hover:border-fluo-400/30"
+                >
+                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-fluo-500/10 text-fluo-300 ring-1 ring-fluo-400/25">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                  <h3 className="mt-4 font-display text-base font-700 leading-tight text-white">
+                    {r.title}
+                  </h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-mist-soft">{r.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-10 grid gap-4 sm:grid-cols-3">
+              <div className="card relative overflow-hidden border-fluo-400/25 p-7 text-center glow-fluo sm:col-span-1">
+                <div className="aura -right-8 -top-8 h-28 w-28 bg-fluo-500/25" />
+                <p className="relative text-xs font-600 uppercase tracking-widest text-fluo-300">
+                  Salaires remplacés
+                </p>
+                <p className="relative mt-2 font-display text-4xl">
+                  <span className="accent">36k$/an</span>
+                </p>
+                <p className="relative mt-1 text-sm text-mist-soft">dans notre propre agence</p>
+              </div>
+              <div className="card p-7 text-center">
+                <p className="text-xs font-600 uppercase tracking-widest text-fluo-300">
+                  Courriel analysé
+                </p>
+                <p className="mt-2 font-display text-4xl font-800 text-white">Chaque semaine</p>
+                <p className="mt-1 text-sm text-mist-soft">résumés, priorités, à-suivre</p>
+              </div>
+              <div className="card p-7 text-center">
+                <p className="text-xs font-600 uppercase tracking-widest text-fluo-300">
+                  Opérations
+                </p>
+                <p className="mt-2 font-display text-4xl font-800 text-white">24/7</p>
+                <p className="mt-1 text-sm text-mist-soft">sans intervention manuelle</p>
+              </div>
+            </div>
           </div>
         </section>
 
