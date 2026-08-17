@@ -1,5 +1,5 @@
 import Nav from "@/components/Nav";
-import Waves from "@/components/Waves";
+import Galaxy from "@/components/Galaxy";
 import Footer from "@/components/Footer";
 import Integrations from "@/components/Integrations";
 import Faq from "@/components/Faq";
@@ -267,8 +267,7 @@ export default function Page() {
       <main id="top">
         {/* HERO */}
         <section className="relative overflow-hidden pb-24 pt-36 sm:pt-44">
-          <Waves />
-          <div className="aura left-1/2 top-0 h-[420px] w-[560px] -translate-x-1/2 bg-fluo-600/25" />
+          <Galaxy />
           <div className="aura -left-20 top-40 h-72 w-72 bg-fluo-500/20" />
           <div className="relative mx-auto max-w-4xl px-5 text-center">
             <Eyebrow>Consultation et implantation IA pour PME</Eyebrow>
