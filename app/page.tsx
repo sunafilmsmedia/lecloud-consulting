@@ -121,20 +121,20 @@ const METHOD = [
   {
     phase: "Identify",
     day: "Jour 1",
-    lead: "On observe comment ton entreprise fonctionne réellement.",
-    body: "45 min d'alignement avec toi, 30 min avec ton adjointe s'il y en a une, puis 45 min à te regarder travailler pour vrai : les copier-coller et les répétitions se voient, ils ne se racontent pas. On repart avec la carte des 3 à 5 systèmes prioritaires, et un premier quick win livré le jour même.",
+    lead: "On comprend comment ton entreprise fonctionne vraiment.",
+    body: "Avant de bâtir quoi que ce soit, on observe tes opérations : où le temps se perd, quelles tâches se répètent, ce qui ralentit la croissance. On repart avec une carte claire des systèmes à construire en premier.",
   },
   {
     phase: "Develop",
     day: "Jours 2-3",
     lead: "On bâtit le cerveau IA de ton entreprise.",
-    body: "On centralise ton identité, tes offres, ton ICP, ton ton de voix, tes processus et tes FAQ, puis on connecte l'IA à ton CRM, tes formulaires et tes courriels. Test de validation : l'IA répond à 5 de tes vrais messages et tu dois pouvoir dire « c'est moi, ça ».",
+    body: "On centralise ce qui te définit (offres, processus, ton de voix) et on connecte l'IA à tes outils. Le test est simple : elle répond à tes vrais messages et tu dois pouvoir dire « c'est moi, ça ».",
   },
   {
     phase: "Adopt",
-    day: "Clôture + J+30",
-    lead: "On te rend autonome, puis on ferme la boucle.",
-    body: "Critère de sortie : tu refais chaque workflow seul et tu crées une première automatisation sans aide. On clôt la visite par une journée de tournage, puis un call à J+30 avec le bilan chiffré : les heures sauvées comparées aux chiffres du Jour 1.",
+    day: "Suivi J+30",
+    lead: "L'IA devient une partie de comment le travail se fait.",
+    body: "Livrer un système, ce n'est pas réussir : l'adoption, oui. On te forme et on reste à tes côtés jusqu'à ce que tu refasses chaque workflow seul. Le but, ce n'est pas un « transfert », c'est la pleine maîtrise.",
   },
 ];
 
@@ -500,36 +500,42 @@ export default function Page() {
         </section>
 
         {/* MÉTHODE */}
-        <section id="methode" className="mx-auto max-w-6xl px-5 py-24">
-          <div className="mx-auto max-w-3xl text-center">
+        <section id="methode" className="mx-auto max-w-5xl px-5 py-24">
+          <div className="max-w-3xl">
             <Eyebrow>Notre méthode</Eyebrow>
             <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
-              Trois jours pour transformer tes opérations.
+              On comprend, on construit, on te rend autonome.
             </h2>
           </div>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
+          <div className="mt-16 space-y-16">
             {METHOD.map((m, i) => (
-              <div key={m.day} className="card relative p-8">
-                <span className="font-display text-6xl font-800 text-white/[0.06]">
-                  0{i + 1}
-                </span>
-                <div className="-mt-8">
-                  <span className="text-sm font-600 text-fluo-300">{m.day}</span>
-                  <h3 className="mt-1 font-display text-2xl font-700 text-white">{m.phase}</h3>
-                  <p className="mt-3 font-600 text-white/90">{m.lead}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-mist-soft">{m.body}</p>
+              <div key={m.phase} className="grid gap-4 border-t border-white/10 pt-10 md:grid-cols-12 md:gap-10">
+                <div className="md:col-span-4">
+                  <div className="flex items-baseline gap-3">
+                    <span className="font-display text-5xl font-800 leading-none text-white/15">
+                      {i + 1}
+                    </span>
+                    <span className="text-xs font-600 uppercase tracking-widest text-mist-soft/60">
+                      {m.day}
+                    </span>
+                  </div>
+                  <h3 className="mt-3 font-display text-3xl font-700 text-fluo-400">{m.phase}</h3>
+                </div>
+                <div className="md:col-span-8">
+                  <p className="font-display text-xl font-700 text-white">{m.lead}</p>
+                  <p className="mt-3 max-w-2xl leading-relaxed text-mist-soft">{m.body}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          <p className="mx-auto mt-10 max-w-2xl text-center text-sm text-mist-soft">
+          <p className="mt-14 max-w-2xl text-sm text-mist-soft">
             L'offre couvre trois jours d'implantation. La portée est fixée pendant l'audit :
             selon la complexité, certains systèmes peuvent s'étendre sur une phase supplémentaire.
           </p>
 
-          <div className="mt-8 text-center">
+          <div className="mt-8">
             <a
               href={CALENDLY_URL}
               target="_blank"
