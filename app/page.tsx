@@ -336,13 +336,7 @@ export default function Page() {
 
         {/* AVANT / APRÈS */}
         <section className="relative mx-auto max-w-6xl px-5 py-24">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="font-display text-3xl font-800 text-white sm:text-4xl">
-              Ton équipe ne devrait pas perdre ses journées sur des tâches que l'IA peut accomplir.
-            </h2>
-          </div>
-
-          <div className="mt-14 grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2">
             <div className="card p-8">
               <span className="text-xs font-600 uppercase tracking-widest text-mist-soft">
                 Avant Le Cloud
