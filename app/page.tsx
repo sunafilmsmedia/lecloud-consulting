@@ -1,6 +1,7 @@
 import Nav from "@/components/Nav";
 import Waves from "@/components/Waves";
 import Footer from "@/components/Footer";
+import Integrations from "@/components/Integrations";
 import Faq from "@/components/Faq";
 import RoiCalculator from "@/components/RoiCalculator";
 import CandidatureForm from "@/components/CandidatureForm";
@@ -430,6 +431,31 @@ export default function Page() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* INTÉGRATIONS */}
+        <section className="mx-auto max-w-6xl px-5 py-24">
+          <div className="mx-auto max-w-3xl text-center">
+            <Eyebrow>Intégrations</Eyebrow>
+            <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
+              On se connecte aux outils que tu utilises déjà.
+            </h2>
+            <p className="mt-4 text-mist-soft">
+              Ton employé IA ne vit pas à part. Il se branche à ton CRM, tes courriels, ton
+              calendrier et tes applications — et pour tout le reste, il y a Zapier, Make et les API.
+            </p>
+          </div>
+
+          <div className="relative mt-12">
+            <div className="aura left-1/2 top-1/2 h-52 w-[560px] -translate-x-1/2 -translate-y-1/2 bg-fluo-600/12" />
+            <div className="relative">
+              <Integrations />
+            </div>
+          </div>
+
+          <p className="mt-6 text-center text-sm text-mist-soft">
+            + des centaines d&apos;autres via Zapier, Make et les API.
+          </p>
         </section>
 
         {/* AGENTS SPÉCIALISÉS */}

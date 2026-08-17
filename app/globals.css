@@ -141,3 +141,79 @@ h1, h2, h3, h4, .font-display {
 @media (prefers-reduced-motion: reduce) {
   .wave-line { animation: none; }
 }
+
+/* ---- Intégrations : rangées de pastilles défilantes ---- */
+/* 1. La boîte de découpe : centre la pile et masque les débordements */
+.lc-marquee {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  /* 2. Bords estompés par masque (symétrique) — -webkit doublé pour Safari */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 14%, black 66%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 14%, black 66%, transparent);
+}
+
+/* 3. Une rangée : largeur naturelle, contenu dupliqué (x2) */
+.lc-row {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+}
+
+/* 4. Défilement : -50% = exactement une copie → boucle invisible */
+.lc-row[data-drift] {
+  animation-name: lc-drift;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.lc-row.back[data-drift] {
+  animation-name: lc-drift-back;
+}
+@keyframes lc-drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes lc-drift-back {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+/* 5. Accessibilité */
+@media (prefers-reduced-motion: reduce) {
+  [data-drift] { animation: none !important; }
+}
+
+/* 6. Pastille */
+.lc-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 18px 8px 8px;
+  white-space: nowrap;
+}
+.lc-ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex: none;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.lc-name {
+  font-size: 13.5px;
+  line-height: 1.15;
+  color: #ffffff;
+}
+.lc-role {
+  font-size: 11px;
+  line-height: 1.15;
+  color: #9aa6ba;
+}
