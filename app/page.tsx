@@ -334,66 +334,6 @@ export default function Page() {
           </div>
         </section>
 
-        {/* AVANT / APRÈS */}
-        <section className="relative mx-auto max-w-6xl px-5 py-24">
-          <div className="grid gap-6 md:grid-cols-2">
-            <div className="card p-8">
-              <span className="text-xs font-600 uppercase tracking-widest text-mist-soft">
-                Avant Le Cloud
-              </span>
-              <h3 className="mt-3 font-display text-2xl font-700 text-white">Le travail manuel</h3>
-              <p className="mt-3 text-mist-soft">
-                Ton équipe répond toujours aux mêmes questions, copie les mêmes informations,
-                prépare les mêmes documents et relance manuellement chaque prospect.
-              </p>
-              <ul className="mt-6 space-y-3">
-                {[
-                  "Des heures perdues chaque semaine",
-                  "Des demandes oubliées",
-                  "Des réponses trop lentes",
-                  "Des employés surchargés",
-                  "Une croissance qui exige toujours plus de personnel",
-                ].map((t) => (
-                  <li key={t} className="flex items-center gap-3 text-white/80">
-                    <Cross className="text-red-400/80" /> {t}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="card relative overflow-hidden border-fluo-400/25 p-8 glow-fluo">
-              <div className="aura -right-10 -top-10 h-40 w-40 bg-fluo-500/30" />
-              <span className="relative text-xs font-600 uppercase tracking-widest text-fluo-300">
-                Après Le Cloud
-              </span>
-              <h3 className="relative mt-3 font-display text-2xl font-700 text-white">
-                Ton employé IA
-              </h3>
-              <p className="relative mt-3 text-mist-soft">
-                Un système qui connaît ton entreprise, travaille avec tes outils et exécute
-                automatiquement les tâches répétitives.
-              </p>
-              <ul className="relative mt-6 space-y-3">
-                {[
-                  "Réponses et suivis instantanés",
-                  "Qualification automatique des prospects",
-                  "Documents et contenu générés",
-                  "Informations centralisées",
-                  "Opérations actives 24 h sur 24",
-                ].map((t) => (
-                  <li key={t} className="flex items-center gap-3 text-white">
-                    <Check className="text-fluo-400" /> {t}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <p className="mt-8 text-center font-display text-xl font-600 text-white">
-            Même équipe. Plus de capacité. Moins de travail répétitif.
-          </p>
-        </section>
-
         {/* PROMESSE + CAPACITÉS */}
         <section className="relative border-y border-white/10 bg-ink-900 py-24">
           <div className="mx-auto max-w-6xl px-5">
