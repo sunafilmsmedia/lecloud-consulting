@@ -276,6 +276,48 @@ const PRICING = [
   },
 ];
 
+const PORTFOLIO_STATS = [
+  { value: "643", label: "leads qualifiés / mois" },
+  { value: "+35 %", label: "de croissance depuis mai" },
+  { value: "16,68 $", label: "meilleur coût par lead" },
+  { value: "18", label: "clients suivis" },
+];
+
+const RESULTS = [
+  {
+    name: "Luis Ribeiro",
+    role: "Courtier hypothécaire · Centum",
+    photo: "/results/luis-ribeiro.jpg",
+    metric: "16,68 $",
+    metricLabel: "coût par lead",
+    note: "Le meilleur coût par lead du portefeuille : 86 leads et 71 727 vues en juillet.",
+  },
+  {
+    name: "Elie Ibrahim",
+    role: "Courtier hypothécaire · Alliance",
+    photo: "/results/elie-ibrahim.jpg",
+    metric: "11,73 %",
+    metricLabel: "taux d'engagement",
+    note: "Le meilleur engagement organique du portefeuille. Leads x1,5 : de 19 à 47 par mois.",
+  },
+  {
+    name: "Martin Ross",
+    role: "Courtier hypothécaire · Multi-Prêts",
+    photo: "/results/martin-ross.jpg",
+    metric: "66",
+    metricLabel: "leads / mois",
+    note: "Volume constant à un coût par lead solide de 21,89 $. Prêt à monter le budget.",
+  },
+  {
+    name: "Sylvain Danis",
+    role: "Courtier hypothécaire · Multi-Prêts",
+    photo: "/results/sylvain-danis.jpg",
+    metric: "21,77 $",
+    metricLabel: "coût par lead",
+    note: "Efficacité prouvée sur un plus petit budget. Excellent candidat pour scaler.",
+  },
+];
+
 /* ---------- page ---------- */
 
 export default function Page() {
@@ -712,6 +754,62 @@ export default function Page() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* RÉSULTATS CLIENTS */}
+        <section id="resultats" className="mx-auto max-w-6xl px-5 py-24">
+          <div className="mx-auto max-w-3xl text-center">
+            <Eyebrow>Résultats</Eyebrow>
+            <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
+              Des systèmes qui livrent, chiffres à l&apos;appui.
+            </h2>
+            <p className="mt-4 text-mist-soft">
+              De vrais chiffres de juillet 2026, extraits de Meta Ads et Metricool sur le
+              portefeuille de <span className="text-white">Suna Films Media</span>.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {PORTFOLIO_STATS.map((s) => (
+              <div key={s.label} className="card p-6 text-center">
+                <p className="font-display text-4xl font-800 text-white">{s.value}</p>
+                <p className="mt-1 text-sm text-mist-soft">{s.label}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {RESULTS.map((r) => (
+              <div key={r.name} className="card flex flex-col p-6">
+                <div className="flex items-center gap-3">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={r.photo}
+                    alt={r.name}
+                    className="h-12 w-12 flex-none rounded-full object-cover"
+                  />
+                  <div>
+                    <p className="font-display text-sm font-700 leading-tight text-white">
+                      {r.name}
+                    </p>
+                    <p className="text-xs text-mist-soft">{r.role}</p>
+                  </div>
+                </div>
+                <div className="mt-5 border-t border-white/10 pt-4">
+                  <p className="font-display text-3xl font-800 text-fluo-400">{r.metric}</p>
+                  <p className="text-xs uppercase tracking-widest text-mist-soft/70">
+                    {r.metricLabel}
+                  </p>
+                </div>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-mist-soft">{r.note}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-6 text-center text-xs text-mist-soft/60">
+            Chiffres tirés de Meta Ads, Typeform et Metricool (juillet 2026). Les dépenses
+            publicitaires appartiennent aux clients et ne sont pas partagées ici.
+          </p>
         </section>
 
         {/* TARIFS */}
