@@ -90,34 +90,6 @@ const CAPABILITIES = [
   "Répondre aux questions internes de ton équipe",
 ];
 
-const DOMAINS = [
-  {
-    title: "Publicité",
-    body: "L'IA lit tes campagnes, repère ce qui brûle du budget et te sort des recommandations claires, au lieu de deviner.",
-    icon: "megaphone",
-  },
-  {
-    title: "Opérations internes",
-    body: "Tâches répétitives automatisées, réponses aux questions de l'équipe et documents générés à la chaîne.",
-    icon: "gears",
-  },
-  {
-    title: "Finance et tableaux de bord",
-    body: "Données centralisées et tableaux de bord clairs pour voir où va l'argent et le temps, en temps réel.",
-    icon: "chart",
-  },
-  {
-    title: "Marketing et offres",
-    body: "Contenu adapté à ta marque et offres structurées, produits plus vite et sans repartir de zéro.",
-    icon: "spark",
-  },
-  {
-    title: "CRM et expérience client",
-    body: "Prospects qualifiés, suivis instantanés par courriel et SMS, et un CRM tenu à jour tout seul.",
-    icon: "users",
-  },
-];
-
 const METHOD = [
   {
     phase: "Identify",
@@ -409,46 +381,6 @@ export default function Page() {
           </div>
           <div className="mt-12">
             <RoiCalculator />
-          </div>
-        </section>
-
-        {/* SERVICES : 5 DOMAINES */}
-        <section id="services" className="mx-auto max-w-5xl px-5 py-16 sm:py-24">
-          <div className="max-w-3xl">
-            <Eyebrow>Ce qu'on peut automatiser</Eyebrow>
-            <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
-              Cinq domaines où ton employé IA prend le relais.
-            </h2>
-            <p className="mt-4 text-mist-soft">
-              On ne touche pas à tout d'un coup. On cible les domaines où le rendement est le
-              plus rapide, et on construit à partir de là.
-            </p>
-          </div>
-
-          <div className="mt-14 border-t border-white/10">
-            {DOMAINS.map((d, i) => (
-              <div
-                key={d.title}
-                className="grid grid-cols-1 gap-x-8 gap-y-2 border-b border-white/10 py-8 md:grid-cols-12"
-              >
-                <div className="font-display text-sm tabular-nums text-mist-soft/70 md:col-span-2">
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-                <h3 className="font-display text-xl font-700 text-white md:col-span-4">
-                  {d.title}
-                </h3>
-                <p className="leading-relaxed text-mist-soft md:col-span-6">{d.body}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8">
-            <a
-              href="/services"
-              className="font-600 text-fluo-300 underline decoration-fluo-400/40 underline-offset-4 transition-colors hover:decoration-fluo-400"
-            >
-              Voir les 20 services en détail
-            </a>
           </div>
         </section>
 
