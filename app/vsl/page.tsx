@@ -29,15 +29,19 @@ export default function VslPage() {
               2 places par mois uniquement
             </span>
             <h1 className="mx-auto mt-6 max-w-3xl font-display text-4xl font-800 leading-[1.05] text-white sm:text-6xl">
-              Voici ce qu&apos;on construit <span className="accent">pour toi.</span>
+              On crée ton employé IA en <span className="accent">3 jours.</span>
             </h1>
             <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-mist-soft">
-              En 3 jours, un employé IA branché à tes outils qui exécute tes tâches répétitives.
-              Regarde&nbsp;:
+              Un employé qui exécute tes tâches répétitives, branché à tes outils, entraîné sur ton
+              business.
+            </p>
+
+            <p className="mt-10 font-display text-lg font-600 text-white">
+              Voici ce qu&apos;on construit pour toi
             </p>
 
             {/* flèche vers la vidéo */}
-            <div className="mt-6 flex justify-center">
+            <div className="mt-3 flex justify-center">
               <svg
                 className="h-8 w-8 animate-bounce text-fluo-400"
                 viewBox="0 0 24 24"
