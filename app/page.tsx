@@ -276,6 +276,87 @@ const PRICING = [
   },
 ];
 
+const FLOW_ICONS: Record<string, React.ReactNode> = {
+  email: (
+    <>
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="M4 8l8 5 8-5" />
+    </>
+  ),
+  robot: (
+    <>
+      <rect x="5" y="8" width="14" height="10" rx="2.5" />
+      <path d="M12 8V5M9.5 13h.01M14.5 13h.01M9.5 16h5M5 12.5H3.4M20.6 12.5H19" />
+    </>
+  ),
+  folder: (
+    <path d="M3 7.5A1.5 1.5 0 014.5 6H9l2 2h8.5A1.5 1.5 0 0121 9.5V18a1.5 1.5 0 01-1.5 1.5h-15A1.5 1.5 0 013 18z" />
+  ),
+  video: (
+    <>
+      <rect x="3" y="6" width="13" height="12" rx="2" />
+      <path d="M16 10.5l5-2.5v8l-5-2.5z" />
+    </>
+  ),
+  caption: (
+    <>
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="M6.5 13.5h4M12.5 13.5h5" />
+    </>
+  ),
+  calendar: (
+    <>
+      <rect x="3" y="5" width="18" height="16" rx="2" />
+      <path d="M3 9.5h18M8 3v4M16 3v4" />
+    </>
+  ),
+  report: (
+    <>
+      <path d="M6 3.5h8l4 4V20.5H6z" />
+      <path d="M14 3.5v4h4M9 13h6M9 16h4" />
+    </>
+  ),
+};
+
+const FLOWS = [
+  {
+    title: "Tes factures classées toutes seules",
+    desc: "L'IA scanne ta boîte courriel, télécharge les factures et les PDF, et les range automatiquement dans un dossier Drive « Factures Q2 ».",
+    steps: [
+      { icon: "email", label: "Courriel" },
+      { icon: "robot", label: "IA" },
+      { icon: "folder", label: "Factures Q2" },
+    ],
+  },
+  {
+    title: "Sous-titres automatiques, à ton style",
+    desc: "Tu déposes tes vidéos dans un Drive. Elles partent à Submagic, qui les sous-titre exactement dans le style que tu as défini.",
+    steps: [
+      { icon: "video", label: "Drive vidéos" },
+      { icon: "robot", label: "IA" },
+      { icon: "caption", label: "Submagic" },
+    ],
+  },
+  {
+    title: "Ton mois de contenu, planifié tout seul",
+    desc: "Tu drops tes vidéos dans un Drive. L'IA les regarde, choisit une accroche et planifie tout le contenu du mois, à la meilleure heure de publication.",
+    steps: [
+      { icon: "video", label: "Drive vidéos" },
+      { icon: "robot", label: "IA" },
+      { icon: "calendar", label: "Mois planifié" },
+    ],
+  },
+  {
+    title: "Tes appels de vente, transformés en munitions",
+    desc: "L'IA écoute tes appels Zoom et t'envoie un résumé mensuel des objections et des succès, puis t'aide à bâtir des pubs et du contenu basés sur ce qui marche.",
+    steps: [
+      { icon: "video", label: "Appels Zoom" },
+      { icon: "robot", label: "IA" },
+      { icon: "report", label: "Résumé + pubs" },
+    ],
+  },
+];
+
 const PORTFOLIO_STATS = [
   { value: "643", label: "leads qualifiés / mois" },
   { value: "+35 %", label: "de croissance depuis mai" },
@@ -386,6 +467,68 @@ export default function Page() {
                 <span className="mr-6 h-1.5 w-1.5 rounded-full bg-fluo-500" />
                 <span className="font-display text-lg font-600 text-white/80">{p}</span>
               </span>
+            ))}
+          </div>
+        </section>
+
+        {/* EXEMPLES / SHOWCASE */}
+        <section id="exemples" className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
+          <div className="mx-auto max-w-3xl text-center">
+            <Eyebrow>Exemples concrets</Eyebrow>
+            <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
+              Voici ce qu&apos;on peut faire tourner pour toi.
+            </h2>
+            <p className="mt-4 text-mist-soft">
+              De vrais systèmes, branchés à tes outils. Tu déposes, l&apos;IA exécute, tu récupères
+              le résultat.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 md:grid-cols-2">
+            {FLOWS.map((f) => (
+              <div key={f.title} className="card p-6 sm:p-7">
+                <div className="flex items-start justify-center gap-1 sm:gap-3">
+                  {f.steps.map((s, i) => (
+                    <div key={s.label} className="flex items-start">
+                      <div className="flex w-16 flex-col items-center gap-2 text-center sm:w-20">
+                        <span className="flex h-14 w-14 items-center justify-center rounded-xl border border-fluo-400/25 bg-fluo-500/[0.08] text-fluo-300">
+                          <svg
+                            width="26"
+                            height="26"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.4"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            {FLOW_ICONS[s.icon]}
+                          </svg>
+                        </span>
+                        <span className="text-[11px] leading-tight text-mist-soft">{s.label}</span>
+                      </div>
+                      {i < f.steps.length - 1 && (
+                        <svg
+                          className="mt-5 h-4 w-5 flex-none text-fluo-400/70"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <path
+                            d="M4 12h14m-5-5l5 5-5 5"
+                            stroke="currentColor"
+                            strokeWidth="1.7"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                <h3 className="mt-6 font-display text-xl font-700 text-white">{f.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-mist-soft">{f.desc}</p>
+              </div>
             ))}
           </div>
         </section>
