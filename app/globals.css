@@ -216,6 +216,15 @@ h1, h2, h3, h4, .font-display {
   .flow-ai { animation: none; }
 }
 
+/* Carrousel : masquer la barre de défilement */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 /* ---- Intégrations : rangées de pastilles défilantes ---- */
 /* 1. La boîte de découpe : centre la pile et masque les débordements */
 .lc-marquee {
