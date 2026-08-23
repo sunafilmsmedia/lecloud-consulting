@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Vrais logos (SVG couleur) des outils qu'on connecte
 const BRAND_LOGOS: Record<string, React.ReactNode> = {
@@ -195,90 +195,93 @@ function FlowDiagram({ steps }: { steps: Step[] }) {
   );
 }
 
+
 export default function Showcase() {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [idx, setIdx] = useState(0);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const el = sectionRef.current;
+      if (!el) return;
+      const total = el.offsetHeight - window.innerHeight;
+      const scrolled = Math.min(Math.max(-el.getBoundingClientRect().top, 0), Math.max(total, 1));
+      const p = total > 0 ? scrolled / total : 0;
+      const i = Math.min(FLOWS.length - 1, Math.floor(p * FLOWS.length));
+      setActive((prev) => (prev === i ? prev : i));
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    update();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
 
   const goTo = (i: number) => {
-    const el = trackRef.current;
+    const el = sectionRef.current;
     if (!el) return;
-    const clamped = (i + FLOWS.length) % FLOWS.length;
-    el.scrollTo({ left: el.clientWidth * clamped, behavior: "smooth" });
-  };
-
-  const onScroll = () => {
-    const el = trackRef.current;
-    if (!el) return;
-    setIdx(Math.round(el.scrollLeft / el.clientWidth));
+    const total = el.offsetHeight - window.innerHeight;
+    const target = el.offsetTop + ((i + 0.5) / FLOWS.length) * total;
+    window.scrollTo({ top: target, behavior: "smooth" });
   };
 
   return (
-    <section id="exemples" className="mx-auto max-w-5xl px-5 py-16 sm:py-24">
-      <div className="mx-auto max-w-3xl text-center">
-        <span className="inline-flex items-center gap-2 rounded-md border border-fluo-400/25 bg-fluo-500/[0.07] px-4 py-1.5 text-xs font-600 uppercase tracking-widest text-fluo-300">
-          Exemples concrets
-        </span>
-        <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
-          Voici ce qu&apos;on peut faire tourner pour toi.
-        </h2>
-        <p className="mt-4 text-mist-soft">
-          De vrais systèmes, branchés à tes outils. Fais défiler les exemples.
-        </p>
-      </div>
+    <section
+      id="exemples"
+      ref={sectionRef}
+      className="relative"
+      style={{ height: `${FLOWS.length * 75}vh` }}
+    >
+      <div className="sticky top-0 flex h-screen flex-col items-center justify-center px-5">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="inline-flex items-center gap-2 rounded-md border border-fluo-400/25 bg-fluo-500/[0.07] px-4 py-1.5 text-xs font-600 uppercase tracking-widest text-fluo-300">
+            Exemples concrets
+          </span>
+          <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
+            Voici ce qu&apos;on peut faire tourner pour toi.
+          </h2>
+        </div>
 
-      <div className="relative mt-12">
-        {/* flèches (desktop) */}
-        <button
-          type="button"
-          aria-label="Exemple précédent"
-          onClick={() => goTo(idx - 1)}
-          className="absolute -left-3 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-ink-900/80 text-white transition-colors hover:bg-white/10 sm:flex"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </button>
-        <button
-          type="button"
-          aria-label="Exemple suivant"
-          onClick={() => goTo(idx + 1)}
-          className="absolute -right-3 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-ink-900/80 text-white transition-colors hover:bg-white/10 sm:flex"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </button>
-
-        <div
-          ref={trackRef}
-          onScroll={onScroll}
-          className="no-scrollbar flex snap-x snap-mandatory overflow-x-auto scroll-smooth"
-        >
-          {FLOWS.map((f) => (
-            <div key={f.title} className="w-full shrink-0 snap-center px-1">
-              <div className="card mx-auto max-w-2xl p-8 text-center sm:p-12">
-                <FlowDiagram steps={f.steps} />
-                <h3 className="mt-8 font-display text-2xl font-800 text-white">{f.title}</h3>
-                <p className="mx-auto mt-3 max-w-lg leading-relaxed text-mist-soft">{f.desc}</p>
-              </div>
+        <div className="relative mt-12 h-[20rem] w-full max-w-2xl">
+          {FLOWS.map((f, i) => (
+            <div
+              key={f.title}
+              className={`absolute inset-0 flex flex-col items-center justify-center text-center transition-all duration-500 ease-out ${
+                i === active
+                  ? "opacity-100 translate-y-0"
+                  : "pointer-events-none translate-y-4 opacity-0"
+              }`}
+            >
+              <FlowDiagram steps={f.steps} />
+              <h3 className="mt-8 font-display text-2xl font-800 text-white sm:text-3xl">
+                {f.title}
+              </h3>
+              <p className="mx-auto mt-3 max-w-lg leading-relaxed text-mist-soft">{f.desc}</p>
             </div>
           ))}
         </div>
-      </div>
 
-      {/* points */}
-      <div className="mt-6 flex justify-center gap-2">
-        {FLOWS.map((_, i) => (
-          <button
-            key={i}
-            type="button"
-            aria-label={`Aller à l'exemple ${i + 1}`}
-            onClick={() => goTo(i)}
-            className={`h-1.5 rounded-full transition-all ${
-              i === idx ? "w-6 bg-fluo-400" : "w-2 bg-white/25 hover:bg-white/40"
-            }`}
-          />
-        ))}
+        <div className="mt-10 flex justify-center gap-2">
+          {FLOWS.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              aria-label={`Exemple ${i + 1}`}
+              onClick={() => goTo(i)}
+              className={`h-1.5 rounded-full transition-all ${
+                i === active ? "w-7 bg-fluo-400" : "w-2 bg-white/25 hover:bg-white/40"
+              }`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
