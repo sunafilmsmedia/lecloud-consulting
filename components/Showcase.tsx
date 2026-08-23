@@ -7,7 +7,13 @@ import { FLOWS, FlowDiagram } from "./flows";
 const SHOWCASE = FLOWS.slice(0, 3);
 const VH_PER = 48; // hauteur de scroll (en vh) par exemple : plus petit = change plus vite
 
-export default function Showcase() {
+export default function Showcase({
+  eyebrow = "Exemples concrets",
+  title = "Voici ce qu'on peut faire tourner pour toi.",
+}: {
+  eyebrow?: string;
+  title?: string;
+} = {}) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
 
@@ -54,11 +60,9 @@ export default function Showcase() {
       <div className="sticky top-0 flex h-screen flex-col items-center justify-center px-5">
         <div className="mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-md border border-fluo-400/25 bg-fluo-500/[0.07] px-4 py-1.5 text-xs font-600 uppercase tracking-widest text-fluo-300">
-            Exemples concrets
+            {eyebrow}
           </span>
-          <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
-            Voici ce qu&apos;on peut faire tourner pour toi.
-          </h2>
+          <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">{title}</h2>
         </div>
 
         <div className="relative mt-12 h-[20rem] w-full max-w-2xl">
