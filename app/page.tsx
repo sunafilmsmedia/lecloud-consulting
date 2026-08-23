@@ -276,45 +276,83 @@ const PRICING = [
   },
 ];
 
-const FLOW_ICONS: Record<string, React.ReactNode> = {
-  email: (
-    <>
-      <rect x="3" y="5" width="18" height="14" rx="2" />
-      <path d="M4 8l8 5 8-5" />
-    </>
+// Vrais logos (SVG couleur) des outils qu'on connecte
+const BRAND_LOGOS: Record<string, React.ReactNode> = {
+  gmail: (
+    <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden>
+      <path fill="#4285F4" d="M1.636 21.002h3.273v-7.91L0 9.457v9.909c0 .904.732 1.636 1.636 1.636z" />
+      <path fill="#34A853" d="M19.091 21.002h3.273c.904 0 1.636-.732 1.636-1.636V9.457l-4.909 3.636z" />
+      <path fill="#FBBC04" d="M19.091 5.093v8l4.909-3.636V5.911c0-2.023-2.31-3.178-3.927-1.964z" />
+      <path fill="#EA4335" d="M4.909 13.093v-8L12 10.457l7.091-5.364v8L12 18.457z" />
+      <path fill="#C5221F" d="M0 5.911v3.546l4.909 3.636v-8L3.927 3.947C2.309 2.733 0 3.888 0 5.911z" />
+    </svg>
   ),
-  robot: (
-    <>
-      <rect x="5" y="8" width="14" height="10" rx="2.5" />
-      <path d="M12 8V5M9.5 13h.01M14.5 13h.01M9.5 16h5M5 12.5H3.4M20.6 12.5H19" />
-    </>
+  drive: (
+    <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden>
+      <path fill="#FFCF63" d="M8.5 3 2 14.5 5.25 20 11.75 8.5z" />
+      <path fill="#11A861" d="M8.5 3h7L22 14.5h-7z" />
+      <path fill="#3777E3" d="M5.25 20h13.5L22 14.5H8.5z" />
+    </svg>
   ),
-  folder: (
-    <path d="M3 7.5A1.5 1.5 0 014.5 6H9l2 2h8.5A1.5 1.5 0 0121 9.5V18a1.5 1.5 0 01-1.5 1.5h-15A1.5 1.5 0 013 18z" />
-  ),
-  video: (
-    <>
-      <rect x="3" y="6" width="13" height="12" rx="2" />
-      <path d="M16 10.5l5-2.5v8l-5-2.5z" />
-    </>
-  ),
-  caption: (
-    <>
-      <rect x="3" y="5" width="18" height="14" rx="2" />
-      <path d="M6.5 13.5h4M12.5 13.5h5" />
-    </>
+  zoom: (
+    <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden>
+      <rect width="24" height="24" rx="6" fill="#2D8CFF" />
+      <path
+        fill="#fff"
+        d="M5 9.6C5 8.716 5.716 8 6.6 8h5.3c.884 0 1.6.716 1.6 1.6v4.8c0 .884-.716 1.6-1.6 1.6H6.6C5.716 16 5 15.284 5 14.4zm9.4 1.4 3.2-2.24c.53-.371 1.2.008 1.2.64v5.4c0 .632-.67 1.011-1.2.64L14.4 13z"
+      />
+    </svg>
   ),
   calendar: (
-    <>
-      <rect x="3" y="5" width="18" height="16" rx="2" />
-      <path d="M3 9.5h18M8 3v4M16 3v4" />
-    </>
+    <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden>
+      <rect x="3.5" y="3.5" width="17" height="17" rx="2.5" fill="#fff" />
+      <path d="M3.5 7.5h17" stroke="#4285F4" strokeWidth="0" />
+      <text
+        x="12"
+        y="16"
+        textAnchor="middle"
+        fontSize="9"
+        fontWeight="700"
+        fill="#4285F4"
+        fontFamily="Arial, sans-serif"
+      >
+        31
+      </text>
+      <rect x="3.5" y="3.5" width="17" height="4" rx="2.5" fill="#4285F4" />
+    </svg>
   ),
-  report: (
-    <>
-      <path d="M6 3.5h8l4 4V20.5H6z" />
-      <path d="M14 3.5v4h4M9 13h6M9 16h4" />
-    </>
+  submagic: (
+    <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden>
+      <defs>
+        <linearGradient id="sm-grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#7c3aed" />
+          <stop offset="1" stopColor="#c026d3" />
+        </linearGradient>
+      </defs>
+      <rect width="24" height="24" rx="6" fill="url(#sm-grad)" />
+      <g stroke="#fff" strokeWidth="1.7" strokeLinecap="round">
+        <path d="M6 13h6" />
+        <path d="M14 13h4" />
+        <path d="M6 16h4" />
+        <path d="M12 16h6" />
+      </g>
+    </svg>
+  ),
+  ads: (
+    <svg
+      viewBox="0 0 24 24"
+      width="30"
+      height="30"
+      fill="none"
+      stroke="#22ccff"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M4 20V4M4 20h16" />
+      <path d="M8 20v-5M12 20v-9M16 20v-6" />
+    </svg>
   ),
 };
 
@@ -323,36 +361,36 @@ const FLOWS = [
     title: "Tes factures classées toutes seules",
     desc: "L'IA scanne ta boîte courriel, télécharge les factures et les PDF, et les range automatiquement dans un dossier Drive « Factures Q2 ».",
     steps: [
-      { icon: "email", label: "Courriel" },
-      { icon: "robot", label: "IA" },
-      { icon: "folder", label: "Factures Q2" },
+      { brand: "gmail", label: "Gmail" },
+      { brand: "ai", label: "Le Cloud" },
+      { brand: "drive", label: "Factures Q2" },
     ],
   },
   {
     title: "Sous-titres automatiques, à ton style",
     desc: "Tu déposes tes vidéos dans un Drive. Elles partent à Submagic, qui les sous-titre exactement dans le style que tu as défini.",
     steps: [
-      { icon: "video", label: "Drive vidéos" },
-      { icon: "robot", label: "IA" },
-      { icon: "caption", label: "Submagic" },
+      { brand: "drive", label: "Drive vidéos" },
+      { brand: "ai", label: "Le Cloud" },
+      { brand: "submagic", label: "Submagic" },
     ],
   },
   {
     title: "Ton mois de contenu, planifié tout seul",
     desc: "Tu drops tes vidéos dans un Drive. L'IA les regarde, choisit une accroche et planifie tout le contenu du mois, à la meilleure heure de publication.",
     steps: [
-      { icon: "video", label: "Drive vidéos" },
-      { icon: "robot", label: "IA" },
-      { icon: "calendar", label: "Mois planifié" },
+      { brand: "drive", label: "Drive vidéos" },
+      { brand: "ai", label: "Le Cloud" },
+      { brand: "calendar", label: "Mois planifié" },
     ],
   },
   {
     title: "Tes appels de vente, transformés en munitions",
     desc: "L'IA écoute tes appels Zoom et t'envoie un résumé mensuel des objections et des succès, puis t'aide à bâtir des pubs et du contenu basés sur ce qui marche.",
     steps: [
-      { icon: "video", label: "Appels Zoom" },
-      { icon: "robot", label: "IA" },
-      { icon: "report", label: "Résumé + pubs" },
+      { brand: "zoom", label: "Zoom" },
+      { brand: "ai", label: "Le Cloud" },
+      { brand: "ads", label: "Résumé + pubs" },
     ],
   },
 ];
@@ -487,43 +525,35 @@ export default function Page() {
           <div className="mt-12 grid gap-5 md:grid-cols-2">
             {FLOWS.map((f) => (
               <div key={f.title} className="card p-6 sm:p-7">
-                <div className="flex items-start justify-center gap-1 sm:gap-3">
-                  {f.steps.map((s, i) => (
-                    <div key={s.label} className="flex items-start">
-                      <div className="flex w-16 flex-col items-center gap-2 text-center sm:w-20">
-                        <span className="flex h-14 w-14 items-center justify-center rounded-xl border border-fluo-400/25 bg-fluo-500/[0.08] text-fluo-300">
-                          <svg
-                            width="26"
-                            height="26"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="1.4"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            {FLOW_ICONS[s.icon]}
-                          </svg>
-                        </span>
-                        <span className="text-[11px] leading-tight text-mist-soft">{s.label}</span>
+                <div className="flex items-start">
+                  {f.steps.map((s, i) => {
+                    const last = i === f.steps.length - 1;
+                    return (
+                      <div
+                        key={s.label}
+                        className={`flex items-start ${last ? "flex-none" : "flex-1"}`}
+                      >
+                        <div className="flex w-16 flex-none flex-col items-center gap-2 text-center">
+                          {s.brand === "ai" ? (
+                            <span className="flow-ai flex h-14 w-14 items-center justify-center rounded-2xl border border-fluo-400/40 bg-fluo-500/10">
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                              <img src="/logo.png" alt="Le Cloud" className="h-8 w-auto" />
+                            </span>
+                          ) : (
+                            <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/12 bg-white/[0.05]">
+                              {BRAND_LOGOS[s.brand]}
+                            </span>
+                          )}
+                          <span className="text-[11px] leading-tight text-mist-soft">
+                            {s.label}
+                          </span>
+                        </div>
+                        {!last && (
+                          <span className={`flow-wire mx-1.5 mt-7 ${i === 1 ? "delay" : ""}`} />
+                        )}
                       </div>
-                      {i < f.steps.length - 1 && (
-                        <svg
-                          className="mt-5 h-4 w-5 flex-none text-fluo-400/70"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                        >
-                          <path
-                            d="M4 12h14m-5-5l5 5-5 5"
-                            stroke="currentColor"
-                            strokeWidth="1.7"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      )}
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
 
                 <h3 className="mt-6 font-display text-xl font-700 text-white">{f.title}</h3>

@@ -175,6 +175,47 @@ h1, h2, h3, h4, .font-display {
   .chartbg { animation: none; opacity: 1; }
 }
 
+/* ---- Exemples : fil animé (flux qui circule) ---- */
+.flow-wire {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 16px;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(120, 200, 255, 0.16);
+  overflow: hidden;
+}
+.flow-wire::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 45%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, transparent, #22ccff 65%, #eaffff);
+  animation: flow-run 2s linear infinite;
+}
+.flow-wire.delay::after {
+  animation-delay: 1s;
+}
+@keyframes flow-run {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(260%); }
+}
+/* pastille IA qui respire */
+.flow-ai {
+  animation: flow-glow 2.6s ease-in-out infinite;
+}
+@keyframes flow-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 204, 255, 0.0); }
+  50% { box-shadow: 0 0 22px 2px rgba(34, 204, 255, 0.35); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flow-wire::after { animation: none; }
+  .flow-ai { animation: none; }
+}
+
 /* ---- Intégrations : rangées de pastilles défilantes ---- */
 /* 1. La boîte de découpe : centre la pile et masque les débordements */
 .lc-marquee {
