@@ -127,30 +127,6 @@ const LECLOUD = [
   "Suivi 30 jours après l'implantation",
 ];
 
-const INCLUSIONS = [
-  "Pré-audit complet de ton entreprise",
-  "Audit opérationnel sur place",
-  "Cartographie des pertes de temps",
-  "Cerveau IA personnalisé",
-  "Assistants IA spécialisés",
-  "3 à 5 systèmes prioritaires",
-  "Connexion à tes outils existants",
-  "Automatisations CRM, courriel et SMS",
-  "Formation pratique de ton équipe",
-  "Documentation des systèmes",
-  "Soutien après l'implantation",
-  "Rencontre de révision après 30 jours",
-];
-
-const IDEAL = [
-  "Ont déjà une équipe et des opérations actives",
-  "Reçoivent régulièrement des demandes ou des prospects",
-  "Utilisent plusieurs logiciels qui communiquent mal ensemble",
-  "Perdent du temps sur des tâches administratives répétitives",
-  "Veulent augmenter leur capacité sans nécessairement embaucher",
-  "Veulent des systèmes concrets, pas une autre formation sur l'IA",
-];
-
 const AGENTS = [
   { name: "Offer Architect", desc: "Conçoit et emballe des offres irrésistibles qui convertissent.", tag: "Ventes" },
   { name: "Niche Architect", desc: "Identifie et valide des niches rentables par recherche approfondie.", tag: "Recherche" },
@@ -566,66 +542,6 @@ export default function Page() {
                 </ul>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* INCLUSIONS */}
-        <section className="border-y border-white/10 bg-ink-900 py-16 sm:py-24">
-          <div className="mx-auto max-w-6xl px-5">
-            <div className="mx-auto max-w-3xl text-center">
-              <Eyebrow>Ce que tu obtiens</Eyebrow>
-              <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
-                Un système complet, pas une liste de recommandations.
-              </h2>
-            </div>
-
-            <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {INCLUSIONS.map((t) => (
-                <div key={t} className="card flex items-center gap-3 px-5 py-4 text-white/90">
-                  <Check className="text-fluo-400" /> {t}
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8 card relative overflow-hidden border-fluo-400/30 p-8 text-center glow-fluo sm:p-10">
-              <div className="aura left-1/2 top-0 h-40 w-72 -translate-x-1/2 bg-fluo-500/25" />
-              <span className="relative text-xs font-600 uppercase tracking-widest text-fluo-300">
-                Bonus de lancement
-              </span>
-              <h3 className="relative mt-3 font-display text-2xl font-700 text-white">
-                Une journée de tournage avec notre équipe
-              </h3>
-              <p className="relative mx-auto mt-3 max-w-xl text-mist-soft">
-                On produit une première banque de 10 à 15 vidéos pour alimenter ton contenu et
-                les systèmes marketing que nous installons.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* CLIENT IDÉAL */}
-        <section className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
-          <div className="grid gap-12 md:grid-cols-2 md:items-center">
-            <div>
-              <Eyebrow>Client idéal</Eyebrow>
-              <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
-                Est-ce que Le Cloud est fait pour ton entreprise ?
-              </h2>
-              <p className="mt-4 text-mist-soft">
-                Cette transformation est conçue pour les PME qui&nbsp;:
-              </p>
-              <p className="mt-6 rounded-xl border border-white/10 bg-white/[0.02] px-5 py-4 text-sm text-mist-soft">
-                Cette offre n'est probablement pas adaptée si ton entreprise est encore au stade
-                de l'idée, ou si tu cherches seulement une liste d'outils gratuits.
-              </p>
-            </div>
-            <ul className="space-y-3">
-              {IDEAL.map((t) => (
-                <li key={t} className="card flex items-start gap-3 px-5 py-4 text-white/90">
-                  <Check className="mt-0.5 text-fluo-400" /> {t}
-                </li>
-              ))}
-            </ul>
           </div>
         </section>
 
