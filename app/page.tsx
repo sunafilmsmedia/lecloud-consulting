@@ -69,15 +69,6 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 
 /* ---------- données ---------- */
 
-const PROBLEMS = [
-  "Trop de tâches manuelles",
-  "Employés débordés",
-  "Leads oubliés",
-  "Suivis en retard",
-  "Données éparpillées",
-  "Outils IA inutilisés",
-];
-
 const CAPABILITIES = [
   "Répondre aux nouveaux prospects",
   "Qualifier et classer les demandes",
@@ -324,18 +315,6 @@ export default function Page() {
                 </span>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* BANDEAU PROBLÈMES */}
-        <section className="border-y border-white/10 bg-ink-900 py-5">
-          <div className="marquee-track">
-            {[...PROBLEMS, ...PROBLEMS, ...PROBLEMS, ...PROBLEMS].map((p, i) => (
-              <span key={i} className="flex items-center whitespace-nowrap px-6 text-mist-soft">
-                <span className="mr-6 h-1.5 w-1.5 rounded-full bg-fluo-500" />
-                <span className="font-display text-lg font-600 text-white/80">{p}</span>
-              </span>
-            ))}
           </div>
         </section>
 
