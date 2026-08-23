@@ -354,6 +354,32 @@ const BRAND_LOGOS: Record<string, React.ReactNode> = {
       <path d="M8 20v-5M12 20v-9M16 20v-6" />
     </svg>
   ),
+  meta: (
+    <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden>
+      <rect width="24" height="24" rx="6" fill="#1877F2" />
+      <path
+        fill="#fff"
+        d="M15.5 12.06h-2.1V20h-3.2v-7.94H8.5V9.3h1.7V7.9c0-2.02 1.2-3.14 3.05-3.14.88 0 1.64.07 1.86.1v2.16h-1.28c-1 0-1.2.48-1.2 1.18V9.3h2.4z"
+      />
+    </svg>
+  ),
+  leads: (
+    <svg
+      viewBox="0 0 24 24"
+      width="30"
+      height="30"
+      fill="none"
+      stroke="#22ccff"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <circle cx="9" cy="9" r="3" />
+      <path d="M3.5 19a5.5 5.5 0 0111 0" />
+      <path d="M16 6.2a3 3 0 010 5.6M15.5 14.3c2.3.4 4 2.1 4 4.2" />
+    </svg>
+  ),
 };
 
 const FLOWS = [
@@ -391,6 +417,24 @@ const FLOWS = [
       { brand: "zoom", label: "Zoom" },
       { brand: "ai", label: "Le Cloud" },
       { brand: "ads", label: "Résumé + pubs" },
+    ],
+  },
+  {
+    title: "Ton email marketing en pilote automatique",
+    desc: "L'IA écrit et envoie tes séquences d'accueil, de relance et de réactivation selon le comportement de chaque contact, sans que tu touches à rien.",
+    steps: [
+      { brand: "leads", label: "Contacts" },
+      { brand: "ai", label: "Le Cloud" },
+      { brand: "gmail", label: "Séquences courriel" },
+    ],
+  },
+  {
+    title: "Tes campagnes Meta analysées et optimisées",
+    desc: "L'IA lit tes données Meta Ads, repère ce qui performe et ce qui brûle du budget, et te dit exactement quoi ajuster pour améliorer tes résultats.",
+    steps: [
+      { brand: "meta", label: "Meta Ads" },
+      { brand: "ai", label: "Le Cloud" },
+      { brand: "ads", label: "Reco d'optimisation" },
     ],
   },
 ];
