@@ -152,7 +152,7 @@ export const FLOWS: Flow[] = [
   },
   {
     title: "Ton mois de contenu, planifié tout seul",
-    desc: "Tu drops tes vidéos dans un Drive. L'IA les regarde, choisit une accroche et planifie tout le contenu du mois, à la meilleure heure de publication.",
+    desc: "Tu déposes tes vidéos dans un Drive. L'IA les regarde, choisit une accroche et planifie tout le contenu du mois, à la meilleure heure de publication.",
     steps: [
       { brand: "drive", label: "Drive vidéos" },
       { brand: "ai", label: "Le Cloud" },

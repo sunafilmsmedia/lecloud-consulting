@@ -285,7 +285,7 @@ export default function Page() {
             </p>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-mist-soft">
               En <span className="accent">3 jours</span>, on l'installe dans ton entreprise, sur
-              Claude, branché à tes outils, entraîné sur ton business, pis on te montre comment le
+              Claude, branché à tes outils, entraîné sur ton business, et on te montre comment le
               contrôler.
             </p>
 
