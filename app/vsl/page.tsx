@@ -18,9 +18,10 @@ const VSL_VIDEO_URL = "";
 export default function VslPage() {
   return (
     <>
+      <div className="vsl-bg" aria-hidden />
       <Nav />
 
-      <main>
+      <main className="relative z-10">
         {/* HERO + VIDÉO */}
         <section className="relative overflow-hidden pt-32 pb-16 sm:pt-40">
           <div className="aura left-1/2 top-0 h-80 w-[600px] -translate-x-1/2 bg-fluo-600/20" />
@@ -79,7 +80,7 @@ export default function VslPage() {
         <Showcase eyebrow="Concrètement" title="Voici ce que ça donne concrètement." />
 
         {/* MÊME OFFRE : CTA */}
-        <section className="border-t border-white/10 bg-ink-900 py-16 sm:py-24">
+        <section className="border-t border-white/10 bg-ink-900/60 py-16 sm:py-24">
           <div className="mx-auto max-w-3xl px-5 text-center">
             <h2 className="font-display text-3xl font-800 text-white sm:text-4xl">
               On l&apos;installe dans ton entreprise, en 3 jours.

@@ -216,6 +216,35 @@ h1, h2, h3, h4, .font-display {
   .flow-ai { animation: none; }
 }
 
+/* ---- Fond VSL : dégradé bleu qui balaie de droite à gauche ---- */
+.vsl-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: radial-gradient(130% 100% at 50% 118%, rgba(0, 110, 210, 0.16), transparent 60%);
+}
+.vsl-bg::before {
+  content: "";
+  position: absolute;
+  top: -25%;
+  left: 0;
+  width: 75%;
+  height: 150%;
+  background: radial-gradient(closest-side, rgba(0, 170, 255, 0.38), rgba(0, 120, 230, 0.12) 55%, transparent 75%);
+  filter: blur(50px);
+  will-change: transform;
+  animation: vsl-pan 16s linear infinite;
+}
+@keyframes vsl-pan {
+  from { transform: translateX(150%); }
+  to { transform: translateX(-150%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vsl-bg::before { animation: none; left: 25%; }
+}
+
 /* Carrousel : masquer la barre de défilement */
 .no-scrollbar {
   scrollbar-width: none;
