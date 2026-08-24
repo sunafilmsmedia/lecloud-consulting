@@ -33,8 +33,8 @@ export default function VslPage() {
               On crée ton employé IA en <span className="accent">3 jours.</span>
             </h1>
             <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-mist-soft">
-              Un employé qui exécute tes tâches répétitives, branché à tes outils, entraîné sur ton
-              business.
+              Un employé qui exécute tes tâches répétitives, branché à tes outils. On identifie par
+              où commencer, on construit, et on te rend autonome.
             </p>
 
             <p className="mt-10 font-display text-lg font-600 text-white">
