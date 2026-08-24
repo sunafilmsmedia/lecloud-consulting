@@ -3,6 +3,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Showcase from "@/components/Showcase";
 import VideoFrame from "@/components/VideoFrame";
+import CircuitBg from "@/components/CircuitBg";
 
 export const metadata: Metadata = {
   title: "Le Cloud — Voici ce qu'on construit pour toi",
@@ -19,6 +20,7 @@ export default function VslPage() {
   return (
     <>
       <div className="vsl-bg" aria-hidden />
+      <CircuitBg />
       <Nav />
 
       <main className="relative z-10">
@@ -29,8 +31,11 @@ export default function VslPage() {
             <span className="inline-flex items-center gap-2 rounded-md border border-fluo-400/25 bg-fluo-500/[0.07] px-3 py-1 text-[11px] font-600 uppercase tracking-widest text-fluo-300 sm:px-4 sm:py-1.5 sm:text-xs">
               2 places par mois uniquement
             </span>
-            <h1 className="mx-auto mt-4 font-display text-[1.7rem] font-800 leading-[1.1] text-white sm:mt-5 sm:text-5xl">
-              On crée ton employé IA en <span className="accent">3 jours.</span>
+            <h1 className="mx-auto mt-4 font-display leading-[1] text-white sm:mt-5">
+              <span className="block text-xl font-800 sm:text-3xl">On crée ton employé IA en</span>
+              <span className="accent block px-2 pb-3 pt-1 text-[3.5rem] leading-[0.9] sm:text-8xl">
+                3 jours.
+              </span>
             </h1>
             <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-mist-soft sm:text-lg">
               Un employé qui exécute tes tâches répétitives, branché à tes outils. On identifie par
