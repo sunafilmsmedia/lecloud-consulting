@@ -22,33 +22,23 @@ export default function VslPage() {
       <Nav />
 
       <main className="relative z-10">
-        {/* HERO + VIDÉO */}
-        <section className="relative overflow-hidden pt-32 pb-16 sm:pt-40">
-          <div className="aura left-1/2 top-0 h-80 w-[600px] -translate-x-1/2 bg-fluo-600/20" />
-          <div className="relative mx-auto max-w-4xl px-5 text-center">
-            <span className="inline-flex items-center gap-2 rounded-md border border-fluo-400/25 bg-fluo-500/[0.07] px-4 py-1.5 text-xs font-600 uppercase tracking-widest text-fluo-300">
+        {/* HERO + VIDÉO — compact, tient dans un écran sur mobile */}
+        <section className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden px-5 pt-20 pb-8 sm:pt-28">
+          <div className="aura left-1/2 top-1/4 h-80 w-[600px] -translate-x-1/2 bg-fluo-600/20" />
+          <div className="relative mx-auto w-full max-w-3xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-md border border-fluo-400/25 bg-fluo-500/[0.07] px-3 py-1 text-[11px] font-600 uppercase tracking-widest text-fluo-300 sm:px-4 sm:py-1.5 sm:text-xs">
               2 places par mois uniquement
             </span>
-            <h1 className="mx-auto mt-6 max-w-3xl font-display text-4xl font-800 leading-[1.05] text-white sm:text-6xl">
+            <h1 className="mx-auto mt-4 font-display text-[1.7rem] font-800 leading-[1.1] text-white sm:mt-5 sm:text-5xl">
               On crée ton employé IA en <span className="accent">3 jours.</span>
             </h1>
-            <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-mist-soft">
+            <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-mist-soft sm:text-lg">
               Un employé qui exécute tes tâches répétitives, branché à tes outils. On identifie par
               où commencer, on construit, et on te rend autonome.
             </p>
 
-            <p className="mt-10 font-display text-lg font-600 text-white">
-              Voici ce qu&apos;on construit pour toi
-            </p>
-
-            {/* flèche vers la vidéo */}
-            <div className="mt-3 flex justify-center">
-              <svg
-                className="h-8 w-8 animate-bounce text-fluo-400"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden
-              >
+            <p className="mt-4 flex items-center justify-center gap-2 font-display text-sm font-700 text-white sm:mt-6 sm:text-lg">
+              <svg className="h-5 w-5 animate-bounce text-fluo-400" viewBox="0 0 24 24" fill="none" aria-hidden>
                 <path
                   d="M12 5v14m0 0l-6-6m6 6l6-6"
                   stroke="currentColor"
@@ -57,21 +47,25 @@ export default function VslPage() {
                   strokeLinejoin="round"
                 />
               </svg>
-            </div>
+              Voici ce qu&apos;on construit pour toi
+            </p>
 
-            <div className="mt-6">
+            <div className="mt-3 sm:mt-4">
               <VideoFrame src={VSL_VIDEO_URL} label="Ta VSL ici" />
             </div>
 
-            <div className="mt-8">
+            <div className="mt-4 sm:mt-6">
               <a
                 href={CALENDLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex rounded-full bg-fluo-500 px-8 py-4 font-display font-700 text-ink-950 transition-colors hover:bg-fluo-400 glow-fluo"
+                className="inline-flex w-full max-w-md justify-center rounded-full bg-fluo-500 px-8 py-4 font-display text-lg font-800 text-ink-950 transition-colors hover:bg-fluo-400 glow-fluo sm:w-auto"
               >
                 Réserver un appel
               </a>
+              <p className="mt-3 text-sm italic text-mist-soft/80">
+                Pas besoin d&apos;avoir d&apos;expérience avec l&apos;IA*
+              </p>
             </div>
           </div>
         </section>
