@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import AuditLeadMagnet from "@/components/AuditLeadMagnet";
+import BlueprintBg from "@/components/BlueprintBg";
 
 export const metadata: Metadata = {
   title: "Audit IA gratuit — Le Cloud",
@@ -12,9 +13,10 @@ export const metadata: Metadata = {
 export default function AuditPage() {
   return (
     <>
+      <BlueprintBg />
       <Nav />
 
-      <main>
+      <main className="relative z-10">
         <section className="relative overflow-hidden pt-32 pb-10 sm:pt-40">
           <div className="aura left-1/2 top-0 h-80 w-[560px] -translate-x-1/2 bg-fluo-600/20" />
           <div className="relative mx-auto max-w-3xl px-5 text-center">
