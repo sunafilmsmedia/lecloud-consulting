@@ -201,7 +201,7 @@ export default function Dashboards() {
   return (
     <div>
       <div
-        className="relative mx-auto h-[360px] max-w-2xl sm:h-[400px]"
+        className="relative mx-auto h-[360px] max-w-2xl overflow-hidden sm:h-[400px]"
         style={{ perspective: "1400px" }}
       >
         {DASHBOARDS.map((d, i) => (
