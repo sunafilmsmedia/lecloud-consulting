@@ -245,6 +245,18 @@ h1, h2, h3, h4, .font-display {
   .vsl-bg::before { animation: none; left: 25%; }
 }
 
+/* Champ d'étoiles (plein écran du cerveau) */
+.brain-stars {
+  background-color: #05070c;
+  background-image:
+    radial-gradient(1.4px 1.4px at 20px 30px, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 120px 90px, rgba(255, 255, 255, 0.35), transparent),
+    radial-gradient(1.2px 1.2px at 210px 160px, rgba(180, 220, 255, 0.4), transparent),
+    radial-gradient(1px 1px at 80px 220px, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(1.3px 1.3px at 300px 60px, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 340px 340px;
+}
+
 /* Fond « plans en construction » (canvas) */
 .blueprint-bg {
   position: fixed;

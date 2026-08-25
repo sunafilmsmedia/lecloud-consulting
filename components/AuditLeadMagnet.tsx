@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import BrainMap from "./BrainMap";
 
 const CALENDLY_URL = "https://calendly.com/sunafilmsmedia/nouvelle-reunion";
 
@@ -116,81 +117,6 @@ function Chip({
   );
 }
 
-/* ---- Cerveau IA : arbre à 2 niveaux (départements + branches) ---- */
-function OrgMap({ depts }: { depts: { name: string; tasks: string[] }[] }) {
-  const list = depts.length ? depts : DEPARTMENTS.slice(0, 3);
-  const W = 1000;
-  const H = 680;
-  const cx = W / 2;
-  const cy = H / 2;
-  const R1 = 150; // rayon des départements
-  const R2 = 300; // rayon des branches
-  const n = list.length;
-  const deg = (d: number) => (d * Math.PI) / 180;
-
-  return (
-    <svg viewBox={`0 0 ${W} ${H}`} className="w-full" aria-hidden>
-      {list.map((dept, i) => {
-        const A = -90 + (360 / n) * i;
-        const px = cx + R1 * Math.cos(deg(A));
-        const py = cy + R1 * Math.sin(deg(A));
-        const tasks = dept.tasks.slice(0, 3);
-        const spread = 20;
-        return (
-          <g key={dept.name}>
-            {/* branche centre -> département */}
-            <line x1={cx} y1={cy} x2={px} y2={py} stroke="rgba(34,204,255,0.4)" strokeWidth="1.4" />
-
-            {/* sous-branches -> tâches */}
-            {tasks.map((t, j) => {
-              const B = A + (j - (tasks.length - 1) / 2) * spread;
-              const tx = cx + R2 * Math.cos(deg(B));
-              const ty = cy + R2 * Math.sin(deg(B));
-              const anchor = tx < cx - 10 ? "end" : tx > cx + 10 ? "start" : "middle";
-              return (
-                <g key={t}>
-                  <line x1={px} y1={py} x2={tx} y2={ty} stroke="rgba(34,204,255,0.18)" strokeWidth="1" />
-                  <circle cx={tx} cy={ty} r="3" fill="#22ccff" opacity="0.8" />
-                  <text
-                    x={anchor === "end" ? tx - 8 : anchor === "start" ? tx + 8 : tx}
-                    y={ty + 3.5}
-                    textAnchor={anchor}
-                    fontSize="12.5"
-                    fill="#9aa6ba"
-                    fontFamily="Inter, sans-serif"
-                  >
-                    {t}
-                  </text>
-                </g>
-              );
-            })}
-
-            {/* nœud département */}
-            <circle cx={px} cy={py} r="7" fill="#22ccff" />
-            <text
-              x={px}
-              y={py - 14}
-              textAnchor="middle"
-              fontSize="15"
-              fontWeight="800"
-              fill="#fff"
-              fontFamily="Sora, Inter, sans-serif"
-            >
-              {dept.name}
-            </text>
-          </g>
-        );
-      })}
-
-      {/* centre : le cerveau */}
-      <circle cx={cx} cy={cy} r="34" fill="rgba(34,204,255,0.12)" stroke="rgba(34,204,255,0.55)" strokeWidth="1.5" />
-      <circle cx={cx} cy={cy} r="46" fill="none" stroke="rgba(34,204,255,0.18)" />
-      <text x={cx} y={cy + 5} textAnchor="middle" fontSize="14" fontWeight="800" fill="#22ccff">
-        CERVEAU IA
-      </text>
-    </svg>
-  );
-}
 
 export default function AuditLeadMagnet() {
   const [step, setStep] = useState(0);
@@ -266,7 +192,7 @@ export default function AuditLeadMagnet() {
         </div>
 
         <div className="mx-auto mt-6 max-w-3xl">
-          <OrgMap depts={shown} />
+          <BrainMap depts={shown} />
         </div>
 
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
