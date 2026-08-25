@@ -71,13 +71,20 @@ const TIME_SINKS = [
   "Administratif & factures",
   "Réponses aux clients",
   "Rapports & chiffres",
+  "Prospection",
+  "Prise de rendez-vous",
 ];
+
+const AI_LEVELS = ["Je débute", "Je m'y connais un peu", "Je l'utilise déjà beaucoup"];
+const AI_TOOLS = ["ChatGPT", "Claude", "Gemini", "Copilot", "Aucune pour l'instant", "Autre"];
 
 type Answers = {
   sector: string;
   size: string;
   departments: string[];
-  timeSink: string;
+  timeSinks: string[];
+  aiLevel: string;
+  aiTool: string;
   name: string;
   email: string;
   consent: boolean;
@@ -87,7 +94,9 @@ const empty: Answers = {
   sector: "",
   size: "",
   departments: [],
-  timeSink: "",
+  timeSinks: [],
+  aiLevel: "",
+  aiTool: "",
   name: "",
   email: "",
   consent: false,
@@ -125,21 +134,22 @@ export default function AuditLeadMagnet() {
   const [error, setError] = useState("");
 
   const set = (patch: Partial<Answers>) => setA((prev) => ({ ...prev, ...patch }));
-  const toggleDept = (name: string) =>
+  const toggleIn = (key: "departments" | "timeSinks", name: string) =>
     setA((prev) => ({
       ...prev,
-      departments: prev.departments.includes(name)
-        ? prev.departments.filter((d) => d !== name)
-        : [...prev.departments, name],
+      [key]: prev[key].includes(name)
+        ? prev[key].filter((d) => d !== name)
+        : [...prev[key], name],
     }));
 
-  const STEPS = 5;
+  const STEPS = 6;
   const canNext =
     (step === 0 && a.sector.trim().length > 1) ||
-    (step === 1 && a.size) ||
+    (step === 1 && Boolean(a.size)) ||
     (step === 2 && a.departments.length > 0) ||
-    (step === 3 && a.timeSink) ||
-    step === 4;
+    (step === 3 && a.timeSinks.length > 0) ||
+    (step === 4 && Boolean(a.aiLevel) && Boolean(a.aiTool)) ||
+    step === 5;
 
   async function submit() {
     if (!a.name || !a.email || !a.consent) {
@@ -159,7 +169,9 @@ export default function AuditLeadMagnet() {
           consent: a.consent,
           sector: a.sector,
           teamSize: a.size,
-          tasks: `${a.timeSink} · ${a.departments.join(", ")}`,
+          tasks: `${a.timeSinks.join(", ")} · ${a.departments.join(", ")}`,
+          aiLevel: a.aiLevel,
+          aiTool: a.aiTool,
           interest: "audit-ia",
         }),
       });
@@ -281,7 +293,7 @@ export default function AuditLeadMagnet() {
               <Chip
                 key={d.name}
                 active={a.departments.includes(d.name)}
-                onClick={() => toggleDept(d.name)}
+                onClick={() => toggleIn("departments", d.name)}
               >
                 {d.name}
               </Chip>
@@ -295,9 +307,14 @@ export default function AuditLeadMagnet() {
           <p className="font-display text-xl font-700 text-white">
             Qu&apos;est-ce qui te fait perdre le plus de temps ?
           </p>
+          <p className="mt-1 text-sm text-mist-soft">Choisis-en autant que tu veux.</p>
           <div className="mt-4 flex flex-wrap gap-2">
             {TIME_SINKS.map((t) => (
-              <Chip key={t} active={a.timeSink === t} onClick={() => set({ timeSink: t })}>
+              <Chip
+                key={t}
+                active={a.timeSinks.includes(t)}
+                onClick={() => toggleIn("timeSinks", t)}
+              >
                 {t}
               </Chip>
             ))}
@@ -306,6 +323,33 @@ export default function AuditLeadMagnet() {
       )}
 
       {step === 4 && (
+        <div className="space-y-6">
+          <div>
+            <p className="font-display text-xl font-700 text-white">Ton niveau avec l&apos;IA ?</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {AI_LEVELS.map((l) => (
+                <Chip key={l} active={a.aiLevel === l} onClick={() => set({ aiLevel: l })}>
+                  {l}
+                </Chip>
+              ))}
+            </div>
+          </div>
+          <div>
+            <p className="font-display text-xl font-700 text-white">
+              Quelle IA tu utilises le plus souvent ?
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {AI_TOOLS.map((t) => (
+                <Chip key={t} active={a.aiTool === t} onClick={() => set({ aiTool: t })}>
+                  {t}
+                </Chip>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {step === 5 && (
         <div>
           <p className="font-display text-xl font-700 text-white">
             Où on t&apos;envoie ta carte IA ?
