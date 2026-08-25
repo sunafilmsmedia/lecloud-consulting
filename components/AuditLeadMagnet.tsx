@@ -87,6 +87,7 @@ type Answers = {
   aiTool: string;
   name: string;
   email: string;
+  phone: string;
   consent: boolean;
 };
 
@@ -99,6 +100,7 @@ const empty: Answers = {
   aiTool: "",
   name: "",
   email: "",
+  phone: "",
   consent: false,
 };
 
@@ -165,6 +167,7 @@ export default function AuditLeadMagnet() {
         body: JSON.stringify({
           name: a.name,
           email: a.email,
+          phone: a.phone,
           company: a.sector,
           consent: a.consent,
           sector: a.sector,
@@ -358,7 +361,7 @@ export default function AuditLeadMagnet() {
             <input
               value={a.name}
               onChange={(e) => set({ name: e.target.value })}
-              placeholder="Ton nom"
+              placeholder="Nom complet"
               className={inputCls}
             />
             <input
@@ -366,6 +369,13 @@ export default function AuditLeadMagnet() {
               value={a.email}
               onChange={(e) => set({ email: e.target.value })}
               placeholder="toi@entreprise.com"
+              className={inputCls}
+            />
+            <input
+              type="tel"
+              value={a.phone}
+              onChange={(e) => set({ phone: e.target.value })}
+              placeholder="Téléphone"
               className={inputCls}
             />
             <label className="flex items-start gap-3 text-sm text-mist-soft">
