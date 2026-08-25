@@ -6,6 +6,7 @@ import Showcase from "@/components/Showcase";
 import Faq from "@/components/Faq";
 import RoiCalculator from "@/components/RoiCalculator";
 import CandidatureForm from "@/components/CandidatureForm";
+import AuditLeadMagnet from "@/components/AuditLeadMagnet";
 
 const CALENDLY_URL = "https://calendly.com/sunafilmsmedia/nouvelle-reunion";
 
@@ -336,6 +337,25 @@ export default function Page() {
           </div>
           <div className="mt-12">
             <RoiCalculator />
+          </div>
+        </section>
+
+        {/* AUDIT IA (lead magnet) */}
+        <section id="audit" className="border-y border-white/10 bg-ink-900 py-16 sm:py-24">
+          <div className="mx-auto max-w-2xl px-5">
+            <div className="text-center">
+              <Eyebrow>Audit IA gratuit</Eyebrow>
+              <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
+                Vois le travail que ton entreprise pourrait confier à l&apos;IA.
+              </h2>
+              <p className="mx-auto mt-4 max-w-lg text-mist-soft">
+                Réponds à 4 questions. On te montre une carte de ton entreprise avec, département
+                par département, ce que l&apos;IA pourrait prendre en charge dès demain.
+              </p>
+            </div>
+            <div className="mt-10">
+              <AuditLeadMagnet />
+            </div>
           </div>
         </section>
 
