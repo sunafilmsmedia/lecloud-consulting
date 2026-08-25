@@ -6,14 +6,62 @@ const CALENDLY_URL = "https://calendly.com/sunafilmsmedia/nouvelle-reunion";
 
 const SIZES = ["Juste moi", "2 à 5", "6 à 15", "16 et +"];
 
-// Départements + tâches simples que l'IA peut prendre en charge
+// Départements + branches (systèmes que l'IA peut prendre en charge)
 const DEPARTMENTS: { name: string; tasks: string[] }[] = [
-  { name: "Marketing", tasks: ["Génère tes idées de contenu", "Recycle tes vidéos en publications", "Planifie tout ton mois"] },
-  { name: "Ventes", tasks: ["Écrit tes scripts d'appel", "Qualifie tes leads", "Relance chaque prospect"] },
-  { name: "Opérations", tasks: ["Relance tes clients", "Met à jour ton CRM", "Prépare tes documents"] },
-  { name: "Service client", tasks: ["Répond aux questions fréquentes", "Trie et classe les demandes", "Suit chaque dossier"] },
-  { name: "Admin & Finance", tasks: ["Classe tes factures", "Résume tes courriels", "Prépare tes rapports"] },
-  { name: "Direction", tasks: ["Analyse tes chiffres", "Résume tes réunions", "Prépare tes décisions"] },
+  {
+    name: "Ventes",
+    tasks: [
+      "Écrit tes scripts selon tes objections les plus communes",
+      "Analyse ton taux de closing",
+      "Te conseille les clients à relancer",
+      "Prépare et envoie tes suivis",
+    ],
+  },
+  {
+    name: "Marketing",
+    tasks: [
+      "Analyse ton coût par lead et par client",
+      "Te conseille sur tes publicités",
+      "Crée tes publicités pour toi",
+      "Écrit ton contenu et le planifie",
+    ],
+  },
+  {
+    name: "Service client",
+    tasks: [
+      "Lit tes courriels et te fait des rappels",
+      "Répond aux questions fréquentes",
+      "Analyse ton CRM",
+      "Trie et classe chaque demande",
+    ],
+  },
+  {
+    name: "Opérations",
+    tasks: [
+      "Relance tes clients automatiquement",
+      "Met à jour ton CRM tout seul",
+      "Prépare tes documents et soumissions",
+      "Automatise tes routines répétitives",
+    ],
+  },
+  {
+    name: "Admin & Finance",
+    tasks: [
+      "Classe tes factures dans le bon dossier",
+      "Suit tes dépenses",
+      "Résume tes courriels",
+      "Prépare tes rapports",
+    ],
+  },
+  {
+    name: "Direction",
+    tasks: [
+      "Analyse tes chiffres en continu",
+      "Résume tes réunions",
+      "Suit tes KPI",
+      "Prépare tes décisions",
+    ],
+  },
 ];
 
 const TIME_SINKS = [
@@ -68,44 +116,77 @@ function Chip({
   );
 }
 
-/* ---- Carte radiale de l'équipe IA ---- */
-function OrgMap({ depts }: { depts: string[] }) {
-  const list = depts.length ? depts : DEPARTMENTS.slice(0, 4).map((d) => d.name);
-  const W = 640;
-  const H = 420;
+/* ---- Cerveau IA : arbre à 2 niveaux (départements + branches) ---- */
+function OrgMap({ depts }: { depts: { name: string; tasks: string[] }[] }) {
+  const list = depts.length ? depts : DEPARTMENTS.slice(0, 3);
+  const W = 1000;
+  const H = 680;
   const cx = W / 2;
   const cy = H / 2;
-  const rx = 230;
-  const ry = 150;
+  const R1 = 150; // rayon des départements
+  const R2 = 300; // rayon des branches
+  const n = list.length;
+  const deg = (d: number) => (d * Math.PI) / 180;
+
   return (
     <svg viewBox={`0 0 ${W} ${H}`} className="w-full" aria-hidden>
-      {list.map((name, i) => {
-        const ang = (-90 + (360 / list.length) * i) * (Math.PI / 180);
-        const x = cx + rx * Math.cos(ang);
-        const y = cy + ry * Math.sin(ang);
-        const anchor = x < cx - 20 ? "end" : x > cx + 20 ? "start" : "middle";
+      {list.map((dept, i) => {
+        const A = -90 + (360 / n) * i;
+        const px = cx + R1 * Math.cos(deg(A));
+        const py = cy + R1 * Math.sin(deg(A));
+        const tasks = dept.tasks.slice(0, 3);
+        const spread = 20;
         return (
-          <g key={name}>
-            <line x1={cx} y1={cy} x2={x} y2={y} stroke="rgba(34,204,255,0.35)" strokeWidth="1" />
-            <circle cx={x} cy={y} r="4" fill="#22ccff" />
+          <g key={dept.name}>
+            {/* branche centre -> département */}
+            <line x1={cx} y1={cy} x2={px} y2={py} stroke="rgba(34,204,255,0.4)" strokeWidth="1.4" />
+
+            {/* sous-branches -> tâches */}
+            {tasks.map((t, j) => {
+              const B = A + (j - (tasks.length - 1) / 2) * spread;
+              const tx = cx + R2 * Math.cos(deg(B));
+              const ty = cy + R2 * Math.sin(deg(B));
+              const anchor = tx < cx - 10 ? "end" : tx > cx + 10 ? "start" : "middle";
+              return (
+                <g key={t}>
+                  <line x1={px} y1={py} x2={tx} y2={ty} stroke="rgba(34,204,255,0.18)" strokeWidth="1" />
+                  <circle cx={tx} cy={ty} r="3" fill="#22ccff" opacity="0.8" />
+                  <text
+                    x={anchor === "end" ? tx - 8 : anchor === "start" ? tx + 8 : tx}
+                    y={ty + 3.5}
+                    textAnchor={anchor}
+                    fontSize="12.5"
+                    fill="#9aa6ba"
+                    fontFamily="Inter, sans-serif"
+                  >
+                    {t}
+                  </text>
+                </g>
+              );
+            })}
+
+            {/* nœud département */}
+            <circle cx={px} cy={py} r="7" fill="#22ccff" />
             <text
-              x={anchor === "end" ? x - 10 : anchor === "start" ? x + 10 : x}
-              y={y + 4}
-              textAnchor={anchor}
-              fontSize="14"
-              fontWeight="700"
+              x={px}
+              y={py - 14}
+              textAnchor="middle"
+              fontSize="15"
+              fontWeight="800"
               fill="#fff"
               fontFamily="Sora, Inter, sans-serif"
             >
-              {name}
+              {dept.name}
             </text>
           </g>
         );
       })}
-      {/* centre */}
-      <circle cx={cx} cy={cy} r="26" fill="rgba(34,204,255,0.12)" stroke="rgba(34,204,255,0.5)" />
-      <text x={cx} y={cy + 5} textAnchor="middle" fontSize="13" fontWeight="800" fill="#22ccff">
-        TOI
+
+      {/* centre : le cerveau */}
+      <circle cx={cx} cy={cy} r="34" fill="rgba(34,204,255,0.12)" stroke="rgba(34,204,255,0.55)" strokeWidth="1.5" />
+      <circle cx={cx} cy={cy} r="46" fill="none" stroke="rgba(34,204,255,0.18)" />
+      <text x={cx} y={cy + 5} textAnchor="middle" fontSize="14" fontWeight="800" fill="#22ccff">
+        CERVEAU IA
       </text>
     </svg>
   );
@@ -184,8 +265,8 @@ export default function AuditLeadMagnet() {
           </p>
         </div>
 
-        <div className="mx-auto mt-6 max-w-2xl">
-          <OrgMap depts={shown.map((d) => d.name)} />
+        <div className="mx-auto mt-6 max-w-3xl">
+          <OrgMap depts={shown} />
         </div>
 
         <div className="mt-4 grid gap-4 sm:grid-cols-2">

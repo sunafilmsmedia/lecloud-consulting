@@ -6,7 +6,6 @@ import Showcase from "@/components/Showcase";
 import Faq from "@/components/Faq";
 import RoiCalculator from "@/components/RoiCalculator";
 import CandidatureForm from "@/components/CandidatureForm";
-import AuditLeadMagnet from "@/components/AuditLeadMagnet";
 import Dashboards from "@/components/Dashboards";
 
 const CALENDLY_URL = "https://calendly.com/sunafilmsmedia/nouvelle-reunion";
@@ -70,18 +69,6 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 }
 
 /* ---------- données ---------- */
-
-const CAPABILITIES = [
-  "Répondre aux nouveaux prospects",
-  "Qualifier et classer les demandes",
-  "Effectuer les suivis par courriel et SMS",
-  "Mettre à jour ton CRM",
-  "Préparer des soumissions et des documents",
-  "Analyser tes campagnes publicitaires",
-  "Produire du contenu adapté à ta marque",
-  "Résumer tes rencontres et créer les prochaines tâches",
-  "Répondre aux questions internes de ton équipe",
-];
 
 const METHOD = [
   {
@@ -320,8 +307,22 @@ export default function Page() {
           </div>
         </section>
 
-        {/* EXEMPLES / SHOWCASE (carrousel) */}
-        <Showcase />
+        {/* TABLEAUX DE BORD */}
+        <section id="tableaux" className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
+          <div className="mx-auto max-w-3xl text-center">
+            <Eyebrow>Tableaux de bord</Eyebrow>
+            <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
+              Vois tout ce qu&apos;on installe, en un coup d&apos;œil.
+            </h2>
+            <p className="mt-4 text-mist-soft">
+              Un tableau de bord clair par département : tes chiffres réels, mis à jour tout seuls.
+              Fais défiler pour tous les voir.
+            </p>
+          </div>
+          <div className="mt-12">
+            <Dashboards />
+          </div>
+        </section>
 
         {/* ROI */}
         <section className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
@@ -341,54 +342,24 @@ export default function Page() {
           </div>
         </section>
 
-        {/* AUDIT IA (lead magnet) */}
+        {/* AUDIT IA (teaser -> /audit) */}
         <section id="audit" className="border-y border-white/10 bg-ink-900 py-16 sm:py-24">
-          <div className="mx-auto max-w-2xl px-5">
-            <div className="text-center">
-              <Eyebrow>Audit IA gratuit</Eyebrow>
-              <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
-                Vois le travail que ton entreprise pourrait confier à l&apos;IA.
-              </h2>
-              <p className="mx-auto mt-4 max-w-lg text-mist-soft">
-                Réponds à 4 questions. On te montre une carte de ton entreprise avec, département
-                par département, ce que l&apos;IA pourrait prendre en charge dès demain.
-              </p>
-            </div>
-            <div className="mt-10">
-              <AuditLeadMagnet />
-            </div>
-          </div>
-        </section>
-
-        {/* PROMESSE + CAPACITÉS */}
-        <section className="relative border-y border-white/10 bg-ink-900 py-16 sm:py-24">
-          <div className="mx-auto max-w-6xl px-5">
-            <div className="mx-auto max-w-3xl text-center">
-              <Eyebrow>La promesse</Eyebrow>
-              <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
-                Un employé IA construit autour de ton entreprise.
-              </h2>
-              <p className="mt-4 text-mist-soft">
-                Ce n'est pas un chatbot générique. On lui transmet tes offres, tes processus,
-                ton ton de voix, tes objections, tes documents et ta manière de travailler.
-                Ensuite, on le connecte aux outils que ton entreprise utilise déjà.
-              </p>
-            </div>
-
-            <div className="mt-12">
-              <p className="mb-6 text-center text-xs font-600 uppercase tracking-widest text-fluo-300">
-                Ton employé IA peut
-              </p>
-              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {CAPABILITIES.map((c) => (
-                  <div
-                    key={c}
-                    className="card flex items-center gap-3 px-5 py-4 text-white/90"
-                  >
-                    <Check className="text-fluo-400" /> {c}
-                  </div>
-                ))}
-              </div>
+          <div className="mx-auto max-w-2xl px-5 text-center">
+            <Eyebrow>Audit IA gratuit</Eyebrow>
+            <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
+              Vois le travail que ton entreprise pourrait confier à l&apos;IA.
+            </h2>
+            <p className="mx-auto mt-4 max-w-lg text-mist-soft">
+              Réponds à quelques questions et on te construit la carte de ton « cerveau IA » :
+              département par département, les vrais systèmes que l&apos;IA peut prendre en charge.
+            </p>
+            <div className="mt-8">
+              <a
+                href="/audit"
+                className="inline-flex rounded-full bg-fluo-500 px-8 py-4 font-display font-800 text-ink-950 transition-colors hover:bg-fluo-400 glow-fluo"
+              >
+                Faire mon audit IA gratuit
+              </a>
             </div>
           </div>
         </section>
@@ -418,22 +389,8 @@ export default function Page() {
           </p>
         </section>
 
-        {/* TABLEAUX DE BORD */}
-        <section id="tableaux" className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
-          <div className="mx-auto max-w-3xl text-center">
-            <Eyebrow>Tableaux de bord</Eyebrow>
-            <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
-              Vois tout ce qu&apos;on installe, en un coup d&apos;œil.
-            </h2>
-            <p className="mt-4 text-mist-soft">
-              Un tableau de bord clair par département : tes chiffres réels, mis à jour tout seuls.
-              Fais défiler pour tous les voir.
-            </p>
-          </div>
-          <div className="mt-12">
-            <Dashboards />
-          </div>
-        </section>
+        {/* EXEMPLES / SHOWCASE (carrousel) */}
+        <Showcase />
 
         {/* AGENTS SPÉCIALISÉS */}
         <section className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
