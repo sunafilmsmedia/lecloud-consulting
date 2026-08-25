@@ -3,7 +3,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Showcase from "@/components/Showcase";
 import VideoFrame from "@/components/VideoFrame";
-import CircuitBg from "@/components/CircuitBg";
+import BlueprintBg from "@/components/BlueprintBg";
 
 export const metadata: Metadata = {
   title: "Le Cloud — Voici ce qu'on construit pour toi",
@@ -20,7 +20,7 @@ export default function VslPage() {
   return (
     <>
       <div className="vsl-bg" aria-hidden />
-      <CircuitBg />
+      <BlueprintBg />
       <Nav />
 
       <main className="relative z-10">
