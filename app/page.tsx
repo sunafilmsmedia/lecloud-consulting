@@ -7,6 +7,7 @@ import Faq from "@/components/Faq";
 import RoiCalculator from "@/components/RoiCalculator";
 import CandidatureForm from "@/components/CandidatureForm";
 import AuditLeadMagnet from "@/components/AuditLeadMagnet";
+import Dashboards from "@/components/Dashboards";
 
 const CALENDLY_URL = "https://calendly.com/sunafilmsmedia/nouvelle-reunion";
 
@@ -415,6 +416,23 @@ export default function Page() {
           <p className="mt-6 text-center text-sm text-mist-soft">
             + des centaines d&apos;autres via Zapier, Make et les API.
           </p>
+        </section>
+
+        {/* TABLEAUX DE BORD */}
+        <section id="tableaux" className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
+          <div className="mx-auto max-w-3xl text-center">
+            <Eyebrow>Tableaux de bord</Eyebrow>
+            <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
+              Vois tout ce qu&apos;on installe, en un coup d&apos;œil.
+            </h2>
+            <p className="mt-4 text-mist-soft">
+              Un tableau de bord clair par département : tes chiffres réels, mis à jour tout seuls.
+              Fais défiler pour tous les voir.
+            </p>
+          </div>
+          <div className="mt-12">
+            <Dashboards />
+          </div>
         </section>
 
         {/* AGENTS SPÉCIALISÉS */}
