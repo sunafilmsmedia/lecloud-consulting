@@ -283,13 +283,13 @@ export default function Page() {
                 href="#candidature"
                 className="w-full rounded-full bg-fluo-500 px-7 py-4 font-display font-700 text-ink-950 transition-all hover:bg-fluo-400 glow-fluo sm:w-auto"
               >
-                Bâtir mon employé IA
+                Travailler avec nous
               </a>
               <a
-                href="#services"
+                href="/audit"
                 className="w-full rounded-full border border-white/15 px-7 py-4 font-600 text-white transition-colors hover:bg-white/5 sm:w-auto"
               >
-                Découvrir ce qu'on peut automatiser
+                Faire un audit des possibilités
               </a>
             </div>
 
