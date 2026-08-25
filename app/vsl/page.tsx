@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import Showcase from "@/components/Showcase";
+import Dashboards from "@/components/Dashboards";
 import VideoFrame from "@/components/VideoFrame";
 import BlueprintBg from "@/components/BlueprintBg";
 
@@ -75,8 +75,24 @@ export default function VslPage() {
           </div>
         </section>
 
-        {/* CONCRÈTEMENT (exemples qui slident) */}
-        <Showcase eyebrow="Concrètement" title="Voici ce que ça donne concrètement." />
+        {/* TABLEAUX DE BORD */}
+        <section className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-md border border-fluo-400/25 bg-fluo-500/[0.07] px-4 py-1.5 text-xs font-600 uppercase tracking-widest text-fluo-300">
+              Tableaux de bord
+            </span>
+            <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
+              Vois tout ce qu&apos;on installe, en un coup d&apos;œil.
+            </h2>
+            <p className="mt-4 text-mist-soft">
+              Un tableau de bord clair par département : tes chiffres réels, mis à jour tout seuls.
+              Fais défiler pour tous les voir.
+            </p>
+          </div>
+          <div className="mt-12">
+            <Dashboards />
+          </div>
+        </section>
 
         {/* MÊME OFFRE : CTA */}
         <section className="border-t border-white/10 bg-ink-900/60 py-16 sm:py-24">
