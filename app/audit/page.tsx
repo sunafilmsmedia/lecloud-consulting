@@ -5,9 +5,16 @@ import AuditLeadMagnet from "@/components/AuditLeadMagnet";
 import BlueprintBg from "@/components/BlueprintBg";
 
 export const metadata: Metadata = {
-  title: "Audit IA gratuit — Le Cloud",
+  title: "Audit IA gratuit pour ton entreprise",
   description:
-    "Réponds à quelques questions et vois une carte de ton entreprise : département par département, ce que l'IA pourrait prendre en charge dès demain.",
+    "Réponds à quelques questions et découvre la carte de ton « cerveau IA » : département par département, les tâches que Le Cloud AI peut prendre en charge dès demain. Gratuit, au Québec.",
+  alternates: { canonical: "/audit" },
+  openGraph: {
+    title: "Audit IA gratuit pour ton entreprise · Le Cloud AI",
+    description:
+      "Vois, département par département, tout ce que l'IA peut faire dans ton entreprise.",
+    url: "/audit",
+  },
 };
 
 export default function AuditPage() {

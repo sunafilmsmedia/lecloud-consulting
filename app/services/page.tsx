@@ -3,9 +3,15 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Services · Le Cloud | Tout ce qu'on peut installer",
+  title: "Services : tout ce qu'on installe",
   description:
-    "Le catalogue complet des systèmes IA que Le Cloud installe dans ton entreprise : audit, cerveau IA, routines, CRM, agents, marketing, tableaux de bord et plus. Ce qu'on installe et le résultat obtenu.",
+    "Le catalogue complet des systèmes IA que Le Cloud AI installe dans ton entreprise : audit, cerveau IA, routines, CRM, agents, marketing, tableaux de bord et plus. Ce qu'on installe et le résultat obtenu.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Services · Le Cloud AI",
+    description: "Le catalogue complet des systèmes IA qu'on installe dans ton entreprise.",
+    url: "/services",
+  },
 };
 
 type Service = { title: string; install: string; result: string };

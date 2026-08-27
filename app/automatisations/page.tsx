@@ -4,9 +4,15 @@ import Footer from "@/components/Footer";
 import { FLOWS, FlowDiagram } from "@/components/flows";
 
 export const metadata: Metadata = {
-  title: "Automatisations — Le Cloud | Tout ce que l'IA peut faire tourner",
+  title: "Automatisations IA : tout ce que l'IA peut faire tourner",
   description:
-    "Toutes les automatisations qu'on peut installer dans ton entreprise : factures, contenu, publicités Meta, sous-titres, appels de vente, email marketing, CRM et plus. Chaque flux, de la source au résultat.",
+    "Toutes les automatisations qu'on installe dans ton entreprise : factures, contenu, publicités Meta, sous-titres, appels de vente, email marketing, CRM et plus. Chaque flux, de la source au résultat.",
+  alternates: { canonical: "/automatisations" },
+  openGraph: {
+    title: "Automatisations IA · Le Cloud AI",
+    description: "Toutes les automatisations qu'on installe, de la source au résultat.",
+    url: "/automatisations",
+  },
 };
 
 const CALENDLY_URL = "https://calendly.com/sunafilmsmedia/nouvelle-reunion";

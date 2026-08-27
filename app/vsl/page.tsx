@@ -6,9 +6,16 @@ import VideoFrame from "@/components/VideoFrame";
 import BlueprintBg from "@/components/BlueprintBg";
 
 export const metadata: Metadata = {
-  title: "Le Cloud — Voici ce qu'on construit pour toi",
+  title: "Ton employé IA installé en 3 jours",
   description:
-    "Regarde ce qu'on installe dans ton entreprise : un employé IA branché à tes outils qui exécute tes tâches répétitives. Vidéo + exemples concrets.",
+    "Regarde ce qu'on installe dans ton entreprise : un employé IA branché à tes outils qui exécute tes tâches répétitives. Vidéo + tableaux de bord par département.",
+  alternates: { canonical: "/vsl" },
+  openGraph: {
+    title: "Ton employé IA installé en 3 jours · Le Cloud AI",
+    description:
+      "Un employé IA branché à tes outils qui exécute tes tâches répétitives, installé en 3 jours.",
+    url: "/vsl",
+  },
 };
 
 const CALENDLY_URL = "https://calendly.com/sunafilmsmedia/nouvelle-reunion";

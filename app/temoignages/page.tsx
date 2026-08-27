@@ -4,9 +4,15 @@ import Footer from "@/components/Footer";
 import VideoFrame from "@/components/VideoFrame";
 
 export const metadata: Metadata = {
-  title: "Témoignages — Le Cloud",
+  title: "Témoignages",
   description:
-    "On documente les vraies transformations. Découvre le documentaire réalisé avec un de nos clients et les résultats concrets de notre portefeuille.",
+    "On documente les vraies transformations avec l'IA. Découvre le documentaire réalisé avec un de nos clients.",
+  alternates: { canonical: "/temoignages" },
+  openGraph: {
+    title: "Témoignages · Le Cloud AI",
+    description: "On documente les vraies transformations avec l'IA.",
+    url: "/temoignages",
+  },
 };
 
 const CALENDLY_URL = "https://calendly.com/sunafilmsmedia/nouvelle-reunion";
@@ -21,37 +27,6 @@ const FEATURED = {
   quote:
     "On a filmé son quotidien avant et après. Le résultat parle de lui-même : moins de tâches manuelles, plus de temps pour ses clients.",
 };
-
-const PROOF = [
-  {
-    name: "Luis Ribeiro",
-    role: "Courtier hypothécaire · Centum",
-    photo: "/results/luis-ribeiro.jpg",
-    metric: "16,68 $",
-    metricLabel: "coût par lead",
-  },
-  {
-    name: "Elie Ibrahim",
-    role: "Courtier hypothécaire · Alliance",
-    photo: "/results/elie-ibrahim.jpg",
-    metric: "11,73 %",
-    metricLabel: "taux d'engagement",
-  },
-  {
-    name: "Martin Ross",
-    role: "Courtier hypothécaire · Multi-Prêts",
-    photo: "/results/martin-ross.jpg",
-    metric: "66",
-    metricLabel: "leads / mois",
-  },
-  {
-    name: "Sylvain Danis",
-    role: "Courtier hypothécaire · Multi-Prêts",
-    photo: "/results/sylvain-danis.jpg",
-    metric: "21,77 $",
-    metricLabel: "coût par lead",
-  },
-];
 
 export default function TemoignagesPage() {
   return (
@@ -94,46 +69,16 @@ export default function TemoignagesPage() {
           </figure>
         </section>
 
-        {/* PREUVES CLIENTS */}
+        {/* CTA */}
         <section className="border-t border-white/10 bg-ink-900 py-16 sm:py-24">
-          <div className="mx-auto max-w-6xl px-5">
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 className="font-display text-3xl font-800 text-white sm:text-4xl">
-                Des résultats réels, pas des promesses.
-              </h2>
-              <p className="mt-4 text-mist-soft">
-                Chiffres de juillet 2026 sur le portefeuille de Suna Films Media.
-              </p>
-            </div>
-
-            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {PROOF.map((p) => (
-                <div key={p.name} className="card flex flex-col p-6">
-                  <div className="flex items-center gap-3">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={p.photo}
-                      alt={p.name}
-                      className="h-12 w-12 flex-none rounded-full object-cover"
-                    />
-                    <div>
-                      <p className="font-display text-sm font-700 leading-tight text-white">
-                        {p.name}
-                      </p>
-                      <p className="text-xs text-mist-soft">{p.role}</p>
-                    </div>
-                  </div>
-                  <div className="mt-5 border-t border-white/10 pt-4">
-                    <p className="font-display text-3xl font-800 text-fluo-400">{p.metric}</p>
-                    <p className="text-xs uppercase tracking-widest text-mist-soft/70">
-                      {p.metricLabel}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-12 text-center">
+          <div className="mx-auto max-w-3xl px-5 text-center">
+            <h2 className="font-display text-3xl font-800 text-white sm:text-4xl">
+              On documente ta transformation, pour vrai.
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-mist-soft">
+              On installe, on mesure, on raconte. Deviens un de nos cas filmés.
+            </p>
+            <div className="mt-8">
               <a
                 href={CALENDLY_URL}
                 target="_blank"
