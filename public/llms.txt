@@ -1,0 +1,22 @@
+# Le Cloud AI
+
+> Ton prochain employé sera payé une fois. Pas de salaire, pas de vacances.
+
+Le Cloud AI installe des employés IA sur mesure dans les entreprises québécoises. En 3 jours, l'employé IA est construit sur Claude (Anthropic), branché aux outils existants de l'entreprise, entraîné sur ses données et son fonctionnement, puis livré avec une formation pour que le client apprenne à le contrôler.
+
+Modèle: paiement unique, aucun salaire récurrent.
+Zone de service: Québec, Canada.
+Technologie: Claude (Anthropic).
+Délai d'installation: 3 jours.
+
+## Pages principales
+- [Accueil](https://le-cloud-ai.com/): Présentation de l'offre, tableaux de bord, exemples et candidature
+- [Audit IA gratuit](https://le-cloud-ai.com/audit): Questionnaire qui génère une carte du « cerveau IA » de l'entreprise (départements et tâches délégables)
+- [Candidature](https://le-cloud-ai.com/#candidature): Formulaire pour travailler avec Le Cloud AI
+- [Automatisations](https://le-cloud-ai.com/automatisations): Toutes les automatisations que l'IA peut prendre en charge
+- [Services](https://le-cloud-ai.com/services): Catalogue complet des systèmes installés
+- [VSL](https://le-cloud-ai.com/vsl): Vidéo de présentation de l'offre
+- [Témoignages](https://le-cloud-ai.com/temoignages): Résultats clients réels
+
+## À propos
+Le Cloud AI conçoit des employés IA personnalisés pour remplacer les tâches répétitives des entreprises par une solution installée une fois, sans coût récurrent de main-d'œuvre. L'employé IA est disponible 24/7 et peut prendre en charge le marketing, les ventes, les opérations, le service client, l'administration et la finance.

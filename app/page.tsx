@@ -10,6 +10,53 @@ import Dashboards from "@/components/Dashboards";
 
 const CALENDLY_URL = "https://calendly.com/sunafilmsmedia/nouvelle-reunion";
 
+const FAQ_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Qu'est-ce qu'un employé IA payé une seule fois?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Contrairement à un employé traditionnel qui coûte un salaire mensuel, un employé IA de Le Cloud AI est payé une seule fois lors de l'installation. Il n'y a ensuite ni salaire récurrent, ni vacances, ni avantages sociaux à couvrir.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Combien de temps faut-il pour installer un employé IA dans une entreprise?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Le Cloud AI installe un employé IA dans une entreprise en 3 jours. Il est branché directement aux outils existants de l'entreprise, entraîné sur ses données et processus spécifiques, puis livré avec une formation pour apprendre à le contrôler.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Sur quelle technologie est basé l'employé IA de Le Cloud AI?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Les employés IA de Le Cloud AI sont construits sur Claude, la plateforme d'intelligence artificielle d'Anthropic, et intégrés directement aux outils déjà utilisés par l'entreprise cliente.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Est-ce que je dois savoir coder pour utiliser mon employé IA?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Non. Le Cloud AI fournit une formation complète après l'installation pour montrer au client comment contrôler et ajuster son employé IA, sans compétence technique requise.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Quelle est la différence entre embaucher un employé et installer un employé IA?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Un employé traditionnel implique un salaire récurrent, des avantages sociaux et des vacances. Un employé IA de Le Cloud AI est payé une seule fois, disponible 24/7, et installé en 3 jours directement dans les outils de l'entreprise.",
+      },
+    },
+  ],
+};
+
 const ROUTINES = [
   {
     title: "Sous-titres automatiques",
@@ -252,6 +299,10 @@ const RESULTS = [
 export default function Page() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSONLD) }}
+      />
       <Nav />
 
       <main id="top">
