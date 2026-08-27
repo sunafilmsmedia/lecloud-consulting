@@ -4,40 +4,48 @@ import { useState } from "react";
 
 const ITEMS = [
   {
+    q: "Comment je contrôle mon employé IA au quotidien ?",
+    a: "Tout se passe dans une seule conversation Claude. Pas de logiciel à apprendre, pas de dashboard compliqué : tu écris ce que tu veux dans le chat, comme tu le ferais avec un employé humain, et il l'exécute directement dans tes outils (courriel, CRM, calendrier, etc.).",
+  },
+  {
+    q: "Est-ce que je dois utiliser plusieurs applications pour que ça marche ?",
+    a: "Non, c'est justement le point : ton employé IA centralise tout dans un seul chat sur Claude. Il agit dans tes outils existants en arrière-plan, toi tu n'as qu'une seule conversation à gérer.",
+  },
+  {
     q: "Et si j'ai pas d'employé, mais c'est moi qui fais les tâches répétitives ?",
-    a: "C'est même le scénario idéal. On automatise les tâches qui t'occupent TOI. Tu récupères des heures pour vendre, servir tes clients et faire croître ton entreprise au lieu de faire de l'administratif. Pas besoin d'une équipe pour que ça vaille le coup.",
+    a: "C'est même le scénario idéal. On automatise les tâches qui t'occupent TOI, depuis un seul chat que tu contrôles. Tu récupères des heures pour vendre, servir tes clients et faire croître ton entreprise au lieu de faire de l'administratif. Pas besoin d'une équipe pour que ça vaille le coup.",
   },
   {
     q: "Combien de temps ça prend avant que tout marche ?",
-    a: "Les systèmes prioritaires sont construits et activés pendant les trois jours d'implantation : tu repars avec du concret, pas une promesse. Selon la complexité, certains systèmes plus avancés peuvent s'étendre sur une phase supplémentaire. Le call à J+30 sert ensuite à mesurer les résultats réels.",
+    a: "Trois jours d'implantation. Ton employé IA est branché à tes outils, entraîné sur ton business, et testé dans de vraies situations avant qu'on te le remette.",
   },
   {
     q: "Est-ce que j'ai besoin d'être un expert pour tout contrôler ?",
-    a: "Non. On construit les systèmes AVEC toi, et le critère de sortie c'est que tu refais chaque workflow seul, et que tu crées même une petite automatisation sans aide. Si tu sais utiliser tes outils actuels, tu sauras utiliser ça.",
+    a: "Non. Si tu sais écrire un message texte, tu sais utiliser ton employé IA. On te forme après l'installation à lui parler comme à un employé, aucune compétence technique requise.",
   },
   {
     q: "Allez-vous réellement remplacer un employé ?",
-    a: "Notre objectif n'est pas de décider qui doit rester ou partir. Nous automatisons les tâches répétitives qui occupent l'équivalent d'un poste, afin que ton équipe puisse se concentrer sur les ventes, les clients et les décisions importantes.",
+    a: "On automatise les tâches répétitives qui prennent le temps d'un employé : service client de premier niveau, suivis, classement, planification. Les tâches qui demandent du jugement humain restent humaines ; ton employé IA prend en charge le reste, depuis son propre chat.",
   },
   {
     q: "Est-ce que je dois déjà utiliser des outils d'IA ?",
-    a: "Non. Nous pouvons partir de zéro ou améliorer les outils que tu utilises déjà.",
+    a: "Non. On connecte ton employé IA aux outils que tu utilises déjà (Gmail, CRM, calendrier, etc.). Tu n'as rien à apprendre de nouveau à part comment lui parler.",
   },
   {
     q: "Faut-il changer tous nos logiciels ?",
-    a: "Généralement, non. Nous cherchons d'abord à connecter et optimiser les systèmes déjà utilisés par ton entreprise.",
+    a: "Non. Zéro changement de logiciel requis. Ton employé IA se branche à ta stack existante et devient l'interface unique qui la fait fonctionner ensemble.",
   },
   {
     q: "Mes employés vont-ils savoir utiliser les systèmes ?",
-    a: "Oui. La formation et l'adoption font partie de l'implantation. Nous construisons les systèmes avec les personnes qui devront les utiliser.",
+    a: "Oui. Toute l'équipe est formée à parler au même chat Claude : pas de courbe d'apprentissage technique, juste une nouvelle habitude de communication.",
   },
   {
     q: "Est-ce que tout sera terminé en trois jours ?",
-    a: "Les systèmes prioritaires définis pendant l'audit seront construits et activés pendant l'intervention. Les projets nécessitant du développement plus complexe pourront faire l'objet d'une deuxième phase.",
+    a: "L'implantation initiale, oui. La portée est fixée pendant l'audit ; selon la complexité, certains systèmes peuvent s'étendre sur une phase de suivi supplémentaire.",
   },
   {
     q: "Comment mesurez-vous les résultats ?",
-    a: "Avant l'implantation, nous mesurons le temps consacré aux tâches ciblées, leur fréquence et leur coût. Après l'implantation, nous comparons les heures économisées, la vitesse d'exécution et la capacité supplémentaire créée.",
+    a: "Avec des tableaux de bord par département qui se mettent à jour automatiquement (leads, revenus, temps sauvé) pour que tu voies exactement ce que ton employé IA accomplit, même si tu pilotes tout depuis un seul chat.",
   },
 ];
 

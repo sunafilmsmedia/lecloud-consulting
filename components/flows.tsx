@@ -143,7 +143,7 @@ export type Flow = { title: string; desc: string; steps: Step[] };
 export const FLOWS: Flow[] = [
   {
     title: "Tes factures classées toutes seules",
-    desc: "L'IA scanne ta boîte courriel, télécharge les factures et les PDF, et les range automatiquement dans un dossier Drive « Factures Q2 ».",
+    desc: "Depuis Claude, l'IA scanne ta boîte courriel, télécharge les factures et les PDF, et les range dans un dossier Drive « Factures Q2 ». Tu demandes : « classe mes factures du mois. »",
     steps: [
       { brand: "gmail", label: "Gmail" },
       { brand: "ai", label: "Le Cloud" },
@@ -152,7 +152,7 @@ export const FLOWS: Flow[] = [
   },
   {
     title: "Ton mois de contenu, planifié tout seul",
-    desc: "Tu déposes tes vidéos dans un Drive. L'IA les regarde, choisit une accroche et planifie tout le contenu du mois, à la meilleure heure de publication.",
+    desc: "Tu déposes tes vidéos dans un Drive. Depuis la même conversation, l'IA les regarde, choisit une accroche et planifie tout le contenu du mois, à la meilleure heure.",
     steps: [
       { brand: "drive", label: "Drive vidéos" },
       { brand: "ai", label: "Le Cloud" },
@@ -161,7 +161,7 @@ export const FLOWS: Flow[] = [
   },
   {
     title: "Tes campagnes Meta analysées et optimisées",
-    desc: "L'IA lit tes données Meta Ads, repère ce qui performe et ce qui brûle du budget, et te dit exactement quoi ajuster pour améliorer tes résultats.",
+    desc: "Tu demandes : « comment performent mes pubs cette semaine ? » L'IA lit tes données Meta Ads, repère ce qui brûle du budget, et te dit exactement quoi ajuster.",
     steps: [
       { brand: "meta", label: "Meta Ads" },
       { brand: "ai", label: "Le Cloud" },

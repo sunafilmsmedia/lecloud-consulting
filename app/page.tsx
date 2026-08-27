@@ -54,6 +54,14 @@ const FAQ_JSONLD = {
         text: "Un employé traditionnel implique un salaire récurrent, des avantages sociaux et des vacances. Un employé IA de Le Cloud AI est payé une seule fois, disponible 24/7, et installé en 3 jours directement dans les outils de l'entreprise.",
       },
     },
+    {
+      "@type": "Question",
+      name: "Comment fonctionne un employé IA au quotidien?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "L'employé IA fonctionne à travers une seule conversation sur Claude, la plateforme d'Anthropic. L'utilisateur écrit ses demandes comme à un employé humain, et l'IA exécute directement les actions dans les outils connectés — courriel, CRM, calendrier, facturation — sans nécessiter d'application ou de dashboard séparé.",
+      },
+    },
   ],
 };
 
@@ -127,14 +135,14 @@ const METHOD = [
   {
     phase: "Develop",
     day: "Jours 2-3",
-    lead: "On bâtit le cerveau IA de ton entreprise.",
-    body: "On centralise ce qui te définit (offres, processus, ton de voix) et on connecte l'IA à tes outils. Le test est simple : elle répond à tes vrais messages et tu dois pouvoir dire « c'est moi, ça ».",
+    lead: "On bâtit le cerveau IA de ton entreprise, dans un seul chat Claude.",
+    body: "On centralise ce qui te définit (offres, processus, ton de voix) et on connecte l'IA à tes outils. Le test est simple : elle répond à tes vrais messages, depuis la même conversation, et tu dois pouvoir dire « c'est moi, ça ».",
   },
   {
     phase: "Adopt",
     day: "Suivi J+30",
     lead: "L'IA devient une partie de comment le travail se fait.",
-    body: "Livrer un système, ce n'est pas réussir : l'adoption, oui. On te forme et on reste à tes côtés jusqu'à ce que tu refasses chaque workflow seul. Le but, ce n'est pas un « transfert », c'est la pleine maîtrise.",
+    body: "Livrer un système, ce n'est pas réussir : l'adoption, oui. On te forme à parler à ton employé IA comme à un vrai employé, et on reste à tes côtés jusqu'à ce que tu maîtrises chaque workflow seul.",
   },
 ];
 
@@ -148,9 +156,9 @@ const TRADITIONAL = [
 
 const LECLOUD = [
   "Audit directement dans l'entreprise",
-  "Systèmes construits et connectés",
+  "Systèmes construits et connectés dans une seule interface",
   "Automatisations testées",
-  "Employés formés",
+  "Employés formés à utiliser leur employé IA au quotidien",
   "Suivi 30 jours après l'implantation",
 ];
 
@@ -222,7 +230,7 @@ const PRICING = [
     name: "Full Access",
     featured: false,
     tagline:
-      "Que tu démarres une nouvelle entreprise ou que tu fasses croître l'existante, accède à la suite complète des outils Le Cloud (sauf les équipes d'agents).",
+      "Que tu démarres une nouvelle entreprise ou que tu fasses croître l'existante, accède à la suite complète des outils Le Cloud, pilotée depuis un seul chat (sauf les équipes d'agents).",
     features: [
       "Truth Engine : intelligence de marché & rapports de recherche",
       "Système d'exploitation Le Cloud complet",
@@ -281,10 +289,14 @@ export default function Page() {
             <p className="mx-auto mt-5 font-display text-xl font-600 text-white sm:text-2xl">
               Pas de salaire · pas de vacances.
             </p>
+            <p className="mx-auto mt-4 font-display text-lg font-700 text-fluo-300 sm:text-xl">
+              Un seul chat. Tous tes outils. Zéro tâche répétitive.
+            </p>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-mist-soft">
-              En <span className="accent">3 jours</span>, on l'installe dans ton entreprise, sur
-              Claude, branché à tes outils, entraîné sur ton business, et on te montre comment le
-              contrôler.
+              En <span className="accent">3 jours</span>, on installe ton employé IA directement
+              dans Claude. Tu lui écris dans une seule conversation : il lit tes courriels, met à
+              jour ton CRM, planifie ton contenu, répond à tes clients et gère tes factures. Pas
+              d'app à ouvrir, pas de dashboard à checker. Tu parles, il exécute.
             </p>
 
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -316,6 +328,43 @@ export default function Page() {
           </div>
         </section>
 
+        {/* UN SEUL CHAT */}
+        <section id="chat" className="mx-auto max-w-4xl px-5 py-16 sm:py-24">
+          <div className="mx-auto max-w-2xl text-center">
+            <Eyebrow>Comment ça marche</Eyebrow>
+            <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
+              Un chat. C&apos;est tout ce dont tu as besoin.
+            </h2>
+            <p className="mt-4 text-mist-soft">
+              Oublie les dashboards à surveiller et les apps à jongler. Ton employé IA fonctionne
+              comme une conversation normale : tu lui parles comme à un employé humain, et il agit.
+            </p>
+          </div>
+
+          <div className="mx-auto mt-10 max-w-xl space-y-4">
+            {[
+              { when: "Le matin", msg: "Résume-moi les courriels importants et prépare mes réponses." },
+              { when: "Un client appelle", msg: "Regarde le dossier de Martin et dis-moi où on en est." },
+              { when: "Fin de mois", msg: "Classe mes factures et sors-moi les dépenses du trimestre." },
+            ].map((c) => (
+              <div key={c.when} className="flex flex-col items-end">
+                <span className="mb-1 mr-1 text-xs uppercase tracking-widest text-mist-soft/60">
+                  {c.when}
+                </span>
+                <div className="max-w-[85%] rounded-2xl rounded-br-md border border-fluo-400/30 bg-fluo-500/10 px-5 py-3 text-white">
+                  « {c.msg} »
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="mx-auto mt-10 max-w-2xl text-center leading-relaxed text-mist-soft">
+            Une seule interface. Il se souvient de ton entreprise, de tes clients, de tes process,
+            et il agit directement dans tes outils, sans que tu aies à copier-coller quoi que ce
+            soit.
+          </p>
+        </section>
+
         {/* INTÉGRATIONS */}
         <section className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
           <div className="mx-auto max-w-3xl text-center">
@@ -324,8 +373,9 @@ export default function Page() {
               On se connecte aux outils que tu utilises déjà.
             </h2>
             <p className="mt-4 text-mist-soft">
-              Ton employé IA ne vit pas à part. Il se branche à ton CRM, tes courriels, ton
-              calendrier et tes applications, et pour tout le reste, il y a Zapier, Make et les API.
+              Ton employé IA vit dans Claude. De là, il voit et contrôle tous tes outils : il lit
+              ton Gmail, écrit dans ton Drive, met à jour ton CRM, planifie ton calendrier, le tout
+              depuis la même conversation, sans que tu aies à naviguer entre 10 applications.
             </p>
           </div>
 
@@ -350,8 +400,8 @@ export default function Page() {
             </h2>
             <p className="mt-4 text-mist-soft">
               Ajuste les curseurs à ta réalité. Notre objectif est simple : trouver les tâches
-              que l'IA peut prendre en charge et construire un système dont la valeur dépasse
-              largement son coût.
+              que l'IA peut prendre en charge dans un seul chat et construire un système dont la
+              valeur dépasse largement son coût.
             </p>
           </div>
           <div className="mt-12">
@@ -367,8 +417,8 @@ export default function Page() {
               Vois tout ce qu&apos;on installe, en un coup d&apos;œil.
             </h2>
             <p className="mt-4 text-mist-soft">
-              Un tableau de bord clair par département : tes chiffres réels, mis à jour tout seuls.
-              Fais défiler pour tous les voir.
+              Même si tu pilotes tout depuis un seul chat, un tableau de bord clair par département
+              te montre tes chiffres réels, mis à jour tout seuls. Fais défiler pour tous les voir.
             </p>
           </div>
           <div className="mt-12">
@@ -385,7 +435,8 @@ export default function Page() {
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-mist-soft">
               Réponds à quelques questions et on te construit la carte de ton « cerveau IA » :
-              département par département, les vrais systèmes que l&apos;IA peut prendre en charge.
+              département par département, les vrais systèmes que ton employé IA peut prendre en
+              charge, le tout piloté depuis un seul chat.
             </p>
             <div className="mt-8">
               <a
@@ -406,10 +457,11 @@ export default function Page() {
           <div className="mx-auto max-w-3xl text-center">
             <Eyebrow>Agents spécialisés</Eyebrow>
             <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
-              Un agent expert pour chaque fonction de ton entreprise.
+              Un agent expert pour chaque fonction, accessible depuis ton chat Claude.
             </h2>
             <p className="mt-4 text-mist-soft">
-              Des agents conçus sur mesure qui comprennent ton industrie et livrent des résultats.
+              Des agents conçus sur mesure qui comprennent ton industrie et livrent des résultats,
+              sans que tu aies à changer d&apos;interface pour chacun.
             </p>
           </div>
 
@@ -498,7 +550,7 @@ export default function Page() {
                 La plupart des consultants te disent ce que l'IA <em className="not-italic text-mist-soft">pourrait</em> faire.
               </h2>
               <p className="mt-2 font-display text-3xl accent sm:text-4xl">
-                Nous le construisons avec toi.
+                Nous le construisons avec toi, dans un seul chat.
               </p>
             </div>
 
@@ -538,8 +590,8 @@ export default function Page() {
               </h2>
               <p className="mt-4 text-mist-soft">
                 Avant de le faire pour toi, on a bâti notre propre employé IA dans{" "}
-                <span className="text-white">Suna Films Media</span>. Voici tout ce qu&apos;il
-                roule, chaque jour, sans qu&apos;on ait à y penser.
+                <span className="text-white">Suna Films Media</span> : un seul chat qui gère tout ce
+                qui suit, chaque jour, sans qu&apos;on ait à y penser.
               </p>
             </div>
 
@@ -677,12 +729,12 @@ export default function Page() {
                 Tu peux continuer à payer ton équipe pour accomplir des tâches répétitives.
               </h2>
               <p className="mt-3 font-display text-3xl accent sm:text-4xl">
-                Ou construire le système qui les accomplira automatiquement.
+                Ou construire le système, dans un seul chat, qui les accomplira automatiquement.
               </p>
               <p className="mx-auto mt-5 max-w-xl text-mist-soft">
                 En trois jours, Le Cloud transforme les processus qui ralentissent ton entreprise
-                en systèmes propulsés par l'IA. Soumets ton entreprise ci-dessous, ou réserve un
-                appel directement.
+                en un employé IA propulsé par Claude. Soumets ton entreprise ci-dessous, ou réserve
+                un appel directement.
               </p>
               <div className="mt-6">
                 <a

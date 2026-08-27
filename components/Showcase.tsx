@@ -9,7 +9,7 @@ const VH_PER = 48; // hauteur de scroll (en vh) par exemple : plus petit = chang
 
 export default function Showcase({
   eyebrow = "Exemples concrets",
-  title = "Voici ce qu'on peut faire tourner pour toi.",
+  title = "Voici ce qu'on fait tourner pour toi, à partir d'un seul chat.",
 }: {
   eyebrow?: string;
   title?: string;
