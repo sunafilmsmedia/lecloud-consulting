@@ -316,63 +316,6 @@ export default function Page() {
           </div>
         </section>
 
-        {/* TABLEAUX DE BORD */}
-        <section id="tableaux" className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
-          <div className="mx-auto max-w-3xl text-center">
-            <Eyebrow>Tableaux de bord</Eyebrow>
-            <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
-              Vois tout ce qu&apos;on installe, en un coup d&apos;œil.
-            </h2>
-            <p className="mt-4 text-mist-soft">
-              Un tableau de bord clair par département : tes chiffres réels, mis à jour tout seuls.
-              Fais défiler pour tous les voir.
-            </p>
-          </div>
-          <div className="mt-12">
-            <Dashboards />
-          </div>
-        </section>
-
-        {/* ROI */}
-        <section className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
-          <div className="mx-auto max-w-3xl text-center">
-            <Eyebrow>Le calcul</Eyebrow>
-            <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
-              Combien te coûte le travail répétitif ?
-            </h2>
-            <p className="mt-4 text-mist-soft">
-              Ajuste les curseurs à ta réalité. Notre objectif est simple : trouver les tâches
-              que l'IA peut prendre en charge et construire un système dont la valeur dépasse
-              largement son coût.
-            </p>
-          </div>
-          <div className="mt-12">
-            <RoiCalculator />
-          </div>
-        </section>
-
-        {/* AUDIT IA (teaser -> /audit) */}
-        <section id="audit" className="border-y border-white/10 bg-ink-900 py-16 sm:py-24">
-          <div className="mx-auto max-w-2xl px-5 text-center">
-            <Eyebrow>Audit IA gratuit</Eyebrow>
-            <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
-              Vois le travail que ton entreprise pourrait confier à l&apos;IA.
-            </h2>
-            <p className="mx-auto mt-4 max-w-lg text-mist-soft">
-              Réponds à quelques questions et on te construit la carte de ton « cerveau IA » :
-              département par département, les vrais systèmes que l&apos;IA peut prendre en charge.
-            </p>
-            <div className="mt-8">
-              <a
-                href="/audit"
-                className="inline-flex rounded-full bg-fluo-500 px-8 py-4 font-display font-800 text-ink-950 transition-colors hover:bg-fluo-400 glow-fluo"
-              >
-                Faire mon audit IA gratuit
-              </a>
-            </div>
-          </div>
-        </section>
-
         {/* INTÉGRATIONS */}
         <section className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
           <div className="mx-auto max-w-3xl text-center">
@@ -396,6 +339,63 @@ export default function Page() {
           <p className="mt-6 text-center text-sm text-mist-soft">
             + des centaines d&apos;autres via Zapier, Make et les API.
           </p>
+        </section>
+
+        {/* ROI */}
+        <section className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
+          <div className="mx-auto max-w-3xl text-center">
+            <Eyebrow>Le calcul</Eyebrow>
+            <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
+              Combien te coûte le travail répétitif ?
+            </h2>
+            <p className="mt-4 text-mist-soft">
+              Ajuste les curseurs à ta réalité. Notre objectif est simple : trouver les tâches
+              que l'IA peut prendre en charge et construire un système dont la valeur dépasse
+              largement son coût.
+            </p>
+          </div>
+          <div className="mt-12">
+            <RoiCalculator />
+          </div>
+        </section>
+
+        {/* TABLEAUX DE BORD */}
+        <section id="tableaux" className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
+          <div className="mx-auto max-w-3xl text-center">
+            <Eyebrow>Tableaux de bord</Eyebrow>
+            <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
+              Vois tout ce qu&apos;on installe, en un coup d&apos;œil.
+            </h2>
+            <p className="mt-4 text-mist-soft">
+              Un tableau de bord clair par département : tes chiffres réels, mis à jour tout seuls.
+              Fais défiler pour tous les voir.
+            </p>
+          </div>
+          <div className="mt-12">
+            <Dashboards />
+          </div>
+        </section>
+
+        {/* AUDIT IA (teaser -> /audit) */}
+        <section id="audit" className="border-y border-white/10 bg-ink-900 py-16 sm:py-24">
+          <div className="mx-auto max-w-2xl px-5 text-center">
+            <Eyebrow>Audit IA gratuit</Eyebrow>
+            <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
+              Vois le travail que ton entreprise pourrait confier à l&apos;IA.
+            </h2>
+            <p className="mx-auto mt-4 max-w-lg text-mist-soft">
+              Réponds à quelques questions et on te construit la carte de ton « cerveau IA » :
+              département par département, les vrais systèmes que l&apos;IA peut prendre en charge.
+            </p>
+            <div className="mt-8">
+              <a
+                href="/audit"
+                className="inline-flex rounded-full bg-fluo-500 px-8 py-4 font-display font-800 text-ink-950 transition-colors hover:bg-fluo-400 glow-fluo"
+              >
+                Faire mon audit IA gratuit
+              </a>
+            </div>
+          </div>
         </section>
 
         {/* EXEMPLES / SHOWCASE (carrousel) */}
