@@ -314,16 +314,27 @@ export default function Page() {
               </a>
             </div>
 
-            <div className="mt-10 flex flex-col items-center justify-center gap-x-8 gap-y-2 text-sm text-mist-soft sm:flex-row">
-              {[
-                "Implantation directement dans ton entreprise",
-                "Systèmes personnalisés à tes opérations",
-                "Équipe formée pour devenir autonome",
-              ].map((t) => (
-                <span key={t} className="inline-flex items-center gap-2">
-                  <Check className="text-fluo-400" /> {t}
-                </span>
-              ))}
+            <div className="mt-10 flex items-center justify-center gap-2.5 text-sm text-mist-soft">
+              <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden>
+                {Array.from({ length: 12 }).map((_, i) => {
+                  const a = (i * 30 * Math.PI) / 180;
+                  return (
+                    <line
+                      key={i}
+                      x1={12 + 3 * Math.cos(a)}
+                      y1={12 + 3 * Math.sin(a)}
+                      x2={12 + 10 * Math.cos(a)}
+                      y2={12 + 10 * Math.sin(a)}
+                      stroke="#D97757"
+                      strokeWidth="1.7"
+                      strokeLinecap="round"
+                    />
+                  );
+                })}
+              </svg>
+              <span>
+                Powered by <span className="font-700 text-white">Claude AI</span>
+              </span>
             </div>
           </div>
         </section>
