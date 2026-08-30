@@ -6,6 +6,7 @@ import Showcase from "@/components/Showcase";
 import Faq from "@/components/Faq";
 import RoiCalculator from "@/components/RoiCalculator";
 import CandidatureForm from "@/components/CandidatureForm";
+import ChatDemo from "@/components/ChatDemo";
 import Dashboards from "@/components/Dashboards";
 
 const CALENDLY_URL = "https://calendly.com/sunafilmsmedia/nouvelle-reunion";
@@ -352,21 +353,8 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="mx-auto mt-10 max-w-xl space-y-4">
-            {[
-              { when: "Le matin", msg: "Résume-moi les courriels importants et prépare mes réponses." },
-              { when: "Un client appelle", msg: "Regarde le dossier de Martin et dis-moi où on en est." },
-              { when: "Fin de mois", msg: "Classe mes factures et sors-moi les dépenses du trimestre." },
-            ].map((c) => (
-              <div key={c.when} className="flex flex-col items-end">
-                <span className="mb-1 mr-1 text-xs uppercase tracking-widest text-mist-soft/60">
-                  {c.when}
-                </span>
-                <div className="max-w-[85%] rounded-2xl rounded-br-md border border-fluo-400/30 bg-fluo-500/10 px-5 py-3 text-white">
-                  « {c.msg} »
-                </div>
-              </div>
-            ))}
+          <div className="mt-10">
+            <ChatDemo />
           </div>
 
           <p className="mx-auto mt-10 max-w-2xl text-center leading-relaxed text-mist-soft">
