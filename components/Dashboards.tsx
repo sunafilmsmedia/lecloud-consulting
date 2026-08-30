@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 type Stat = { label: string; value: string; delta?: string };
 type Dash = {
@@ -178,6 +178,8 @@ export default function Dashboards() {
 
   const go = (dir: number) => setActive((a) => (a + dir + n) % n);
 
+  const swipeX = useRef<number | null>(null);
+
   const styleFor = (i: number): React.CSSProperties => {
     let o = i - active;
     if (o > n / 2) o -= n;
@@ -201,8 +203,20 @@ export default function Dashboards() {
   return (
     <div>
       <div
-        className="relative mx-auto h-[360px] max-w-2xl overflow-hidden sm:h-[400px]"
-        style={{ perspective: "1400px" }}
+        className="relative mx-auto h-[360px] max-w-2xl cursor-grab overflow-hidden active:cursor-grabbing sm:h-[400px]"
+        style={{ perspective: "1400px", touchAction: "pan-y" }}
+        onPointerDown={(e) => {
+          swipeX.current = e.clientX;
+        }}
+        onPointerUp={(e) => {
+          if (swipeX.current === null) return;
+          const dx = e.clientX - swipeX.current;
+          swipeX.current = null;
+          if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
+        }}
+        onPointerCancel={() => {
+          swipeX.current = null;
+        }}
       >
         {DASHBOARDS.map((d, i) => (
           <div
