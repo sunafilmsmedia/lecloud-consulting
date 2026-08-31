@@ -301,10 +301,10 @@ export default function Page() {
             <Eyebrow>2 places par mois uniquement</Eyebrow>
             <h1 className="relative z-20 mx-auto mt-6 max-w-4xl font-display leading-[1] text-white">
               <span className="block text-2xl font-800 sm:text-5xl">
-                Ton prochain employé sera
+                Tes prochains employés seront
               </span>
               <span className="accent relative z-10 -mt-1 block px-3 pt-2 pb-5 text-[3.25rem] leading-none sm:-mt-6 sm:text-8xl">
-                payé une fois.
+                payés une fois.
               </span>
             </h1>
             <p className="mx-auto mt-5 font-display text-xl font-600 text-white sm:text-2xl">
@@ -313,11 +313,9 @@ export default function Page() {
             <p className="mx-auto mt-4 font-display text-lg font-700 text-fluo-300 sm:text-xl">
               Un seul chat. Tous tes outils. Zéro tâche répétitive.
             </p>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-mist-soft">
-              En <span className="accent">3 jours</span>, on installe ton employé IA directement
-              dans Claude. Tu lui écris dans une seule conversation : il lit tes courriels, met à
-              jour ton CRM, planifie ton contenu, répond à tes clients et gère tes factures. Pas
-              d'app à ouvrir, pas de dashboard à checker. Tu parles, il exécute.
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-mist-soft">
+              En <span className="accent">3 jours</span>, on installe ton équipe IA directement dans
+              Claude.
             </p>
 
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">

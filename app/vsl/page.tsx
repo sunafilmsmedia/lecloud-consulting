@@ -39,14 +39,14 @@ export default function VslPage() {
               2 places par mois uniquement
             </span>
             <h1 className="mx-auto mt-4 font-display leading-[1] text-white sm:mt-5">
-              <span className="block text-xl font-800 sm:text-3xl">On crée ton employé IA en</span>
+              <span className="block text-xl font-800 sm:text-3xl">On crée ton équipe IA en</span>
               <span className="accent block px-2 pb-3 pt-1 text-[3.5rem] leading-[0.9] sm:text-8xl">
                 3 jours.
               </span>
             </h1>
             <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-mist-soft sm:text-lg">
-              Un employé qui exécute tes tâches répétitives, branché à tes outils. On identifie par
-              où commencer, on construit, et on te rend autonome.
+              Une équipe d&apos;employés IA qui exécute tes tâches répétitives, branchée à tes
+              outils. On identifie par où commencer, on construit, et on te rend autonome.
             </p>
 
             <p className="mt-4 flex items-center justify-center gap-2 font-display text-sm font-700 text-white sm:mt-6 sm:text-lg">
