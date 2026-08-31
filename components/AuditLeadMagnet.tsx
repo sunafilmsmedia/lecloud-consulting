@@ -7,61 +7,60 @@ const CALENDLY_URL = "https://calendly.com/sunafilmsmedia/nouvelle-reunion";
 
 const SIZES = ["Juste moi", "2 à 5", "6 à 15", "16 et +"];
 
-// Départements + branches (systèmes que l'IA peut prendre en charge)
-const DEPARTMENTS: { name: string; tasks: string[] }[] = [
+// Les 6 employés IA (inclus dans l'offre) + leurs branches
+const DEPARTMENTS: { name: string; icon: string; tasks: string[] }[] = [
   {
-    name: "Ventes",
+    name: "Le Stratège Marketing",
+    icon: "🧠",
     tasks: [
-      "Écrit tes scripts selon tes objections les plus communes",
-      "Analyse ton taux de closing",
-      "Te conseille les clients à relancer",
-      "Prépare et envoie tes suivis",
+      "Définit ton client idéal (ICP)",
+      "Construit tes offres",
+      "Écrit tes scripts d'ads (12 hooks/formats)",
+      "Crée tes ads statiques",
+      "Benchmarks par niche",
     ],
   },
   {
-    name: "Marketing",
+    name: "L'Adjointe",
+    icon: "📋",
     tasks: [
-      "Analyse ton coût par lead et par client",
-      "Te conseille sur tes publicités",
-      "Crée tes publicités pour toi",
-      "Écrit ton contenu et le planifie",
+      "Ton courriel du matin, résumé",
+      "Brief avant chaque rendez-vous",
+      "Ton plan de semaine",
+      "Met à jour ton CRM",
+      "Transforme tes notes de rencontre en tâches",
+      "Chasse les paiements et documents manquants",
     ],
   },
   {
-    name: "Service client",
+    name: "Le Marketeur",
+    icon: "🎯",
     tasks: [
-      "Lit tes courriels et te fait des rappels",
-      "Répond aux questions fréquentes",
-      "Analyse ton CRM",
-      "Trie et classe chaque demande",
+      "SEO mensuel",
+      "Gère tes publicités Facebook",
+      "Email marketing (Mailchimp)",
+      "Veille concurrentielle",
     ],
   },
   {
-    name: "Opérations",
+    name: "Le Coach de vente",
+    icon: "💰",
     tasks: [
-      "Relance tes clients automatiquement",
-      "Met à jour ton CRM tout seul",
-      "Prépare tes documents et soumissions",
-      "Automatise tes routines répétitives",
+      "Analyse tes appels",
+      "Scripts selon tes objections",
+      "Suivis hebdomadaires",
+      "Réactive tes clients dormants",
     ],
   },
   {
-    name: "Admin & Finance",
-    tasks: [
-      "Classe tes factures dans le bon dossier",
-      "Suit tes dépenses",
-      "Résume tes courriels",
-      "Prépare tes rapports",
-    ],
+    name: "Le Monteur-publieur",
+    icon: "🎬",
+    tasks: ["Sous-titres automatiques", "Publication automatique"],
   },
   {
-    name: "Direction",
-    tasks: [
-      "Analyse tes chiffres en continu",
-      "Résume tes réunions",
-      "Suit tes KPI",
-      "Prépare tes décisions",
-    ],
+    name: "Le Rapport CEO",
+    icon: "📊",
+    tasks: ["Ton bilan mensuel consolidé"],
   },
 ];
 
@@ -213,7 +212,10 @@ export default function AuditLeadMagnet() {
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           {shown.map((d) => (
             <div key={d.name} className="rounded-lg border border-white/10 bg-white/[0.02] p-5">
-              <h4 className="font-display text-lg font-700 text-fluo-300">{d.name}</h4>
+              <h4 className="font-display text-lg font-700 text-fluo-300">
+                <span className="mr-1.5">{d.icon}</span>
+                {d.name}
+              </h4>
               <ul className="mt-3 space-y-2">
                 {d.tasks.map((t) => (
                   <li key={t} className="flex items-start gap-2 text-sm text-white/90">
@@ -288,9 +290,11 @@ export default function AuditLeadMagnet() {
       {step === 2 && (
         <div>
           <p className="font-display text-xl font-700 text-white">
-            Quels départements veux-tu soulager ?
+            Quels employés IA t&apos;intéressent le plus ?
           </p>
-          <p className="mt-1 text-sm text-mist-soft">Choisis-en autant que tu veux.</p>
+          <p className="mt-1 text-sm text-mist-soft">
+            Les 6 sont inclus dans l&apos;offre. Choisis ceux qui te parlent le plus.
+          </p>
           <div className="mt-4 flex flex-wrap gap-2">
             {DEPARTMENTS.map((d) => (
               <Chip
@@ -298,7 +302,7 @@ export default function AuditLeadMagnet() {
                 active={a.departments.includes(d.name)}
                 onClick={() => toggleIn("departments", d.name)}
               >
-                {d.name}
+                {d.icon} {d.name}
               </Chip>
             ))}
           </div>
