@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Dashboards from "@/components/Dashboards";
-import VideoFrame from "@/components/VideoFrame";
 import BlueprintBg from "@/components/BlueprintBg";
 
 export const metadata: Metadata = {
@@ -19,9 +18,6 @@ export const metadata: Metadata = {
 };
 
 const CALENDLY_URL = "https://calendly.com/sunafilmsmedia/nouvelle-reunion";
-
-// Colle ici l'URL de ta VSL (YouTube/Vimeo « embed » ou fichier .mp4). Vide = placeholder.
-const VSL_VIDEO_URL = "";
 
 export default function VslPage() {
   return (
@@ -63,7 +59,14 @@ export default function VslPage() {
             </p>
 
             <div className="mt-3 sm:mt-4">
-              <VideoFrame src={VSL_VIDEO_URL} label="Ta VSL ici" />
+              <div className="mx-auto w-full max-w-3xl overflow-hidden rounded-2xl border border-white/10 shadow-2xl shadow-fluo-500/10">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/vsl-thumbnail.png"
+                  alt="Ton équipe IA — CMO, Vente, Adjointe, propulsé par Claude"
+                  className="block w-full"
+                />
+              </div>
             </div>
 
             <div className="mt-4 sm:mt-6">
