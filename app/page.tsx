@@ -228,37 +228,42 @@ const AGENT_ICONS: React.ReactNode[] = [
 
 const PRICING = [
   {
-    name: "Full Access",
+    name: "Ton équipe IA",
     featured: false,
     tagline:
-      "Que tu démarres une nouvelle entreprise ou que tu fasses croître l'existante, accède à la suite complète des outils Le Cloud, pilotée depuis un seul chat (sauf les équipes d'agents).",
+      "Les 6 employés IA installés dans ton entreprise, pilotés depuis une seule conversation Claude.",
     features: [
-      "Truth Engine : intelligence de marché & rapports de recherche",
-      "Système d'exploitation Le Cloud complet",
-      "Constructeur d'offres & moteur de positionnement",
-      "Funnels, publicités & séquences de nurture",
-      "Gestion CRM & pipeline",
-      "Outils de contenu & création",
-      "Emails froids & automatisation de prospection",
-      "Partenaire d'implantation 1-à-1",
+      "🧠 Le Stratège Marketing — ICP, offres, scripts d'ads",
+      "📋 L'Adjointe — courriel, CRM, rappels, suivis",
+      "🎯 Le Marketeur — SEO, publicités, email marketing",
+      "💰 Le Coach de vente — appels, scripts, réactivation",
+      "🎬 Le Monteur-publieur — sous-titres + publication",
+      "📊 Le Rapport CEO — bilan mensuel consolidé",
+      "Installé en 3 jours, branché à tes outils",
+      "Formation pour le contrôler toi-même",
     ],
   },
   {
-    name: "Agency",
+    name: "CMO Marketing",
     featured: true,
     tagline:
-      "Deviens un partenaire avec qui on travaille directement. On configure tes compétences, on installe des coéquipiers IA dans ton agence et on optimise tes opérations.",
+      "Ton équipe IA au complet, plus la machine marketing : on gère et on optimise tout à ta place.",
     features: [
-      "Tout ce qu'inclut Full Access",
-      "Productisation de compétences 1-à-1",
-      "Architecture d'agents sur mesure",
-      "Déploiement de bots Slack & Discord",
-      "Build-out complet de l'automatisation de livraison",
-      "Optimisation & amélioration continues",
-      "Canal privé de leadership",
-      "Contrat & engagement minimum de 12 mois",
+      "Tout ce qu'inclut Ton équipe IA",
+      "CRM GoHighLevel installé + bot IA",
+      "Gestion complète de tes publicités (Meta)",
+      "SEO et email marketing pilotés pour toi",
+      "Production de contenu et de publicités",
+      "Suivi et optimisation en continu",
     ],
   },
+];
+
+// Extras & options (add-ons)
+const EXTRAS = [
+  "Production de publicités : tournage + montage à partir de ton script IA",
+  "CRM GoHighLevel + bot IA (inclus dans CMO Marketing)",
+  "Retainer mensuel : accès CRM + communauté, interventions incluses",
 ];
 
 /* ---------- page ---------- */
@@ -648,10 +653,11 @@ export default function Page() {
           <div className="relative mx-auto max-w-3xl text-center">
             <Eyebrow>Tarifs</Eyebrow>
             <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
-              Choisis le niveau qui correspond à ton stade.
+              Deux packages, une seule équipe IA.
             </h2>
             <p className="mt-4 text-mist-soft">
-              De la recherche de marché à la livraison complète propulsée par l'IA.
+              Les 6 employés IA sont inclus dans les deux. Le second ajoute la machine marketing,
+              gérée de A à Z.
             </p>
           </div>
 
@@ -667,7 +673,7 @@ export default function Page() {
                   <>
                     <div className="aura -right-10 -top-10 h-40 w-40 bg-fluo-500/25" />
                     <span className="relative mb-4 inline-flex w-fit rounded-md border border-fluo-400/40 bg-fluo-500/10 px-3 py-1 text-xs font-700 uppercase tracking-widest text-fluo-300">
-                      Partenariat
+                      Le plus complet
                     </span>
                   </>
                 )}
@@ -703,6 +709,19 @@ export default function Page() {
                 </a>
               </div>
             ))}
+          </div>
+
+          <div className="relative mx-auto mt-8 max-w-3xl rounded-md border border-white/10 bg-white/[0.02] p-6">
+            <p className="text-xs font-600 uppercase tracking-widest text-fluo-300">
+              Extras & options
+            </p>
+            <ul className="mt-4 grid gap-2 sm:grid-cols-1">
+              {EXTRAS.map((e) => (
+                <li key={e} className="flex items-start gap-3 text-sm text-white/90">
+                  <Check className="mt-0.5 text-fluo-400" /> {e}
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
