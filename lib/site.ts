@@ -6,6 +6,6 @@ export const SITE_URL = (
 export const SITE_NAME = "Le Cloud AI";
 
 export const SITE_DESCRIPTION =
-  "Le Cloud AI installe des employés IA sur mesure dans les entreprises québécoises en 3 jours : payés une seule fois, sans salaire récurrent, branchés aux outils existants et entraînés sur le business du client.";
+  "Le Cloud AI installe des employés IA sur mesure dans les entreprises québécoises en 7 jours : payés une seule fois, sans salaire récurrent, branchés aux outils existants et entraînés sur le business du client.";
 
 export const SITE_LOCALE = "fr_CA";

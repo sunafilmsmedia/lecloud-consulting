@@ -27,7 +27,7 @@ const FAQ_JSONLD = {
       name: "Combien de temps faut-il pour installer un employé IA dans une entreprise?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Le Cloud AI installe un employé IA dans une entreprise en 3 jours. Il est branché directement aux outils existants de l'entreprise, entraîné sur ses données et processus spécifiques, puis livré avec une formation pour apprendre à le contrôler.",
+        text: "Le Cloud AI installe un employé IA dans une entreprise en 7 jours. Il est branché directement aux outils existants de l'entreprise, entraîné sur ses données et processus spécifiques, puis livré avec une formation pour apprendre à le contrôler.",
       },
     },
     {
@@ -51,7 +51,7 @@ const FAQ_JSONLD = {
       name: "Quelle est la différence entre embaucher un employé et installer un employé IA?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Un employé traditionnel implique un salaire récurrent, des avantages sociaux et des vacances. Un employé IA de Le Cloud AI est payé une seule fois, disponible 24/7, et installé en 3 jours directement dans les outils de l'entreprise.",
+        text: "Un employé traditionnel implique un salaire récurrent, des avantages sociaux et des vacances. Un employé IA de Le Cloud AI est payé une seule fois, disponible 24/7, et installé en 7 jours directement dans les outils de l'entreprise.",
       },
     },
     {
@@ -309,7 +309,7 @@ export default function Page() {
               Un seul chat. Tous tes outils. Zéro tâche répétitive.
             </p>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-mist-soft">
-              En <span className="accent">3 jours</span>, on installe ton équipe IA directement dans
+              En <span className="accent">7 jours</span>, on installe ton équipe IA directement dans
               Claude.
             </p>
 

@@ -23,7 +23,7 @@ const bodoni = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Le Cloud AI · Ton employé IA installé en 3 jours",
+    default: "Le Cloud AI · Ton employé IA installé en 7 jours",
     template: "%s · Le Cloud AI",
   },
   description: SITE_DESCRIPTION,
@@ -47,12 +47,12 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     url: SITE_URL,
     locale: SITE_LOCALE,
-    title: "Le Cloud AI · Ton employé IA installé en 3 jours",
+    title: "Le Cloud AI · Ton employé IA installé en 7 jours",
     description: SITE_DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Le Cloud AI · Ton employé IA installé en 3 jours",
+    title: "Le Cloud AI · Ton employé IA installé en 7 jours",
     description: SITE_DESCRIPTION,
   },
   robots: {
@@ -71,7 +71,7 @@ const JSONLD = [
     url: SITE_URL,
     logo: `${SITE_URL}/logo.png`,
     description:
-      "Le Cloud AI installe des employés IA sur mesure dans les entreprises québécoises en 3 jours — payés une seule fois, sans salaire récurrent, branchés aux outils existants et entraînés sur le business du client.",
+      "Le Cloud AI installe des employés IA sur mesure dans les entreprises québécoises en 7 jours — payés une seule fois, sans salaire récurrent, branchés aux outils existants et entraînés sur le business du client.",
     areaServed: { "@type": "AdministrativeArea", name: "Québec, Canada" },
   },
   {
@@ -81,7 +81,7 @@ const JSONLD = [
     provider: { "@type": "Organization", name: "Le Cloud AI", url: SITE_URL },
     areaServed: { "@type": "AdministrativeArea", name: "Québec" },
     description:
-      "Installation d'un employé IA personnalisé, branché aux outils de l'entreprise et entraîné sur ses données, livré en 3 jours sur la plateforme Claude d'Anthropic.",
+      "Installation d'un employé IA personnalisé, branché aux outils de l'entreprise et entraîné sur ses données, livré en 7 jours sur la plateforme Claude d'Anthropic.",
     offers: {
       "@type": "Offer",
       priceCurrency: "CAD",

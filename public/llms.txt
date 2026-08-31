@@ -2,12 +2,12 @@
 
 > Ton prochain employé sera payé une fois. Pas de salaire, pas de vacances.
 
-Le Cloud AI installe des employés IA sur mesure dans les entreprises québécoises. En 3 jours, l'employé IA est construit sur Claude (Anthropic), branché aux outils existants de l'entreprise, entraîné sur ses données et son fonctionnement, puis livré avec une formation pour que le client apprenne à le contrôler.
+Le Cloud AI installe des employés IA sur mesure dans les entreprises québécoises. En 7 jours, l'employé IA est construit sur Claude (Anthropic), branché aux outils existants de l'entreprise, entraîné sur ses données et son fonctionnement, puis livré avec une formation pour que le client apprenne à le contrôler.
 
 Modèle: paiement unique, aucun salaire récurrent.
 Zone de service: Québec, Canada.
 Technologie: Claude (Anthropic).
-Délai d'installation: 3 jours.
+Délai d'installation: 7 jours.
 
 ## Pages principales
 - [Accueil](https://le-cloud-ai.com/): Présentation de l'offre, tableaux de bord, exemples et candidature

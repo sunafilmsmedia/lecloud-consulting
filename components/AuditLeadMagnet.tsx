@@ -237,7 +237,7 @@ export default function AuditLeadMagnet() {
             On l&apos;installe pour vrai ? Réserve un appel
           </a>
           <p className="mt-3 text-xs text-mist-soft/70">
-            On construit tes systèmes prioritaires en 3 jours, directement dans ton entreprise.
+            On construit tes systèmes prioritaires en 7 jours, directement dans ton entreprise.
           </p>
         </div>
       </div>

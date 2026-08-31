@@ -133,7 +133,7 @@ export default function CandidatureForm() {
         <label className="mb-1.5 block text-sm text-mist-soft">Ce qui t'intéresse</label>
         <select name="interest" defaultValue="" className={inputCls}>
           <option value="" disabled>Sélectionner…</option>
-          <option value="makeover">Le Makeover IA : implantation 3 jours</option>
+          <option value="makeover">Le Makeover IA : implantation 7 jours</option>
           <option value="full-access">Full Access</option>
           <option value="agency">Agency : partenariat</option>
           <option value="pas-sur">Pas encore sûr, je veux en parler</option>

@@ -5,14 +5,14 @@ import Dashboards from "@/components/Dashboards";
 import BlueprintBg from "@/components/BlueprintBg";
 
 export const metadata: Metadata = {
-  title: "Ton employé IA installé en 3 jours",
+  title: "Ton employé IA installé en 7 jours",
   description:
     "Regarde ce qu'on installe dans ton entreprise : un employé IA branché à tes outils qui exécute tes tâches répétitives. Vidéo + tableaux de bord par département.",
   alternates: { canonical: "/vsl" },
   openGraph: {
-    title: "Ton employé IA installé en 3 jours · Le Cloud AI",
+    title: "Ton employé IA installé en 7 jours · Le Cloud AI",
     description:
-      "Un employé IA branché à tes outils qui exécute tes tâches répétitives, installé en 3 jours.",
+      "Un employé IA branché à tes outils qui exécute tes tâches répétitives, installé en 7 jours.",
     url: "/vsl",
   },
 };
@@ -37,7 +37,7 @@ export default function VslPage() {
             <h1 className="mx-auto mt-4 font-display leading-[1] text-white sm:mt-5">
               <span className="block text-xl font-800 sm:text-3xl">On crée ton équipe IA en</span>
               <span className="accent block px-2 pb-3 pt-1 text-[3.5rem] leading-[0.9] sm:text-8xl">
-                3 jours.
+                7 jours.
               </span>
             </h1>
             <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-mist-soft sm:text-lg">
@@ -108,7 +108,7 @@ export default function VslPage() {
         <section className="border-t border-white/10 bg-ink-900/60 py-16 sm:py-24">
           <div className="mx-auto max-w-3xl px-5 text-center">
             <h2 className="font-display text-3xl font-800 text-white sm:text-4xl">
-              On l&apos;installe dans ton entreprise, en 3 jours.
+              On l&apos;installe dans ton entreprise, en 7 jours.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-mist-soft">
               Même offre : on identifie, on construit et on te rend autonome. On choisit ensemble
