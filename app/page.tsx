@@ -228,42 +228,58 @@ const AGENT_ICONS: React.ReactNode[] = [
 
 const PRICING = [
   {
-    name: "Ton équipe IA",
+    name: "L'Équipe IA",
+    price: "8 500 $",
     featured: false,
-    tagline:
-      "Les 6 employés IA installés dans ton entreprise, pilotés depuis une seule conversation Claude.",
+    tagline: "La base : tes 5 employés IA essentiels, installés sur place et prêts à travailler.",
     features: [
       "🧠 Le Stratège Marketing — ICP, offres, scripts d'ads",
       "📋 L'Adjointe — courriel, CRM, rappels, suivis",
       "🎯 Le Marketeur — SEO, publicités, email marketing",
       "💰 Le Coach de vente — appels, scripts, réactivation",
-      "🎬 Le Monteur-publieur — sous-titres + publication",
       "📊 Le Rapport CEO — bilan mensuel consolidé",
-      "Installé en 3 jours, branché à tes outils",
-      "Formation pour le contrôler toi-même",
+      "Installation sur place (3-4 jours)",
+      "Review de tes publicités à J+30",
+      "3 mois de maintenance (Skool inclus)",
     ],
   },
   {
-    name: "CMO Marketing",
+    name: "Le CMO + l'Équipe",
+    price: "10 000 $",
     featured: true,
     tagline:
-      "Ton équipe IA au complet, plus la machine marketing : on gère et on optimise tout à ta place.",
+      "Ton CMO au complet. Toute l'Équipe IA, plus le système de contenu de A à Z. Un rôle, pas une liste de features.",
     features: [
-      "Tout ce qu'inclut Ton équipe IA",
-      "CRM GoHighLevel installé + bot IA",
-      "Gestion complète de tes publicités (Meta)",
-      "SEO et email marketing pilotés pour toi",
-      "Production de contenu et de publicités",
-      "Suivi et optimisation en continu",
+      "Tout ce qu'inclut L'Équipe IA",
+      "🎬 Le Monteur-publieur — sous-titres + publication auto via Drive",
+      "Tu approuves, ça publie",
+      "Calendrier de contenu géré par le Stratège IA",
+      "Fonctionne avec ton caméraman ou tes propres fichiers",
+      "12 mois d'accès Skool garanti",
     ],
   },
 ];
 
-// Extras & options (add-ons)
+// Extras (sur demande)
 const EXTRAS = [
-  "Production de publicités : tournage + montage à partir de ton script IA",
-  "CRM GoHighLevel + bot IA (inclus dans CMO Marketing)",
-  "Retainer mensuel : accès CRM + communauté, interventions incluses",
+  {
+    icon: "🗂️",
+    name: "CRM + bot IA",
+    price: "1 500 $ + 175 $/mois",
+    desc: "CRM GoHighLevel complet avec bot IA conversationnel, configuré pour ta niche.",
+  },
+  {
+    icon: "🎥",
+    name: "Session de tournage",
+    price: "1 500 $",
+    desc: "Demi-journée avec notre équipe, 10 à 15 clips organiques pour alimenter ton contenu.",
+  },
+  {
+    icon: "📹",
+    name: "Production de publicités",
+    price: "1 000 $ / pub · 3 pour 2 500 $",
+    desc: "Ton employé IA écrit le script, on tourne, on monte et on livre. En lot pour tester.",
+  },
 ];
 
 /* ---------- page ---------- */
@@ -683,8 +699,8 @@ export default function Page() {
                 </p>
 
                 <div className="relative mt-6 flex items-baseline gap-2 border-y border-white/10 py-5">
-                  <span className="font-display text-3xl font-800 text-white">Parlons-en</span>
-                  <span className="text-sm text-mist-soft">· sur mesure</span>
+                  <span className="font-display text-4xl font-800 text-white">{tier.price}</span>
+                  <span className="text-sm text-mist-soft">une fois</span>
                 </div>
 
                 <ul className="relative mt-6 flex-1 space-y-3">
@@ -713,16 +729,28 @@ export default function Page() {
 
           <div className="relative mx-auto mt-8 max-w-3xl rounded-md border border-white/10 bg-white/[0.02] p-6">
             <p className="text-xs font-600 uppercase tracking-widest text-fluo-300">
-              Extras & options
+              Extras (sur demande)
             </p>
-            <ul className="mt-4 grid gap-2 sm:grid-cols-1">
+            <ul className="mt-4 space-y-4">
               {EXTRAS.map((e) => (
-                <li key={e} className="flex items-start gap-3 text-sm text-white/90">
-                  <Check className="mt-0.5 text-fluo-400" /> {e}
+                <li key={e.name} className="flex items-start gap-3">
+                  <span className="text-lg leading-none">{e.icon}</span>
+                  <div>
+                    <p className="text-sm font-700 text-white">
+                      {e.name}{" "}
+                      <span className="font-500 text-fluo-300">— {e.price}</span>
+                    </p>
+                    <p className="mt-0.5 text-sm text-mist-soft">{e.desc}</p>
+                  </div>
                 </li>
               ))}
             </ul>
           </div>
+
+          <p className="mx-auto mt-6 max-w-2xl text-center text-sm text-mist-soft">
+            <span className="font-700 text-white">Prix fondateur — 7 500 $</span> pour les 2-3
+            premiers clients, contre témoignage et droit de filmer le makeover.
+          </p>
         </section>
 
         {/* FAQ */}
