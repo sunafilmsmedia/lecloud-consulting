@@ -238,9 +238,9 @@ const PRICING = [
       "🎯 Le Marketeur — SEO, publicités, email marketing",
       "💰 Le Coach de vente — appels, scripts, réactivation",
       "📊 Le Rapport CEO — bilan mensuel consolidé",
-      "Installation sur place (3-4 jours)",
+      "Installation à distance (3-4 jours)",
       "Review de tes publicités à J+30",
-      "3 mois de maintenance (Skool inclus)",
+      "3 mois de maintenance (communauté + tickets)",
     ],
   },
   {
@@ -255,7 +255,6 @@ const PRICING = [
       "Tu approuves, ça publie",
       "Calendrier de contenu géré par le Stratège IA",
       "Fonctionne avec ton caméraman ou tes propres fichiers",
-      "12 mois d'accès Skool garanti",
     ],
   },
 ];
@@ -266,7 +265,7 @@ const EXTRAS = [
     icon: "🗂️",
     name: "CRM + bot IA",
     price: "1 500 $ + 175 $/mois",
-    desc: "CRM GoHighLevel complet avec bot IA conversationnel, configuré pour ta niche.",
+    desc: "CRM GoHighLevel complet avec bot IA conversationnel, configuré pour ta niche. L'accès à la communauté Skool vient avec.",
   },
   {
     icon: "🎥",
@@ -699,8 +698,8 @@ export default function Page() {
                 </p>
 
                 <div className="relative mt-6 flex items-baseline gap-2 border-y border-white/10 py-5">
-                  <span className="font-display text-4xl font-800 text-white">{tier.price}</span>
-                  <span className="text-sm text-mist-soft">une fois</span>
+                  <span className="font-display text-3xl font-800 text-white">Parlons-en</span>
+                  <span className="text-sm text-mist-soft">· payé une fois</span>
                 </div>
 
                 <ul className="relative mt-6 flex-1 space-y-3">
@@ -727,7 +726,21 @@ export default function Page() {
             ))}
           </div>
 
-          <div className="relative mx-auto mt-8 max-w-3xl rounded-md border border-white/10 bg-white/[0.02] p-6">
+          <div className="relative mx-auto mt-8 max-w-3xl overflow-hidden rounded-md border border-fluo-400/30 bg-fluo-500/[0.06] p-6 text-center glow-fluo">
+            <div className="aura left-1/2 top-0 h-32 w-64 -translate-x-1/2 bg-fluo-500/20" />
+            <p className="relative text-xs font-600 uppercase tracking-widest text-fluo-300">
+              Garantie 7 jours
+            </p>
+            <p className="relative mt-2 font-display text-xl font-700 text-white sm:text-2xl">
+              Installée dans 7 jours, ou tu es remboursé.
+            </p>
+            <p className="relative mx-auto mt-2 max-w-lg text-sm text-mist-soft">
+              Paiement à la signature, garantie sur les livrables. Livraison à distance, partout :
+              Québec, Gatineau, la France si tu veux.
+            </p>
+          </div>
+
+          <div className="relative mx-auto mt-6 max-w-3xl rounded-md border border-white/10 bg-white/[0.02] p-6">
             <p className="text-xs font-600 uppercase tracking-widest text-fluo-300">
               Extras (sur demande)
             </p>
@@ -736,10 +749,7 @@ export default function Page() {
                 <li key={e.name} className="flex items-start gap-3">
                   <span className="text-lg leading-none">{e.icon}</span>
                   <div>
-                    <p className="text-sm font-700 text-white">
-                      {e.name}{" "}
-                      <span className="font-500 text-fluo-300">— {e.price}</span>
-                    </p>
+                    <p className="text-sm font-700 text-white">{e.name}</p>
                     <p className="mt-0.5 text-sm text-mist-soft">{e.desc}</p>
                   </div>
                 </li>
@@ -748,8 +758,8 @@ export default function Page() {
           </div>
 
           <p className="mx-auto mt-6 max-w-2xl text-center text-sm text-mist-soft">
-            <span className="font-700 text-white">Prix fondateur — 7 500 $</span> pour les 2-3
-            premiers clients, contre témoignage et droit de filmer le makeover.
+            <span className="font-700 text-white">Prix fondateur</span> pour les 2-3 premiers
+            clients, contre témoignage et droit de filmer le makeover.
           </p>
         </section>
 
