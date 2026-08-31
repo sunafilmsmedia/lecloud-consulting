@@ -5,63 +5,60 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Services & packages",
   description:
-    "Les deux packages Le Cloud AI et les extras : L'Équipe IA (5 employés), Le CMO + l'Équipe, CRM + bot IA, sessions de tournage, production de publicités et retainer.",
+    "Deux packages Le Cloud AI. Opérations : Directeur des ventes, Client Success Manager, Adjointe de direction, CFO. Complète + CMO : tout le marketing géré par une équipe IA, propulsé par une agence avec 4+ ans d'expérience.",
   alternates: { canonical: "/services" },
   openGraph: {
     title: "Services & packages · Le Cloud AI",
-    description: "Les deux packages et les extras, ce que le client reçoit.",
+    description: "Opérations vs Complète + CMO : ce que chaque package inclut.",
     url: "/services",
   },
 };
 
 const CALENDLY_URL = "https://calendly.com/sunafilmsmedia/nouvelle-reunion";
 
-type Item = { icon?: string; name: string; does: string };
+type Feature = { name: string; detail?: string; p1: boolean; p2: boolean };
 
-const P1_EMPLOYEES: Item[] = [
-  { icon: "🧠", name: "Le Stratège Marketing", does: "ICP, construction d'offres, scripts d'ads et publicités statiques." },
-  { icon: "📋", name: "L'Adjointe", does: "Courriels, brief avant-RDV, CRM automatique, chasse aux documents manquants, radar quotidien." },
-  { icon: "🎯", name: "Le Marketeur", does: "SEO, gestion des publicités (Facebook), email marketing, veille concurrentielle." },
-  { icon: "💰", name: "Le Coach de vente", does: "Analyse d'appels, scripts selon tes objections, suivis, réactivation des dormants." },
-  { icon: "📊", name: "Le Rapport CEO", does: "Bilan mensuel consolidé de ton entreprise." },
+const FEATURES: Feature[] = [
+  { name: "💰 Directeur des ventes", p1: true, p2: true },
+  { name: "🤝 Client Success Manager", p1: true, p2: true },
+  { name: "📋 Adjointe de direction", p1: true, p2: true },
+  { name: "📊 CFO", p1: true, p2: true },
+  {
+    name: "🎯 CMO complet",
+    detail: "ICP builder, content ideas, scripts AEILA, statiques, MCP Meta, SEO, email marketing, veille",
+    p1: false,
+    p2: true,
+  },
+  {
+    name: "🎬 Système de contenu",
+    detail: "Auto sous-titres + auto-publication",
+    p1: false,
+    p2: true,
+  },
 ];
 
-const P1_INCLUDES = [
+const INCLUDED = [
   "Installation à distance en 7 jours",
-  "Formation pour le contrôler toi-même",
+  "Formation pour le contrôler",
   "3 mois de maintenance (communauté + tickets)",
 ];
 
-const P2_ADDS: Item[] = [
-  { icon: "🎬", name: "Système de contenu", does: "Sous-titres et publication automatiques via Drive : tu approuves, ça publie." },
-  { icon: "🧠", name: "Plan de contenu mensuel", does: "Généré par ton Stratège IA : idées, hooks, scripts et horaire de publication." },
-];
-
-const EXTRAS: Item[] = [
-  { name: "CRM + bot IA", does: "GoHighLevel complet, bot conversationnel, snapshot configuré pour ta niche. L'accès à la communauté Skool vient avec." },
-  { name: "Session de tournage", does: "Demi-journée avec notre équipe, 10 à 15 clips organiques pour ton contenu." },
-  { name: "Production de publicités", does: "Ton Stratège IA écrit le script, on tourne, on monte et on livre. En lot pour tester." },
+const EXTRAS = [
+  { name: "CRM + bot IA", does: "GoHighLevel complet, bot conversationnel, snapshot par niche. Accès Skool inclus." },
+  { name: "Session de tournage", does: "Demi-journée avec notre équipe, 10 à 15 clips organiques." },
+  { name: "Production de publicités", does: "Ton CMO IA écrit le script, on tourne, on monte et on livre." },
   { name: "Retainer · Accès", does: "Communauté (Skool) + CRM + support IA (tickets)." },
 ];
 
-function Row({ item }: { item: Item }) {
+function Yes() {
   return (
-    <div className="grid gap-x-6 gap-y-1 border-b border-white/10 py-4 last:border-0 md:grid-cols-12">
-      <div className="flex items-center gap-2 md:col-span-4">
-        {item.icon && <span className="text-lg leading-none">{item.icon}</span>}
-        <span className="font-display text-base font-700 text-white">{item.name}</span>
-      </div>
-      <p className="text-sm leading-relaxed text-mist-soft md:col-span-8">{item.does}</p>
-    </div>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="mx-auto text-fluo-400">
+      <path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   );
 }
-
-function PriceTag() {
-  return (
-    <span className="inline-flex rounded-full border border-fluo-400/30 bg-fluo-500/10 px-3 py-1 text-xs font-600 text-fluo-300">
-      Sur demande
-    </span>
-  );
+function No() {
+  return <span className="block text-center text-mist-soft/40">—</span>;
 }
 
 export default function ServicesPage() {
@@ -78,76 +75,87 @@ export default function ServicesPage() {
               Services & packages
             </span>
             <h1 className="mx-auto mt-6 font-display text-4xl font-800 leading-[1.08] text-white sm:text-5xl">
-              Deux packages, une seule <span className="accent">équipe IA.</span>
+              Automatise ton marketing avec une <span className="accent">équipe IA.</span>
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-mist-soft">
-              Exactement ce que tu reçois. Les prix se donnent en appel, selon ton contexte.
+              Le même savoir-faire qu&apos;une agence avec 4+ ans d&apos;expérience, installé
+              directement dans ton entreprise. Les prix se donnent en appel.
             </p>
           </div>
         </section>
 
-        <div className="mx-auto max-w-4xl space-y-8 px-5 pb-8">
-          {/* PACKAGE 1 */}
-          <div className="card p-6 sm:p-8">
-            <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
-              <h2 className="font-display text-2xl font-800 text-white">Package 1 · L&apos;Équipe IA</h2>
-              <PriceTag />
+        {/* TABLEAU COMPARATIF */}
+        <section className="mx-auto max-w-3xl px-5 pb-10">
+          <div className="overflow-hidden rounded-xl border border-white/10">
+            {/* en-tête */}
+            <div className="grid grid-cols-[1fr_64px_72px] items-end gap-2 border-b border-white/10 bg-white/[0.02] px-4 py-4 sm:grid-cols-[1fr_150px_150px] sm:px-6">
+              <span className="text-xs font-600 uppercase tracking-widest text-mist-soft/60">
+                Ce que tu reçois
+              </span>
+              <div className="text-center">
+                <p className="font-display text-sm font-800 leading-tight text-white">Opérations</p>
+                <p className="text-[10px] text-mist-soft">P1 · sur demande</p>
+              </div>
+              <div className="rounded-md bg-fluo-500/10 py-1 text-center">
+                <p className="font-display text-sm font-800 leading-tight text-white">
+                  Complète + CMO ⭐
+                </p>
+                <p className="text-[10px] text-fluo-300">P2 · sur demande</p>
+              </div>
             </div>
-            <p className="mb-4 text-sm text-mist-soft">
-              Tes 5 employés IA essentiels, installés à distance et prêts à travailler.
-            </p>
-            <div>
-              {P1_EMPLOYEES.map((e) => (
-                <Row key={e.name} item={e} />
-              ))}
-            </div>
-            <div className="mt-5 flex flex-wrap gap-2">
-              {P1_INCLUDES.map((t) => (
-                <span
-                  key={t}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.03] px-3 py-1.5 text-xs text-white/90"
-                >
-                  <span className="h-1.5 w-1.5 bg-fluo-400" /> {t}
-                </span>
-              ))}
-            </div>
+
+            {/* lignes */}
+            {FEATURES.map((f) => (
+              <div
+                key={f.name}
+                className="grid grid-cols-[1fr_64px_72px] items-center gap-2 border-b border-white/8 px-4 py-4 last:border-0 sm:grid-cols-[1fr_150px_150px] sm:px-6"
+              >
+                <div>
+                  <p className="text-sm font-600 text-white">{f.name}</p>
+                  {f.detail && <p className="mt-0.5 text-xs leading-snug text-mist-soft">{f.detail}</p>}
+                </div>
+                <div>{f.p1 ? <Yes /> : <No />}</div>
+                <div className="rounded-md bg-fluo-500/[0.05] py-2">{f.p2 ? <Yes /> : <No />}</div>
+              </div>
+            ))}
           </div>
 
-          {/* PACKAGE 2 */}
-          <div className="card border-fluo-400/35 p-6 glow-fluo sm:p-8">
-            <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
-              <h2 className="font-display text-2xl font-800 text-white">
-                Package 2 · Le CMO + l&apos;Équipe <span className="text-fluo-400">⭐</span>
-              </h2>
-              <PriceTag />
-            </div>
-            <p className="mb-4 text-sm text-mist-soft">
-              <span className="font-700 text-white">Tout le Package 1</span>, plus le système de
-              contenu complet. Vendu comme un rôle : ton CMO.
-            </p>
-            <div>
-              {P2_ADDS.map((e) => (
-                <Row key={e.name} item={e} />
-              ))}
-            </div>
+          {/* inclus dans les deux */}
+          <div className="mt-5 flex flex-wrap justify-center gap-2">
+            {INCLUDED.map((t) => (
+              <span
+                key={t}
+                className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.03] px-3 py-1.5 text-xs text-white/90"
+              >
+                <span className="h-1.5 w-1.5 bg-fluo-400" /> {t}
+              </span>
+            ))}
           </div>
+          <p className="mt-2 text-center text-xs text-mist-soft/60">Inclus dans les deux packages.</p>
+        </section>
 
-          {/* EXTRAS */}
+        {/* EXTRAS */}
+        <section className="mx-auto max-w-3xl px-5 pb-8">
           <div className="card p-6 sm:p-8">
-            <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
-              <h2 className="font-display text-2xl font-800 text-white">Extras (sur demande)</h2>
-              <PriceTag />
-            </div>
-            <div>
+            <h2 className="font-display text-xl font-800 text-white">Extras (sur demande)</h2>
+            <div className="mt-4">
               {EXTRAS.map((e) => (
-                <Row key={e.name} item={e} />
+                <div
+                  key={e.name}
+                  className="grid gap-x-6 gap-y-1 border-b border-white/10 py-4 last:border-0 md:grid-cols-12"
+                >
+                  <span className="font-display text-base font-700 text-white md:col-span-4">
+                    {e.name}
+                  </span>
+                  <p className="text-sm leading-relaxed text-mist-soft md:col-span-8">{e.does}</p>
+                </div>
               ))}
             </div>
           </div>
-        </div>
+        </section>
 
         {/* CTA */}
-        <div className="mx-auto max-w-4xl px-5 pb-16 sm:pb-24">
+        <div className="mx-auto max-w-3xl px-5 pb-16 sm:pb-24">
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
               href={CALENDLY_URL}

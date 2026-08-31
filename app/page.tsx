@@ -6,7 +6,6 @@ import Showcase from "@/components/Showcase";
 import Faq from "@/components/Faq";
 import RoiCalculator from "@/components/RoiCalculator";
 import CandidatureForm from "@/components/CandidatureForm";
-import ChatDemo from "@/components/ChatDemo";
 import Dashboards from "@/components/Dashboards";
 
 const CALENDLY_URL = "https://calendly.com/sunafilmsmedia/nouvelle-reunion";
@@ -228,33 +227,29 @@ const AGENT_ICONS: React.ReactNode[] = [
 
 const PRICING = [
   {
-    name: "L'Équipe IA",
-    price: "8 500 $",
+    name: "Opérations",
     featured: false,
-    tagline: "La base : tes 5 employés IA essentiels, installés sur place et prêts à travailler.",
+    tagline: "Le socle : ton équipe IA qui fait tourner ton entreprise au quotidien.",
     features: [
-      "🧠 Le Stratège Marketing — ICP, offres, scripts d'ads",
-      "📋 L'Adjointe — courriel, CRM, rappels, suivis",
-      "🎯 Le Marketeur — SEO, publicités, email marketing",
-      "💰 Le Coach de vente — appels, scripts, réactivation",
-      "📊 Le Rapport CEO — bilan mensuel consolidé",
-      "Installation à distance (3-4 jours)",
-      "Review de tes publicités à J+30",
+      "💰 Directeur des ventes — appels, scripts, suivis, réactivation",
+      "🤝 Client Success Manager — onboarding, satisfaction, rétention",
+      "📋 Adjointe de direction — courriels, CRM, rappels, documents",
+      "📊 CFO — factures, dépenses, rapports, marge",
+      "Installation à distance en 7 jours",
+      "Formation pour le contrôler toi-même",
       "3 mois de maintenance (communauté + tickets)",
     ],
   },
   {
-    name: "Le CMO + l'Équipe",
-    price: "10 000 $",
+    name: "Complète + CMO",
     featured: true,
     tagline:
-      "Ton CMO au complet. Toute l'Équipe IA, plus le système de contenu de A à Z. Un rôle, pas une liste de features.",
+      "Ton marketing en entier, géré par une équipe IA. Le savoir-faire d'une agence de 4+ ans, installé chez toi.",
     features: [
-      "Tout ce qu'inclut L'Équipe IA",
-      "🎬 Le Monteur-publieur — sous-titres + publication auto via Drive",
-      "Tu approuves, ça publie",
-      "Calendrier de contenu géré par le Stratège IA",
-      "Fonctionne avec ton caméraman ou tes propres fichiers",
+      "Tout ce qu'inclut Opérations",
+      "🎯 CMO complet — ICP, content ideas, scripts AEILA, statiques, Meta, SEO, email, veille",
+      "🎬 Système de contenu — sous-titres + publication auto via Drive",
+      "Plan de contenu mensuel généré pour toi",
     ],
   },
 ];
@@ -356,30 +351,6 @@ export default function Page() {
               </span>
             </div>
           </div>
-        </section>
-
-        {/* UN SEUL CHAT */}
-        <section id="chat" className="mx-auto max-w-4xl px-5 py-16 sm:py-24">
-          <div className="mx-auto max-w-2xl text-center">
-            <Eyebrow>Comment ça marche</Eyebrow>
-            <h2 className="mt-6 font-display text-3xl font-800 text-white sm:text-4xl">
-              Un chat. C&apos;est tout ce dont tu as besoin.
-            </h2>
-            <p className="mt-4 text-mist-soft">
-              Oublie les dashboards à surveiller et les apps à jongler. Ton employé IA fonctionne
-              comme une conversation normale : tu lui parles comme à un employé humain, et il agit.
-            </p>
-          </div>
-
-          <div className="mt-10">
-            <ChatDemo />
-          </div>
-
-          <p className="mx-auto mt-10 max-w-2xl text-center leading-relaxed text-mist-soft">
-            Une seule interface. Il se souvient de ton entreprise, de tes clients, de tes process,
-            et il agit directement dans tes outils, sans que tu aies à copier-coller quoi que ce
-            soit.
-          </p>
         </section>
 
         {/* INTÉGRATIONS */}

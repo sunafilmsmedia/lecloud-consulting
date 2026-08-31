@@ -7,43 +7,10 @@ const CALENDLY_URL = "https://calendly.com/sunafilmsmedia/nouvelle-reunion";
 
 const SIZES = ["Juste moi", "2 à 5", "6 à 15", "16 et +"];
 
-// Les 6 employés IA (inclus dans l'offre) + leurs branches
+// Les employés IA (offre finale) + leurs branches
 const DEPARTMENTS: { name: string; icon: string; tasks: string[] }[] = [
   {
-    name: "Le Stratège Marketing",
-    icon: "🧠",
-    tasks: [
-      "Définit ton client idéal (ICP)",
-      "Construit tes offres",
-      "Écrit tes scripts d'ads (12 hooks/formats)",
-      "Crée tes ads statiques",
-      "Benchmarks par niche",
-    ],
-  },
-  {
-    name: "L'Adjointe",
-    icon: "📋",
-    tasks: [
-      "Ton courriel du matin, résumé",
-      "Brief avant chaque rendez-vous",
-      "Ton plan de semaine",
-      "Met à jour ton CRM",
-      "Transforme tes notes de rencontre en tâches",
-      "Chasse les paiements et documents manquants",
-    ],
-  },
-  {
-    name: "Le Marketeur",
-    icon: "🎯",
-    tasks: [
-      "SEO mensuel",
-      "Gère tes publicités Facebook",
-      "Email marketing (Mailchimp)",
-      "Veille concurrentielle",
-    ],
-  },
-  {
-    name: "Le Coach de vente",
+    name: "Directeur des ventes",
     icon: "💰",
     tasks: [
       "Analyse tes appels",
@@ -53,14 +20,46 @@ const DEPARTMENTS: { name: string; icon: string; tasks: string[] }[] = [
     ],
   },
   {
-    name: "Le Monteur-publieur",
-    icon: "🎬",
-    tasks: ["Sous-titres automatiques", "Publication automatique"],
+    name: "Client Success Manager",
+    icon: "🤝",
+    tasks: [
+      "Onboarding de tes clients",
+      "Suivis de satisfaction",
+      "Répond aux demandes",
+      "Améliore ta rétention",
+    ],
   },
   {
-    name: "Le Rapport CEO",
+    name: "Adjointe de direction",
+    icon: "📋",
+    tasks: [
+      "Ton courriel du matin, résumé",
+      "Brief avant chaque rendez-vous",
+      "Met à jour ton CRM",
+      "Chasse les paiements et documents manquants",
+      "Ton radar quotidien",
+    ],
+  },
+  {
+    name: "CFO",
     icon: "📊",
-    tasks: ["Ton bilan mensuel consolidé"],
+    tasks: [
+      "Classe tes factures",
+      "Suit tes dépenses",
+      "Prépare tes rapports",
+      "Ta marge et tes KPI",
+    ],
+  },
+  {
+    name: "CMO complet",
+    icon: "🎯",
+    tasks: [
+      "Définit ton ICP",
+      "Idées, hooks et scripts (AEILA)",
+      "Gère tes publicités (Meta)",
+      "SEO et email marketing",
+      "Crée tes statiques et ton contenu",
+    ],
   },
 ];
 
@@ -292,9 +291,7 @@ export default function AuditLeadMagnet() {
           <p className="font-display text-xl font-700 text-white">
             Quels employés IA t&apos;intéressent le plus ?
           </p>
-          <p className="mt-1 text-sm text-mist-soft">
-            Les 6 sont inclus dans l&apos;offre. Choisis ceux qui te parlent le plus.
-          </p>
+          <p className="mt-1 text-sm text-mist-soft">Choisis ceux qui te parlent le plus.</p>
           <div className="mt-4 flex flex-wrap gap-2">
             {DEPARTMENTS.map((d) => (
               <Chip
