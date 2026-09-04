@@ -246,6 +246,25 @@ h1, h2, h3, h4, .font-display {
   .vsl-bg::before { animation: none; left: 25%; }
 }
 
+/* ===== Page « Parcours client » : thème clair (fond blanc, détails bleus) ===== */
+.path-page {
+  background: #ffffff;
+  color: #33465c;
+}
+.path-page :where(h1, h2, h3, h4, .font-display) {
+  color: #0a1a2f;
+}
+.path-page ::selection {
+  background: rgba(0, 180, 255, 0.22);
+  color: #0a1a2f;
+}
+/* fond blanc parsemé de points bleus discrets */
+.path-grid {
+  background-color: #ffffff;
+  background-image: radial-gradient(rgba(0, 148, 230, 0.09) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
 /* Champ d'étoiles (plein écran du cerveau) */
 .brain-stars {
   background-color: #05070c;

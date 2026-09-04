@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/", priority: 1 },
     { path: "/audit", priority: 0.9 },
     { path: "/vsl", priority: 0.8 },
+    { path: "/path", priority: 0.7 },
     { path: "/services", priority: 0.7 },
     { path: "/automatisations", priority: 0.7 },
     { path: "/temoignages", priority: 0.6 },
