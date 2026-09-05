@@ -1,133 +1,27 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { INTEGRATION_LOGOS, INTEGRATION_APPS } from "@/components/Integrations";
 
-/* ---------- Logos des outils (SVG, sur fond blanc) ---------- */
-const LOGO_NAMES: Record<string, string> = {
-  claude: "Claude (Anthropic)",
-  clickup: "ClickUp",
-  skool: "Skool",
-  drive: "Google Drive",
-  calendly: "Calendly",
-  zapier: "Zapier",
-  make: "Make",
-  google: "Avis Google",
-  crm: "CRM (GoHighLevel)",
-};
-
-const LOGOS: Record<string, React.ReactNode> = {
-  claude: (
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden>
-      <g stroke="#D97757" strokeWidth="1.9" strokeLinecap="round">
-        {[0, 30, 60, 90, 120, 150].map((a) => {
-          const r = (a * Math.PI) / 180;
-          const x = Math.cos(r) * 7;
-          const y = Math.sin(r) * 7;
-          return <line key={a} x1={12 - x} y1={12 - y} x2={12 + x} y2={12 + y} />;
-        })}
-      </g>
-    </svg>
-  ),
-  clickup: (
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden>
-      <defs>
-        <linearGradient id="cu-grad" x1="0" y1="1" x2="1" y2="0">
-          <stop offset="0" stopColor="#8930FD" />
-          <stop offset=".5" stopColor="#49CCF9" />
-          <stop offset="1" stopColor="#FF02F0" />
-        </linearGradient>
-      </defs>
-      <rect width="24" height="24" rx="6" fill="url(#cu-grad)" />
-      <path
-        d="M6 15.2l6-4.6 6 4.6"
-        fill="none"
-        stroke="#fff"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  ),
-  skool: (
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden>
-      <rect width="24" height="24" rx="6" fill="#F5C518" />
-      <text
-        x="12"
-        y="17"
-        textAnchor="middle"
-        fontSize="14"
-        fontWeight="800"
-        fill="#141414"
-        fontFamily="Arial, sans-serif"
-      >
-        s
-      </text>
-    </svg>
-  ),
-  drive: (
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden>
-      <path fill="#FFCF63" d="M8.5 3 2 14.5 5.25 20 11.75 8.5z" />
-      <path fill="#11A861" d="M8.5 3h7L22 14.5h-7z" />
-      <path fill="#3777E3" d="M5.25 20h13.5L22 14.5H8.5z" />
-    </svg>
-  ),
-  calendly: (
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden>
-      <rect width="24" height="24" rx="6" fill="#006BFF" />
-      <path d="M15.8 9.2a4.2 4.2 0 100 5.6" fill="none" stroke="#fff" strokeWidth="2.1" strokeLinecap="round" />
-    </svg>
-  ),
-  zapier: (
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden>
-      <g stroke="#FF4F00" strokeWidth="2.1" strokeLinecap="round">
-        <line x1="12" y1="4" x2="12" y2="20" />
-        <line x1="4" y1="12" x2="20" y2="12" />
-        <line x1="6.3" y1="6.3" x2="17.7" y2="17.7" />
-        <line x1="17.7" y1="6.3" x2="6.3" y2="17.7" />
-      </g>
-    </svg>
-  ),
-  make: (
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden>
-      <rect width="24" height="24" rx="6" fill="#6D2CF5" />
-      <path
-        d="M7.5 16l1.6-8M12 16V8M16.5 16l-1.6-8"
-        fill="none"
-        stroke="#fff"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-      />
-    </svg>
-  ),
-  google: (
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden>
-      <path
-        d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 17.9 6.8 19.6l1-5.8L3.5 9.7l5.9-.9z"
-        fill="#FBBC04"
-      />
-    </svg>
-  ),
-  crm: (
-    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#0072b8" strokeWidth="1.7" aria-hidden>
-      <ellipse cx="12" cy="6" rx="6.5" ry="2.6" />
-      <path d="M5.5 6v6c0 1.4 2.9 2.6 6.5 2.6s6.5-1.2 6.5-2.6V6" />
-      <path d="M5.5 12v6c0 1.4 2.9 2.6 6.5 2.6s6.5-1.2 6.5-2.6v-6" />
-    </svg>
-  ),
-};
+/* Noms lisibles à partir des apps d'intégration (pour l'attribut title) */
+const LOGO_NAMES: Record<string, string> = Object.fromEntries(
+  INTEGRATION_APPS.map((a) => [a.logo, a.name])
+);
 
 function LogoRow({ ids }: { ids?: string[] }) {
   if (!ids || ids.length === 0) return null;
   return (
     <div className="mt-4 flex flex-wrap items-center gap-1.5 border-t border-[#eef5fc] pt-3">
-      <span className="mr-1 text-[10px] font-700 uppercase tracking-wider text-[#9db0c6]">Outils</span>
+      <span className="mr-1 text-[10px] font-700 uppercase tracking-wider text-[#9db0c6]">
+        On connecte
+      </span>
       {ids.map((id) => (
         <span
           key={id}
           title={LOGO_NAMES[id]}
-          className="flex h-7 w-7 items-center justify-center rounded-lg border border-[#e3eefb] bg-white"
+          className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#e3eefb] bg-white"
         >
-          {LOGOS[id]}
+          {INTEGRATION_LOGOS[id]}
         </span>
       ))}
     </div>
@@ -172,8 +66,8 @@ const STEPS: Step[] = [
     title: "Ta place est créée",
     meta: "0 min manuel — tout est automatique",
     body:
-      "Dès le départ : courriel de bienvenue, formulaire de personnalité du bot, formulaire systèmes, lien d'onboarding et ton espace privé, générés automatiquement. Tu arrives, tout est prêt.",
-    logos: ["clickup", "calendly"],
+      "Dès le départ : courriel de bienvenue, formulaire de personnalité du bot, formulaire systèmes et lien d'onboarding, générés automatiquement. Tu arrives, tout est prêt.",
+    logos: ["calendly", "gmail"],
   },
   {
     day: "J1",
@@ -182,7 +76,7 @@ const STEPS: Step[] = [
     meta: "90 min avec toi + build",
     body:
       "On comprend ta business et tes processus, on connecte tes outils ensemble, tu donnes les accès — et ton cerveau IA se crée sous tes yeux. Le wow du jour 1.",
-    logos: ["claude", "drive"],
+    logos: ["drive", "gmail", "zoom"],
   },
   {
     day: "J1-2",
@@ -191,7 +85,7 @@ const STEPS: Step[] = [
     meta: "sans toi",
     body:
       "On construit les employés restants et on calibre ton bot avec ton formulaire de personnalité. Tu reçois un message de progression : « ton Adjointe est née 👀 ».",
-    logos: ["claude"],
+    logos: ["drive", "notion"],
   },
   {
     day: "J3",
@@ -201,7 +95,7 @@ const STEPS: Step[] = [
     meta: "confirmation en direct",
     body:
       "On fait le tour de chaque agent : tu testes sur tes vrais messages, on ajuste la voix en direct (« c'est moi, ça »). Ton équipe IA est vivante et fonctionne.",
-    logos: ["claude"],
+    logos: ["gmail", "whatsapp"],
   },
   {
     day: "J3-6",
@@ -209,8 +103,8 @@ const STEPS: Step[] = [
     title: "CRM & automatisations",
     meta: "sans toi",
     body:
-      "Snapshot CRM par niche, automatisations 100 % autonomes (rappels de RDV, séquence post-closing, avis Google), branchements Zapier / Make. Ton dashboard se remplit en parallèle.",
-    logos: ["crm", "zapier", "make", "google"],
+      "Snapshot CRM par niche, automatisations 100 % autonomes (rappels de RDV, séquence post-closing, avis Google), branchements Zapier. Ton dashboard se remplit en parallèle.",
+    logos: ["hubspot", "zapier", "calendar"],
   },
   {
     day: "J7",
@@ -221,7 +115,7 @@ const STEPS: Step[] = [
       {
         label: "Bloc 1 · Formation",
         text:
-          "Le framework des 3 ingrédients : un agent = un prompt + des connaissances (ton cerveau IA) + des outils. Tu choisis une douleur et TU crées le projet Claude toi-même. Ça marche → tu peux agrandir ton équipe seul.",
+          "Le framework des 3 ingrédients : un agent = un prompt + des connaissances (ton cerveau IA) + des outils. Tu choisis une douleur et TU crées le projet toi-même. Ça marche → tu peux agrandir ton équipe seul.",
       },
       {
         label: "Bloc 2 · Dashboard",
@@ -231,10 +125,10 @@ const STEPS: Step[] = [
       {
         label: "Bloc 3 · Plan 90 jours",
         text:
-          "Les 3-5 prochains agents à construire toi-même ou à nous confier, le rappel du J+30 et ta bienvenue officielle dans le Skool.",
+          "Les 3-5 prochains agents à construire toi-même ou à nous confier, le rappel du J+30 et ta bienvenue officielle dans la communauté.",
       },
     ],
-    logos: ["claude", "skool", "clickup"],
+    logos: ["notion", "slack"],
   },
   {
     phase: "Après la semaine",
@@ -243,7 +137,7 @@ const STEPS: Step[] = [
     title: "Adoption",
     body:
       "Check-in automatique à J+14 (« quel employé t'as pas encore touché? ») et support continu via ton espace privé.",
-    logos: ["clickup"],
+    logos: ["slack"],
   },
   {
     day: "J+30",
@@ -258,15 +152,15 @@ const STEPS: Step[] = [
     title: "Accompagnement continu",
     body:
       "Ton espace privé reste ouvert (appels, Looms, support). À J+60, on te demande un témoignage + 2 références si les chiffres sont bons.",
-    logos: ["clickup", "skool"],
+    logos: ["slack", "zoom"],
   },
   {
     day: "À vie",
     icon: "♾️",
     title: "Client à vie",
     body:
-      "Après 3 mois : Skool à vie pour tous + CRM avec interventions incluses. Ton équipe IA grandit avec toi, tu n'es jamais seul.",
-    logos: ["skool", "crm"],
+      "Après 3 mois : communauté à vie + CRM avec interventions incluses. Ton équipe IA grandit avec toi, tu n'es jamais seul.",
+    logos: ["hubspot"],
   },
 ];
 

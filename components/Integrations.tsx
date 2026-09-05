@@ -6,7 +6,7 @@
 
 const S = 26;
 
-const LOGOS: Record<string, React.ReactNode> = {
+export const INTEGRATION_LOGOS: Record<string, React.ReactNode> = {
   gmail: (
     <svg viewBox="0 0 24 24" width={S} height={S} aria-hidden>
       <path fill="#4285F4" d="M1.636 21.002h3.273v-7.91L0 9.457v9.909c0 .904.732 1.636 1.636 1.636z" />
@@ -151,7 +151,7 @@ const LOGOS: Record<string, React.ReactNode> = {
 
 type App = { name: string; role: string; logo: string };
 
-const APPS: App[] = [
+export const INTEGRATION_APPS: App[] = [
   { name: "Gmail", role: "Courriel", logo: "gmail" },
   { name: "Google Drive", role: "Documents", logo: "drive" },
   { name: "Google Agenda", role: "Calendrier", logo: "calendar" },
@@ -173,7 +173,7 @@ const APPS: App[] = [
 function Pill({ app, dup }: { app: App; dup: boolean }) {
   return (
     <span className="lc-pill" aria-hidden={dup}>
-      <span className="lc-ico">{LOGOS[app.logo]}</span>
+      <span className="lc-ico">{INTEGRATION_LOGOS[app.logo]}</span>
       <span className="flex flex-col">
         <span className="lc-name">{app.name}</span>
         <span className="lc-role">{app.role}</span>
@@ -184,10 +184,10 @@ function Pill({ app, dup }: { app: App; dup: boolean }) {
 
 // Répartition en 4 rangées
 const ROWS: App[][] = [
-  APPS.slice(0, 4),
-  APPS.slice(4, 8),
-  APPS.slice(8, 12),
-  APPS.slice(12, 16),
+  INTEGRATION_APPS.slice(0, 4),
+  INTEGRATION_APPS.slice(4, 8),
+  INTEGRATION_APPS.slice(8, 12),
+  INTEGRATION_APPS.slice(12, 16),
 ];
 const DURATIONS = ["40s", "50s", "44s", "54s"];
 const OFFSETS = ["-40px", "-150px", "-90px", "-210px"];
