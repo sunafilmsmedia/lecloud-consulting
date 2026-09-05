@@ -39,6 +39,7 @@ type Step = {
   body?: string;
   blocs?: Bloc[];
   logos?: string[];
+  visual?: string;
   highlight?: boolean;
 };
 
@@ -58,6 +59,7 @@ const STEPS: Step[] = [
     body:
       "On cerne 2-3 douleurs, ton niveau IA et le fit. Entre les deux, un générateur de deck bâti avec TES chiffres, pour te montrer exactement le potentiel.",
     logos: ["calendly"],
+    visual: "deck",
   },
   {
     phase: "La semaine de livraison",
@@ -77,6 +79,7 @@ const STEPS: Step[] = [
     body:
       "On comprend ta business et tes processus, on connecte tes outils ensemble, tu donnes les accès — et ton cerveau IA se crée sous tes yeux. Le wow du jour 1.",
     logos: ["drive", "gmail", "zoom"],
+    visual: "brain",
   },
   {
     day: "J1-2",
@@ -86,6 +89,7 @@ const STEPS: Step[] = [
     body:
       "On construit les employés restants et on calibre ton bot avec ton formulaire de personnalité. Tu reçois un message de progression : « ton Adjointe est née 👀 ».",
     logos: ["drive", "notion"],
+    visual: "build",
   },
   {
     day: "J3",
@@ -96,6 +100,7 @@ const STEPS: Step[] = [
     body:
       "On fait le tour de chaque agent : tu testes sur tes vrais messages, on ajuste la voix en direct (« c'est moi, ça »). Ton équipe IA est vivante et fonctionne.",
     logos: ["gmail", "whatsapp"],
+    visual: "chat",
   },
   {
     day: "J3-6",
@@ -105,12 +110,14 @@ const STEPS: Step[] = [
     body:
       "Snapshot CRM par niche, automatisations 100 % autonomes (rappels de RDV, séquence post-closing, avis Google), branchements Zapier. Ton dashboard se remplit en parallèle.",
     logos: ["hubspot", "zapier", "calendar"],
+    visual: "dash",
   },
   {
     day: "J7",
     icon: "🎓",
     title: "Tu deviens autonome",
     meta: "la dernière journée",
+    visual: "office",
     blocs: [
       {
         label: "Bloc 1 · Formation",
@@ -180,6 +187,206 @@ const BIG_LABEL: Record<string, string> = {
   "À vie": "À vie",
 };
 
+/* ---------- Exemples visuels (mini-maquettes claires) ---------- */
+function Bars({ vals }: { vals: number[] }) {
+  const max = Math.max(...vals);
+  return (
+    <div className="flex h-12 items-end gap-1.5">
+      {vals.map((v, i) => (
+        <div
+          key={i}
+          className="flex-1 rounded-t bg-[#00b4ff]"
+          style={{ height: `${(v / max) * 100}%`, opacity: 0.35 + (i / vals.length) * 0.5 }}
+        />
+      ))}
+    </div>
+  );
+}
+
+function VDeck() {
+  return (
+    <div className="rounded-xl border border-[#e3eefb] bg-[#f7fbff] p-3">
+      <div className="flex items-center justify-between">
+        <span className="text-[10px] font-700 uppercase tracking-wide text-[#9db0c6]">
+          Ton potentiel
+        </span>
+        <span className="rounded-full bg-[#eaf5ff] px-2 py-0.5 text-[10px] font-800 text-[#0072b8]">
+          +64 h / mois
+        </span>
+      </div>
+      <div className="mt-2">
+        <Bars vals={[30, 52, 40, 68, 88]} />
+      </div>
+      <p className="mt-2 text-[10px] text-[#7c8ba0]">Deck généré avec tes chiffres</p>
+    </div>
+  );
+}
+
+function VBrain() {
+  const cx = 130;
+  const cy = 54;
+  const r = 38;
+  const nodes = Array.from({ length: 6 }, (_, i) => {
+    const a = (i / 6) * Math.PI * 2 - Math.PI / 2;
+    return { x: cx + Math.cos(a) * r, y: cy + Math.sin(a) * r };
+  });
+  return (
+    <div className="rounded-xl border border-[#e3eefb] bg-[#f7fbff] p-2">
+      <svg viewBox="0 0 260 108" className="w-full">
+        {nodes.map((n, i) => (
+          <line key={`l${i}`} x1={cx} y1={cy} x2={n.x} y2={n.y} stroke="#bfe3fb" strokeWidth="1.5" />
+        ))}
+        {nodes.map((n, i) => (
+          <circle key={`c${i}`} cx={n.x} cy={n.y} r="6" fill="#fff" stroke="#00b4ff" strokeWidth="1.6" />
+        ))}
+        <circle cx={cx} cy={cy} r="13" fill="#00b4ff" />
+        <text x={cx} y={cy + 3} textAnchor="middle" fontSize="7" fontWeight="800" fill="#fff">
+          IA
+        </text>
+      </svg>
+      <p className="text-center text-[10px] text-[#7c8ba0]">Ton cerveau IA se construit</p>
+    </div>
+  );
+}
+
+const BUILD = [
+  { e: "💰", n: "Directeur des ventes", p: 100 },
+  { e: "🤝", n: "Succès client", p: 100 },
+  { e: "📋", n: "Adjointe", p: 62 },
+];
+function VBuild() {
+  return (
+    <div className="space-y-2 rounded-xl border border-[#e3eefb] bg-[#f7fbff] p-3">
+      {BUILD.map((b) => (
+        <div key={b.n} className="flex items-center gap-2">
+          <span className="text-sm">{b.e}</span>
+          <span className="w-24 truncate text-[10px] font-600 text-[#41566d]">{b.n}</span>
+          <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#e3eefb]">
+            <div className="h-full rounded-full bg-[#00b4ff]" style={{ width: `${b.p}%` }} />
+          </div>
+          <span className="w-3 text-[9px] font-800 text-[#0072b8]">{b.p === 100 ? "✓" : "…"}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function VChat() {
+  return (
+    <div className="space-y-2 rounded-xl border border-[#e3eefb] bg-[#f7fbff] p-3">
+      <div className="flex items-start gap-1.5">
+        <span className="text-sm">📋</span>
+        <div className="rounded-2xl rounded-tl-sm border border-[#e3eefb] bg-white px-2.5 py-1.5 text-[10px] leading-snug text-[#41566d]">
+          J&apos;ai relancé 3 clients dormants et préparé ta journée ☕
+        </div>
+      </div>
+      <div className="flex justify-end">
+        <div className="rounded-2xl rounded-tr-sm bg-[#00b4ff] px-2.5 py-1.5 text-[10px] font-600 text-white">
+          c&apos;est exactement ma voix ✓
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function VDash() {
+  const s = [8, 14, 11, 20, 18, 26, 24, 32, 30, 38];
+  const W = 240;
+  const H = 54;
+  const max = Math.max(...s);
+  const min = Math.min(...s);
+  const nx = (i: number) => (i / (s.length - 1)) * W;
+  const ny = (v: number) => H - ((v - min) / (max - min)) * (H - 10) - 5;
+  let line = `M0 ${ny(s[0])}`;
+  for (let i = 1; i < s.length; i++) line += ` L${nx(i)} ${ny(s[i])}`;
+  const area = `${line} L${W} ${H} L0 ${H} Z`;
+  return (
+    <div className="rounded-xl border border-[#e3eefb] bg-[#f7fbff] p-3">
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="v-area" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="rgba(0,180,255,0.35)" />
+            <stop offset="1" stopColor="rgba(0,180,255,0)" />
+          </linearGradient>
+        </defs>
+        <path d={area} fill="url(#v-area)" />
+        <path d={line} fill="none" stroke="#00b4ff" strokeWidth="2" strokeLinejoin="round" />
+      </svg>
+      <div className="mt-2 flex gap-1.5">
+        <span className="rounded-md bg-white px-2 py-1 text-[10px] text-[#41566d] ring-1 ring-[#e3eefb]">
+          Leads 126 <b className="text-[#0072b8]">+18 %</b>
+        </span>
+        <span className="rounded-md bg-white px-2 py-1 text-[10px] text-[#41566d] ring-1 ring-[#e3eefb]">
+          RDV 38
+        </span>
+      </div>
+      <div className="mt-2 space-y-1">
+        {["Rappels de RDV", "Avis Google", "Séquence post-appel"].map((a) => (
+          <div key={a} className="flex items-center gap-1.5 text-[10px] text-[#41566d]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#22c55e]" />
+            {a}
+            <span className="ml-auto text-[9px] font-700 text-[#22c55e]">actif</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+const DEPTS = [
+  { n: "Adjointe", c: "#e2564d", people: 1 },
+  { n: "Marketing", c: "#4f9e86", people: 2 },
+  { n: "Succès", c: "#5b6cc4", people: 3 },
+  { n: "Montage", c: "#c69a4b", people: 2 },
+];
+function VOffice() {
+  return (
+    <div className="rounded-xl border border-[#e3eefb] bg-[#f7fbff] p-2">
+      <div className="grid grid-cols-4 gap-1">
+        {DEPTS.map((d) => (
+          <div key={d.n} className="overflow-hidden rounded-md border border-[#e3eefb] bg-white">
+            <div
+              className="truncate px-1 py-0.5 text-center text-[7px] font-800 uppercase text-white"
+              style={{ background: d.c }}
+            >
+              {d.n}
+            </div>
+            <div className="flex min-h-[32px] flex-wrap items-center justify-center gap-0.5 p-1">
+              {Array.from({ length: d.people }).map((_, i) => (
+                <span key={i} className="text-[10px] leading-none">
+                  👤
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      <p className="mt-1.5 text-center text-[10px] text-[#7c8ba0]">
+        Ton bureau — tout se gère d&apos;ici
+      </p>
+    </div>
+  );
+}
+
+function Visual({ kind }: { kind: string }) {
+  switch (kind) {
+    case "deck":
+      return <VDeck />;
+    case "brain":
+      return <VBrain />;
+    case "build":
+      return <VBuild />;
+    case "chat":
+      return <VChat />;
+    case "dash":
+      return <VDash />;
+    case "office":
+      return <VOffice />;
+    default:
+      return null;
+  }
+}
+
 /* ---------- Carte ---------- */
 function Card({ s, active }: { s: Step; active: boolean }) {
   return (
@@ -195,6 +402,11 @@ function Card({ s, active }: { s: Step; active: boolean }) {
             : "border-[#e3eefb] bg-white shadow-[0_12px_44px_-26px_rgba(3,105,175,0.45)]"
         }`}
       >
+        {s.visual && (
+          <div className="mb-4">
+            <Visual kind={s.visual} />
+          </div>
+        )}
         <div className="flex items-center gap-3">
           <span
             className={`flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-[#f0f8ff] text-2xl transition-transform duration-700 ${
@@ -427,7 +639,7 @@ export default function PathTimeline() {
                 {/* numéro du jour en filigrane (fond, police bleue) */}
                 <span
                   aria-hidden
-                  className={`accent pointer-events-none absolute top-1/2 z-0 hidden w-1/2 -translate-y-1/2 select-none whitespace-nowrap text-center text-6xl opacity-[0.13] md:block lg:text-7xl ${
+                  className={`accent pointer-events-none absolute top-1/2 z-0 hidden w-1/2 -translate-y-1/2 select-none whitespace-nowrap text-center text-6xl opacity-25 md:block lg:text-7xl ${
                     side === "right" ? "left-0" : "right-0"
                   }`}
                 >
