@@ -246,6 +246,59 @@ h1, h2, h3, h4, .font-display {
   .vsl-bg::before { animation: none; left: 25%; }
 }
 
+/* ===== Thème JOUR (clair) appliqué à tout le site ===== */
+html[data-theme="jour"] {
+  /* on remappe l'échelle « encre » vers des tons clairs → tous les bg-ink-* deviennent clairs */
+  --color-ink-950: #ffffff;
+  --color-ink-900: #f5f8fc;
+  --color-ink-850: #ffffff;
+  --color-ink-800: #eef4fb;
+  --color-ink-700: #e6eef7;
+  --color-ink-600: #d8e3f1;
+  /* gris de texte → ardoise lisible sur blanc (couvre toutes les variantes /xx) */
+  --color-mist-soft: #51617a;
+}
+html[data-theme="jour"] body {
+  background: #ffffff;
+  color: #33465c;
+}
+html[data-theme="jour"] :where(h1, h2, h3, h4, .font-display) {
+  color: #0a1a2f;
+}
+/* utilitaires basés sur le blanc → équivalents sombres discrets */
+html[data-theme="jour"] [class*="text-white"] {
+  color: #0f2138 !important;
+}
+html[data-theme="jour"] [class*="border-white/"] {
+  border-color: rgba(10, 26, 47, 0.12) !important;
+}
+html[data-theme="jour"] [class*="bg-white/"] {
+  background-color: rgba(12, 40, 80, 0.035) !important;
+}
+html[data-theme="jour"] [class*="ring-white/"] {
+  --tw-ring-color: rgba(10, 26, 47, 0.12) !important;
+}
+html[data-theme="jour"] [class*="divide-white/"] > * + * {
+  border-color: rgba(10, 26, 47, 0.1) !important;
+}
+/* nav en verre + cartes */
+html[data-theme="jour"] .glass {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(10, 26, 47, 0.08);
+}
+html[data-theme="jour"] .card {
+  background: rgba(12, 40, 80, 0.02);
+  border-color: rgba(10, 26, 47, 0.1);
+}
+html[data-theme="jour"] ::selection {
+  background: rgba(0, 180, 255, 0.22);
+  color: #0a1a2f;
+}
+/* la page /path reste blanche et intacte, on rétablit ses textes blancs sur boutons bleus */
+html[data-theme="jour"] .path-page [class*="text-white"] {
+  color: #ffffff !important;
+}
+
 /* ===== Page « Parcours client » : thème clair (fond blanc, détails bleus) ===== */
 .path-page {
   background: #ffffff;

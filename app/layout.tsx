@@ -103,6 +103,14 @@ const JSONLD = [
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr-CA" className={`${manrope.variable} ${bodoni.variable}`}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){try{var t=localStorage.getItem('theme');document.documentElement.dataset.theme=(t==='jour'||t==='nuit')?t:'nuit';}catch(e){document.documentElement.dataset.theme='nuit';}})();",
+          }}
+        />
+      </head>
       <body className="min-h-screen antialiased">
         {children}
         <script
