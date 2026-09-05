@@ -60,11 +60,11 @@ export default function PathPage() {
               Le parcours client
             </span>
             <h1 className="mx-auto mt-6 font-display text-4xl font-800 leading-[1.05] text-[#0a1a2f] sm:text-6xl">
-              De la découverte au <span className="accent">client à vie.</span>
+              Voici comment on construit ton <span className="accent">équipe IA à vie.</span>
             </h1>
             <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-[#41566d] sm:text-lg">
-              Chaque étape, du premier contact jusqu&apos;à ton autonomie complète. Ton équipe IA
-              livrée et toi, aux commandes, en 7 jours.
+              Du premier contact jusqu&apos;à ton autonomie complète — chaque étape, chaque outil
+              qu&apos;on branche, et le suivi qui reste. Suis le chemin.
             </p>
             <p className="mt-8 inline-flex items-center gap-2 text-sm font-700 text-[#0072b8]">
               <svg className="h-5 w-5 animate-bounce" viewBox="0 0 24 24" fill="none" aria-hidden>
