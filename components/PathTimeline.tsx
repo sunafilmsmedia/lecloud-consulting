@@ -164,6 +164,22 @@ const STEPS: Step[] = [
   },
 ];
 
+/* Grand libellé de jour, affiché en filigrane dans le fond */
+const BIG_LABEL: Record<string, string> = {
+  Découverte: "Avant",
+  "15 min": "Appel",
+  J0: "Jour 0",
+  J1: "Jour 1",
+  "J1-2": "Jour 1-2",
+  J3: "Jour 3",
+  "J3-6": "Jour 3-6",
+  J7: "Jour 7",
+  "J8-30": "Jour 8-30",
+  "J+30": "Jour +30",
+  "Mois 2-3": "Mois 2-3",
+  "À vie": "À vie",
+};
+
 /* ---------- Carte ---------- */
 function Card({ s, active }: { s: Step; active: boolean }) {
   return (
@@ -408,6 +424,15 @@ export default function PathTimeline() {
               )}
 
               <div className="relative py-5 sm:py-7">
+                {/* numéro du jour en filigrane (fond, police bleue) */}
+                <span
+                  aria-hidden
+                  className={`accent pointer-events-none absolute top-1/2 z-0 hidden w-1/2 -translate-y-1/2 select-none whitespace-nowrap text-center text-6xl opacity-[0.13] md:block lg:text-7xl ${
+                    side === "right" ? "left-0" : "right-0"
+                  }`}
+                >
+                  {BIG_LABEL[s.day] ?? s.day}
+                </span>
                 {/* pastille du jour, posée sur le chemin */}
                 <span
                   ref={(el) => {
